@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9607F86721060A29001A59DA /* strand.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strand.JPG; sourceTree = "<group>"; };
 		9695E7C72105D797005000B0 /* Power_Pirates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Power_Pirates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7CA2105D797005000B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9695E7CB2105D798005000B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -93,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9607F86621060A23001A59DA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9607F86721060A29001A59DA /* strand.JPG */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		9695E7BE2105D797005000B0 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +109,7 @@
 				9695E7E22105D798005000B0 /* Power_PiratesTests */,
 				9695E7ED2105D798005000B0 /* Power_PiratesUITests */,
 				9695E7C82105D797005000B0 /* Products */,
+				9607F86621060A23001A59DA /* images */,
 			);
 			sourceTree = "<group>";
 		};
