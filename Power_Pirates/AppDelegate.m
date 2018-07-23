@@ -14,9 +14,14 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIStoryboard *storyboard = [self grabStoryboard];
+    
+    // change storyboard
+    self.window.rootViewController = [storyboard instantiateInitialViewController];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -47,5 +52,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+//change Storyboard depends if there is a charakter
+- (UIStoryboard *)grabStoryboard {
+    
+    UIStoryboard *storyboard;
+    int test = 1;
+    if (test == 0) {
+        storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    } else {
+        storyboard = [UIStoryboard storyboardWithName:@"Main2" bundle:nil];
+    }
+    
+    return storyboard;
+}
 
 @end
