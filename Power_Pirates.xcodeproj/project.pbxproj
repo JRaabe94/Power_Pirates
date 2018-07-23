@@ -20,7 +20,7 @@
 		9695E8192105DF1A005000B0 /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8182105DF1A005000B0 /* Storage.m */; };
 		9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81B2105DF40005000B0 /* SpriteManger.m */; };
 		9695E81F2105DF6E005000B0 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81E2105DF6E005000B0 /* NotificationManager.m */; };
-		96C30EF521060C5300E6F253 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C30EF421060C5300E6F253 /* Main2.storyboard */; };
+		96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C30EFA2106162700E6F253 /* Main2.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 		9695E81B2105DF40005000B0 /* SpriteManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteManger.m; sourceTree = "<group>"; };
 		9695E81D2105DF5E005000B0 /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		9695E81E2105DF6E005000B0 /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
-		96C30EF421060C5300E6F253 /* Main2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
+		96C30EFA2106162700E6F253 /* Main2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,12 +137,12 @@
 				9695E7CB2105D798005000B0 /* AppDelegate.m */,
 				9695E7CD2105D798005000B0 /* ViewController.h */,
 				9695E7CE2105D798005000B0 /* ViewController.m */,
-				96C30EF421060C5300E6F253 /* Main2.storyboard */,
 				9695E7D02105D798005000B0 /* Main.storyboard */,
 				9695E7D32105D798005000B0 /* Assets.xcassets */,
 				9695E7D52105D798005000B0 /* LaunchScreen.storyboard */,
 				9695E7D82105D798005000B0 /* Info.plist */,
 				9695E7D92105D798005000B0 /* main.m */,
+				96C30EFA2106162700E6F253 /* Main2.storyboard */,
 			);
 			path = Power_Pirates;
 			sourceTree = "<group>";
@@ -315,7 +315,7 @@
 			files = (
 				9695E7D72105D798005000B0 /* LaunchScreen.storyboard in Resources */,
 				9695E7D42105D798005000B0 /* Assets.xcassets in Resources */,
-				96C30EF521060C5300E6F253 /* Main2.storyboard in Resources */,
+				96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */,
 				9695E7D22105D798005000B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
