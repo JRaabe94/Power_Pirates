@@ -15,6 +15,7 @@
 		9695E7DA2105D798005000B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7D92105D798005000B0 /* main.m */; };
 		9695E7E42105D798005000B0 /* Power_PiratesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7E32105D798005000B0 /* Power_PiratesTests.m */; };
 		9695E7EF2105D798005000B0 /* Power_PiratesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7EE2105D798005000B0 /* Power_PiratesUITests.m */; };
+		9695E7FE2105DBA5005000B0 /* pirate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7FD2105DBA5005000B0 /* pirate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		9695E7EA2105D798005000B0 /* Power_PiratesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Power_PiratesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7EE2105D798005000B0 /* Power_PiratesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Power_PiratesUITests.m; sourceTree = "<group>"; };
 		9695E7F02105D798005000B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9695E7FD2105DBA5005000B0 /* pirate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pirate.m; sourceTree = "<group>"; };
+		9695E7FF2105DBCC005000B0 /* pirate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pirate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				9695E7D52105D798005000B0 /* LaunchScreen.storyboard */,
 				9695E7D82105D798005000B0 /* Info.plist */,
 				9695E7D92105D798005000B0 /* main.m */,
+				9695E7FD2105DBA5005000B0 /* pirate.m */,
+				9695E7FF2105DBCC005000B0 /* pirate.h */,
 			);
 			path = Power_Pirates;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9695E7FE2105DBA5005000B0 /* pirate.m in Sources */,
 				9695E7CF2105D798005000B0 /* ViewController.m in Sources */,
 				9695E7DA2105D798005000B0 /* main.m in Sources */,
 				9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */,
