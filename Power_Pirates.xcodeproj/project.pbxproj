@@ -15,7 +15,11 @@
 		9695E7DA2105D798005000B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7D92105D798005000B0 /* main.m */; };
 		9695E7E42105D798005000B0 /* Power_PiratesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7E32105D798005000B0 /* Power_PiratesTests.m */; };
 		9695E7EF2105D798005000B0 /* Power_PiratesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7EE2105D798005000B0 /* Power_PiratesUITests.m */; };
-		9695E7FE2105DBA5005000B0 /* pirate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7FD2105DBA5005000B0 /* pirate.m */; };
+		9695E8132105DEC1005000B0 /* Pirates.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8122105DEC1005000B0 /* Pirates.m */; };
+		9695E8162105DEE4005000B0 /* Desires.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8152105DEE4005000B0 /* Desires.m */; };
+		9695E8192105DF1A005000B0 /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8182105DF1A005000B0 /* Storage.m */; };
+		9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81B2105DF40005000B0 /* SpriteManger.m */; };
+		9695E81F2105DF6E005000B0 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81E2105DF6E005000B0 /* NotificationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +56,16 @@
 		9695E7EA2105D798005000B0 /* Power_PiratesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Power_PiratesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7EE2105D798005000B0 /* Power_PiratesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Power_PiratesUITests.m; sourceTree = "<group>"; };
 		9695E7F02105D798005000B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9695E7FD2105DBA5005000B0 /* pirate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pirate.m; sourceTree = "<group>"; };
-		9695E7FF2105DBCC005000B0 /* pirate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pirate.h; sourceTree = "<group>"; };
+		9695E8112105DEB3005000B0 /* Pirates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pirates.h; sourceTree = "<group>"; };
+		9695E8122105DEC1005000B0 /* Pirates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pirates.m; sourceTree = "<group>"; };
+		9695E8142105DED8005000B0 /* Desires.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Desires.h; sourceTree = "<group>"; };
+		9695E8152105DEE4005000B0 /* Desires.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Desires.m; sourceTree = "<group>"; };
+		9695E8172105DF07005000B0 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
+		9695E8182105DF1A005000B0 /* Storage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
+		9695E81A2105DF32005000B0 /* SpriteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteManager.h; sourceTree = "<group>"; };
+		9695E81B2105DF40005000B0 /* SpriteManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteManger.m; sourceTree = "<group>"; };
+		9695E81D2105DF5E005000B0 /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		9695E81E2105DF6E005000B0 /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +116,11 @@
 		9695E7C92105D797005000B0 /* Power_Pirates */ = {
 			isa = PBXGroup;
 			children = (
+				9695E8102105DE6F005000B0 /* notificationmanger */,
+				9695E80F2105DE57005000B0 /* spritemanager */,
+				9695E80E2105DE46005000B0 /* storage */,
+				9695E80D2105DE32005000B0 /* desires */,
+				9695E80C2105DE10005000B0 /* pirate */,
 				9695E7CA2105D797005000B0 /* AppDelegate.h */,
 				9695E7CB2105D798005000B0 /* AppDelegate.m */,
 				9695E7CD2105D798005000B0 /* ViewController.h */,
@@ -113,8 +130,6 @@
 				9695E7D52105D798005000B0 /* LaunchScreen.storyboard */,
 				9695E7D82105D798005000B0 /* Info.plist */,
 				9695E7D92105D798005000B0 /* main.m */,
-				9695E7FD2105DBA5005000B0 /* pirate.m */,
-				9695E7FF2105DBCC005000B0 /* pirate.h */,
 			);
 			path = Power_Pirates;
 			sourceTree = "<group>";
@@ -135,6 +150,51 @@
 				9695E7F02105D798005000B0 /* Info.plist */,
 			);
 			path = Power_PiratesUITests;
+			sourceTree = "<group>";
+		};
+		9695E80C2105DE10005000B0 /* pirate */ = {
+			isa = PBXGroup;
+			children = (
+				9695E8112105DEB3005000B0 /* Pirates.h */,
+				9695E8122105DEC1005000B0 /* Pirates.m */,
+			);
+			path = pirate;
+			sourceTree = "<group>";
+		};
+		9695E80D2105DE32005000B0 /* desires */ = {
+			isa = PBXGroup;
+			children = (
+				9695E8142105DED8005000B0 /* Desires.h */,
+				9695E8152105DEE4005000B0 /* Desires.m */,
+			);
+			path = desires;
+			sourceTree = "<group>";
+		};
+		9695E80E2105DE46005000B0 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				9695E8172105DF07005000B0 /* Storage.h */,
+				9695E8182105DF1A005000B0 /* Storage.m */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		9695E80F2105DE57005000B0 /* spritemanager */ = {
+			isa = PBXGroup;
+			children = (
+				9695E81A2105DF32005000B0 /* SpriteManager.h */,
+				9695E81B2105DF40005000B0 /* SpriteManger.m */,
+			);
+			path = spritemanager;
+			sourceTree = "<group>";
+		};
+		9695E8102105DE6F005000B0 /* notificationmanger */ = {
+			isa = PBXGroup;
+			children = (
+				9695E81D2105DF5E005000B0 /* NotificationManager.h */,
+				9695E81E2105DF6E005000B0 /* NotificationManager.m */,
+			);
+			path = notificationmanger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,9 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9695E7FE2105DBA5005000B0 /* pirate.m in Sources */,
+				9695E8192105DF1A005000B0 /* Storage.m in Sources */,
+				9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */,
+				9695E81F2105DF6E005000B0 /* NotificationManager.m in Sources */,
 				9695E7CF2105D798005000B0 /* ViewController.m in Sources */,
+				9695E8162105DEE4005000B0 /* Desires.m in Sources */,
 				9695E7DA2105D798005000B0 /* main.m in Sources */,
+				9695E8132105DEC1005000B0 /* Pirates.m in Sources */,
 				9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

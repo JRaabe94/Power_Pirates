@@ -1,5 +1,5 @@
 //
-//  pirate.m
+//  Pirates.m
 //  Power_Pirates
 //
 //  Created by Codecamp on 23.07.18.
