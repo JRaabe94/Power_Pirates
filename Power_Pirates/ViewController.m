@@ -26,4 +26,8 @@
 }
 
 
+- (IBAction)startGame:(id)sender {
+    NSString *enteredText = [_charName text];
+    NSLog(@"Value of Input = %@", enteredText);
+}
 @end

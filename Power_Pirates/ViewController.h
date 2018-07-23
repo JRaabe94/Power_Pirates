@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *charName;
+- (IBAction)startGame:(id)sender;
 
 @end
 
