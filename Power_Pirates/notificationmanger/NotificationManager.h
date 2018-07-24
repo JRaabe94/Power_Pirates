@@ -11,6 +11,6 @@
 
 @interface NotificationManager : NSObject
 
-+ (void)createPushNotification:(NSString *)message;
++ (void)createPushNotification:(NSString *)message withTimer:(int)time;
 
 @end

@@ -11,10 +11,9 @@
 
 @implementation NotificationManager
 
-// Aufruf: [NotificationManager createPushNotification:@"Hallo!"];
-
-+ (void)createPushNotification:(NSString *)message;
++ (void)createPushNotification:(NSString *)message withTimer:(int)time;
 // Creates a Push-notification with the given message
+// Aufruf: [NotificationManager createPushNotification:@"Hallo!" withTimer:10];
 {
     bool isGrantedNotificationAccess = true;
     if (isGrantedNotificationAccess) {
@@ -25,7 +24,7 @@
         content.body = message;
         content.sound = [UNNotificationSound defaultSound];
         
-        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:time repeats:NO];
         
         // Setting up the request for notification
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"UYLocalNotification" content:content trigger:trigger];
