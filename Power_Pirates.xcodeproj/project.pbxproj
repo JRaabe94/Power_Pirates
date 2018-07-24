@@ -20,8 +20,10 @@
 		9695E8162105DEE4005000B0 /* Desires.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8152105DEE4005000B0 /* Desires.m */; };
 		9695E8192105DF1A005000B0 /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8182105DF1A005000B0 /* Storage.m */; };
 		9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81B2105DF40005000B0 /* SpriteManger.m */; };
-		9695E81F2105DF6E005000B0 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81E2105DF6E005000B0 /* NotificationManager.m */; };
 		96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C30EFA2106162700E6F253 /* Main2.storyboard */; };
+		96CF7E7A2107291E002A3BA2 /* beach_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CF7E792107291E002A3BA2 /* beach_1.png */; };
+		96CF7E7C21072925002A3BA2 /* beach_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CF7E7B21072925002A3BA2 /* beach_2.png */; };
+		96CF7E8221073DD8002A3BA2 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF7E8121073DD8002A3BA2 /* NotificationManager.m */; };
 		96DD6F2C21070AB900DF78A0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */; };
 		96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6F2D21070B7700DF78A0 /* DBManager.m */; };
 /* End PBXBuildFile section */
@@ -69,9 +71,11 @@
 		9695E8182105DF1A005000B0 /* Storage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		9695E81A2105DF32005000B0 /* SpriteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteManager.h; sourceTree = "<group>"; };
 		9695E81B2105DF40005000B0 /* SpriteManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteManger.m; sourceTree = "<group>"; };
-		9695E81D2105DF5E005000B0 /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
-		9695E81E2105DF6E005000B0 /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		96C30EFA2106162700E6F253 /* Main2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
+		96CF7E792107291E002A3BA2 /* beach_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_1.png; sourceTree = "<group>"; };
+		96CF7E7B21072925002A3BA2 /* beach_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_2.png; sourceTree = "<group>"; };
+		96CF7E8021073DD8002A3BA2 /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		96CF7E8121073DD8002A3BA2 /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		96DD6F2D21070B7700DF78A0 /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		96DD6F2F21070BA800DF78A0 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -106,8 +110,23 @@
 		9607F86621060A23001A59DA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				96CF7E792107291E002A3BA2 /* beach_1.png */,
+				96CF7E7B21072925002A3BA2 /* beach_2.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		961B5D5F210728D500EA09A3 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				9695E7CD2105D798005000B0 /* ViewController.h */,
+				9695E7CE2105D798005000B0 /* ViewController.m */,
+				961B5D60210728FF00EA09A3 /* ContinueViewController.h */,
+				961B5D61210728FF00EA09A3 /* ContinueViewController.m */,
+				961B5D632107295300EA09A3 /* MainGameViewController.h */,
+				961B5D642107295300EA09A3 /* MainGameViewController.m */,
+			);
+			path = viewcontroller;
 			sourceTree = "<group>";
 		};
 		9695E7BE2105D797005000B0 = {
@@ -136,6 +155,7 @@
 		9695E7C92105D797005000B0 /* Power_Pirates */ = {
 			isa = PBXGroup;
 			children = (
+				961B5D5F210728D500EA09A3 /* viewcontroller */,
 				96DD6F35210724CB00DF78A0 /* database */,
 				9695E8102105DE6F005000B0 /* notificationmanger */,
 				9695E80F2105DE57005000B0 /* spritemanager */,
@@ -144,8 +164,6 @@
 				9695E80C2105DE10005000B0 /* pirate */,
 				9695E7CA2105D797005000B0 /* AppDelegate.h */,
 				9695E7CB2105D798005000B0 /* AppDelegate.m */,
-				9695E7CD2105D798005000B0 /* ViewController.h */,
-				9695E7CE2105D798005000B0 /* ViewController.m */,
 				9695E7D02105D798005000B0 /* Main.storyboard */,
 				9695E7D32105D798005000B0 /* Assets.xcassets */,
 				9695E7D52105D798005000B0 /* LaunchScreen.storyboard */,
@@ -213,8 +231,8 @@
 		9695E8102105DE6F005000B0 /* notificationmanger */ = {
 			isa = PBXGroup;
 			children = (
-				9695E81D2105DF5E005000B0 /* NotificationManager.h */,
-				9695E81E2105DF6E005000B0 /* NotificationManager.m */,
+				96CF7E8021073DD8002A3BA2 /* NotificationManager.h */,
+				96CF7E8121073DD8002A3BA2 /* NotificationManager.m */,
 			);
 			path = notificationmanger;
 			sourceTree = "<group>";
@@ -344,6 +362,8 @@
 				9673ABCC210750A800A02374 /* piratesdb.sql in Resources */,
 				96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */,
 				9695E7D22105D798005000B0 /* Main.storyboard in Resources */,
+				96CF7E7C21072925002A3BA2 /* beach_2.png in Resources */,
+				96CF7E7A2107291E002A3BA2 /* beach_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,10 +389,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9695E8192105DF1A005000B0 /* Storage.m in Sources */,
+				96CF7E8221073DD8002A3BA2 /* NotificationManager.m in Sources */,
+				961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */,
 				9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */,
-				9695E81F2105DF6E005000B0 /* NotificationManager.m in Sources */,
 				96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */,
 				9695E7CF2105D798005000B0 /* ViewController.m in Sources */,
+				961B5D652107295300EA09A3 /* MainGameViewController.m in Sources */,
 				9695E8162105DEE4005000B0 /* Desires.m in Sources */,
 				9695E7DA2105D798005000B0 /* main.m in Sources */,
 				9695E8132105DEC1005000B0 /* Pirates.m in Sources */,

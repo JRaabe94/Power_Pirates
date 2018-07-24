@@ -2,12 +2,15 @@
 //  NotificationManager.h
 //  Power_Pirates
 //
-//  Created by Codecamp on 23.07.18.
+//  Created by Codecamp on 24.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
-#ifndef NotificationManager_h
-#define NotificationManager_h
+#import <Foundation/Foundation.h>
+#import <UserNotifications/UserNotifications.h>
 
+@interface NotificationManager : NSObject
 
-#endif /* NotificationManager_h */
++ (void)createPushNotification:(NSString *)message;
+
+@end
