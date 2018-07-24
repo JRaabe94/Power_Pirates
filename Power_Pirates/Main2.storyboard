@@ -25,13 +25,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lvl:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YP-Rp-uFE">
-                                <rect key="frame" x="64" y="199" width="26" height="21"/>
+                                <rect key="frame" x="64" y="199" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yuv-gt-WMf">
-                                <rect key="frame" x="64" y="250" width="41" height="21"/>
+                                <rect key="frame" x="64" y="250" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,8 +40,11 @@
                                 <rect key="frame" x="100" y="423" width="62" height="30"/>
                                 <state key="normal" title="Reset"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GR-qP-AYk">
-                                <rect key="frame" x="249" y="148" width="80" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GR-qP-AYk">
+                                <rect key="frame" x="252" y="148" width="77" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="LBg-2O-DqH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,13 +54,13 @@
                                 <state key="normal" title="Continue"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alv-rm-iGp">
-                                <rect key="frame" x="256" y="250" width="28" height="21"/>
+                                <rect key="frame" x="252" y="250" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhW-Tf-s5O">
-                                <rect key="frame" x="255.66666666666663" y="198" width="28" height="21"/>
+                                <rect key="frame" x="252" y="198" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,32 +68,34 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="alv-rm-iGp" firstAttribute="centerX" secondItem="JhW-Tf-s5O" secondAttribute="centerX" id="2eG-8Q-5RH"/>
-                            <constraint firstItem="alv-rm-iGp" firstAttribute="width" secondItem="JhW-Tf-s5O" secondAttribute="width" id="7f7-SN-Tld"/>
+                            <constraint firstItem="JhW-Tf-s5O" firstAttribute="width" secondItem="8GR-qP-AYk" secondAttribute="width" id="128-LN-znD"/>
                             <constraint firstItem="4YP-Rp-uFE" firstAttribute="top" secondItem="McC-nw-6W5" secondAttribute="bottom" constant="30" id="BLn-NA-k6p"/>
-                            <constraint firstItem="alv-rm-iGp" firstAttribute="baseline" secondItem="Yuv-gt-WMf" secondAttribute="baseline" id="CGT-Vo-2cI"/>
+                            <constraint firstItem="eFS-DH-rql" firstAttribute="trailing" secondItem="alv-rm-iGp" secondAttribute="trailing" constant="85" id="DOY-H8-D8f"/>
                             <constraint firstItem="eFS-DH-rql" firstAttribute="bottom" secondItem="Luq-So-DaS" secondAttribute="bottom" constant="283" id="GXh-JP-jFf"/>
                             <constraint firstItem="4YP-Rp-uFE" firstAttribute="leading" secondItem="eFS-DH-rql" secondAttribute="leading" constant="64" id="Gmn-7s-Xcr"/>
                             <constraint firstItem="McC-nw-6W5" firstAttribute="leading" secondItem="eFS-DH-rql" secondAttribute="leading" constant="64" id="GrY-oL-9Up"/>
+                            <constraint firstItem="JhW-Tf-s5O" firstAttribute="top" secondItem="8GR-qP-AYk" secondAttribute="bottom" constant="29" id="Hfp-dr-CSO"/>
                             <constraint firstItem="McC-nw-6W5" firstAttribute="top" secondItem="eFS-DH-rql" secondAttribute="top" constant="128" id="LES-Ir-dm5"/>
+                            <constraint firstItem="Yuv-gt-WMf" firstAttribute="width" secondItem="McC-nw-6W5" secondAttribute="width" id="SFy-Qo-KFe"/>
+                            <constraint firstItem="eFS-DH-rql" firstAttribute="trailing" secondItem="JhW-Tf-s5O" secondAttribute="trailing" constant="85" id="TxL-OX-j4I"/>
                             <constraint firstItem="eFS-DH-rql" firstAttribute="trailing" secondItem="Luq-So-DaS" secondAttribute="trailing" constant="100" id="Ugu-fc-JzH"/>
-                            <constraint firstItem="JhW-Tf-s5O" firstAttribute="width" secondItem="8GR-qP-AYk" secondAttribute="width" constant="-52" id="WTE-cx-Fcj"/>
-                            <constraint firstItem="eFS-DH-rql" firstAttribute="trailing" secondItem="8GR-qP-AYk" secondAttribute="trailing" constant="85" id="WW7-b5-uOV"/>
-                            <constraint firstItem="alv-rm-iGp" firstAttribute="trailing" secondItem="8GR-qP-AYk" secondAttribute="trailing" constant="-45" id="bkE-lX-3dN"/>
-                            <constraint firstItem="alv-rm-iGp" firstAttribute="top" secondItem="JhW-Tf-s5O" secondAttribute="bottom" constant="31" id="eR6-0Y-dAR"/>
+                            <constraint firstItem="alv-rm-iGp" firstAttribute="top" secondItem="JhW-Tf-s5O" secondAttribute="bottom" constant="31" id="c8f-gD-coW"/>
+                            <constraint firstItem="alv-rm-iGp" firstAttribute="width" secondItem="8GR-qP-AYk" secondAttribute="width" id="eLC-NL-mWQ"/>
                             <constraint firstItem="Yuv-gt-WMf" firstAttribute="leading" secondItem="eFS-DH-rql" secondAttribute="leading" constant="64" id="iTu-YL-wKW"/>
                             <constraint firstItem="eFS-DH-rql" firstAttribute="bottom" secondItem="XVc-FZ-DU4" secondAttribute="bottom" constant="283" id="nYy-WZ-6pc"/>
                             <constraint firstItem="XVc-FZ-DU4" firstAttribute="width" secondItem="Luq-So-DaS" secondAttribute="width" id="ngm-h4-St9"/>
+                            <constraint firstItem="4YP-Rp-uFE" firstAttribute="width" secondItem="McC-nw-6W5" secondAttribute="width" id="o1U-Np-BhV"/>
                             <constraint firstItem="XVc-FZ-DU4" firstAttribute="leading" secondItem="eFS-DH-rql" secondAttribute="leading" constant="100" id="pN7-b3-pvT"/>
                             <constraint firstItem="Yuv-gt-WMf" firstAttribute="top" secondItem="4YP-Rp-uFE" secondAttribute="bottom" constant="30" id="rbe-eC-Fd3"/>
                             <constraint firstItem="8GR-qP-AYk" firstAttribute="top" secondItem="eFS-DH-rql" secondAttribute="top" constant="128" id="skj-oc-jYk"/>
+                            <constraint firstItem="eFS-DH-rql" firstAttribute="trailing" secondItem="8GR-qP-AYk" secondAttribute="trailing" constant="85" id="u6p-kt-Tve"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eFS-DH-rql"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADv-m0-fSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171.01449275362319" y="-223.36956521739131"/>
+            <point key="canvasLocation" x="169.56521739130437" y="-223.36956521739131"/>
         </scene>
     </scenes>
 </document>
