@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D61210728FF00EA09A3 /* ContinueViewController.m */; };
 		961B5D652107295300EA09A3 /* MainGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D642107295300EA09A3 /* MainGameViewController.m */; };
-		9673ABD22107558A00A02374 /* piratendb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9673ABD12107558A00A02374 /* piratendb.sql */; };
+		9673ABD421075BC800A02374 /* piratendb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9673ABD321075BC800A02374 /* piratendb.sql */; };
 		9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CB2105D798005000B0 /* AppDelegate.m */; };
 		9695E7CF2105D798005000B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CE2105D798005000B0 /* ViewController.m */; };
 		9695E7D22105D798005000B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9695E7D02105D798005000B0 /* Main.storyboard */; };
@@ -52,7 +52,7 @@
 		961B5D61210728FF00EA09A3 /* ContinueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContinueViewController.m; sourceTree = "<group>"; };
 		961B5D632107295300EA09A3 /* MainGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainGameViewController.h; sourceTree = "<group>"; };
 		961B5D642107295300EA09A3 /* MainGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainGameViewController.m; sourceTree = "<group>"; };
-		9673ABD12107558A00A02374 /* piratendb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = piratendb.sql; sourceTree = "<group>"; };
+		9673ABD321075BC800A02374 /* piratendb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = piratendb.sql; sourceTree = "<group>"; };
 		9695E7C72105D797005000B0 /* Power_Pirates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Power_Pirates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7CA2105D797005000B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9695E7CB2105D798005000B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -138,6 +138,7 @@
 		9695E7BE2105D797005000B0 = {
 			isa = PBXGroup;
 			children = (
+				9673ABD321075BC800A02374 /* piratendb.sql */,
 				9695E7C92105D797005000B0 /* Power_Pirates */,
 				9695E7E22105D798005000B0 /* Power_PiratesTests */,
 				9695E7ED2105D798005000B0 /* Power_PiratesUITests */,
@@ -160,7 +161,6 @@
 		9695E7C92105D797005000B0 /* Power_Pirates */ = {
 			isa = PBXGroup;
 			children = (
-				9673ABD12107558A00A02374 /* piratendb.sql */,
 				961B5D5F210728D500EA09A3 /* viewcontroller */,
 				96DD6F35210724CB00DF78A0 /* database */,
 				9695E8102105DE6F005000B0 /* notificationmanger */,
@@ -364,7 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9695E7D72105D798005000B0 /* LaunchScreen.storyboard in Resources */,
-				9673ABD22107558A00A02374 /* piratendb.sql in Resources */,
+				9673ABD421075BC800A02374 /* piratendb.sql in Resources */,
 				9695E7D42105D798005000B0 /* Assets.xcassets in Resources */,
 				96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */,
 				9695E7D22105D798005000B0 /* Main.storyboard in Resources */,
