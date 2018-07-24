@@ -2,12 +2,12 @@
 //  Desires.h
 //  Power_Pirates
 //
-//  Created by Codecamp on 23.07.18.
+//  Created by Codecamp on 24.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
-#ifndef Desires_h
-#define Desires_h
+#import <Foundation/Foundation.h>
 
+@interface Desires : NSObject
 
-#endif /* Desires_h */
+@end

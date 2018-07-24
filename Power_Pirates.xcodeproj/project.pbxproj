@@ -19,13 +19,13 @@
 		9695E7E42105D798005000B0 /* Power_PiratesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7E32105D798005000B0 /* Power_PiratesTests.m */; };
 		9695E7EF2105D798005000B0 /* Power_PiratesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7EE2105D798005000B0 /* Power_PiratesUITests.m */; };
 		9695E8132105DEC1005000B0 /* Pirates.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8122105DEC1005000B0 /* Pirates.m */; };
-		9695E8162105DEE4005000B0 /* Desires.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8152105DEE4005000B0 /* Desires.m */; };
 		9695E8192105DF1A005000B0 /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8182105DF1A005000B0 /* Storage.m */; };
 		9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81B2105DF40005000B0 /* SpriteManger.m */; };
 		96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C30EFA2106162700E6F253 /* Main2.storyboard */; };
 		96CF7E7A2107291E002A3BA2 /* beach_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CF7E792107291E002A3BA2 /* beach_1.png */; };
 		96CF7E7C21072925002A3BA2 /* beach_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CF7E7B21072925002A3BA2 /* beach_2.png */; };
 		96CF7E8221073DD8002A3BA2 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF7E8121073DD8002A3BA2 /* NotificationManager.m */; };
+		96CF7E8B21075C84002A3BA2 /* Desires.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF7E8A21075C84002A3BA2 /* Desires.m */; };
 		96DD6F2C21070AB900DF78A0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */; };
 		96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6F2D21070B7700DF78A0 /* DBManager.m */; };
 /* End PBXBuildFile section */
@@ -71,8 +71,6 @@
 		9695E7F02105D798005000B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9695E8112105DEB3005000B0 /* Pirates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pirates.h; sourceTree = "<group>"; };
 		9695E8122105DEC1005000B0 /* Pirates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pirates.m; sourceTree = "<group>"; };
-		9695E8142105DED8005000B0 /* Desires.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Desires.h; sourceTree = "<group>"; };
-		9695E8152105DEE4005000B0 /* Desires.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Desires.m; sourceTree = "<group>"; };
 		9695E8172105DF07005000B0 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		9695E8182105DF1A005000B0 /* Storage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		9695E81A2105DF32005000B0 /* SpriteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteManager.h; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		96CF7E7B21072925002A3BA2 /* beach_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_2.png; sourceTree = "<group>"; };
 		96CF7E8021073DD8002A3BA2 /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		96CF7E8121073DD8002A3BA2 /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
+		96CF7E8921075C84002A3BA2 /* Desires.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Desires.h; sourceTree = "<group>"; };
+		96CF7E8A21075C84002A3BA2 /* Desires.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Desires.m; sourceTree = "<group>"; };
 		96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		96DD6F2D21070B7700DF78A0 /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		96DD6F2F21070BA800DF78A0 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -210,8 +210,8 @@
 		9695E80D2105DE32005000B0 /* desires */ = {
 			isa = PBXGroup;
 			children = (
-				9695E8142105DED8005000B0 /* Desires.h */,
-				9695E8152105DEE4005000B0 /* Desires.m */,
+				96CF7E8921075C84002A3BA2 /* Desires.h */,
+				96CF7E8A21075C84002A3BA2 /* Desires.m */,
 			);
 			path = desires;
 			sourceTree = "<group>";
@@ -396,12 +396,12 @@
 			files = (
 				9695E8192105DF1A005000B0 /* Storage.m in Sources */,
 				96CF7E8221073DD8002A3BA2 /* NotificationManager.m in Sources */,
+				96CF7E8B21075C84002A3BA2 /* Desires.m in Sources */,
 				961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */,
 				9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */,
 				96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */,
 				9695E7CF2105D798005000B0 /* ViewController.m in Sources */,
 				961B5D652107295300EA09A3 /* MainGameViewController.m in Sources */,
-				9695E8162105DEE4005000B0 /* Desires.m in Sources */,
 				9695E7DA2105D798005000B0 /* main.m in Sources */,
 				9695E8132105DEC1005000B0 /* Pirates.m in Sources */,
 				9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */,
