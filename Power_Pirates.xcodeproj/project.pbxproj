@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D61210728FF00EA09A3 /* ContinueViewController.m */; };
+		961B5D652107295300EA09A3 /* MainGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D642107295300EA09A3 /* MainGameViewController.m */; };
 		9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CB2105D798005000B0 /* AppDelegate.m */; };
 		9695E7CF2105D798005000B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CE2105D798005000B0 /* ViewController.m */; };
 		9695E7D22105D798005000B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9695E7D02105D798005000B0 /* Main.storyboard */; };
@@ -44,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		961B5D60210728FF00EA09A3 /* ContinueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContinueViewController.h; sourceTree = "<group>"; };
+		961B5D61210728FF00EA09A3 /* ContinueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContinueViewController.m; sourceTree = "<group>"; };
+		961B5D632107295300EA09A3 /* MainGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainGameViewController.h; sourceTree = "<group>"; };
+		961B5D642107295300EA09A3 /* MainGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainGameViewController.m; sourceTree = "<group>"; };
 		9695E7C72105D797005000B0 /* Power_Pirates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Power_Pirates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7CA2105D797005000B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9695E7CB2105D798005000B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,6 +116,19 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		961B5D5F210728D500EA09A3 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				9695E7CD2105D798005000B0 /* ViewController.h */,
+				9695E7CE2105D798005000B0 /* ViewController.m */,
+				961B5D60210728FF00EA09A3 /* ContinueViewController.h */,
+				961B5D61210728FF00EA09A3 /* ContinueViewController.m */,
+				961B5D632107295300EA09A3 /* MainGameViewController.h */,
+				961B5D642107295300EA09A3 /* MainGameViewController.m */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
 		9695E7BE2105D797005000B0 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +155,7 @@
 		9695E7C92105D797005000B0 /* Power_Pirates */ = {
 			isa = PBXGroup;
 			children = (
+				961B5D5F210728D500EA09A3 /* viewcontroller */,
 				96DD6F35210724CB00DF78A0 /* database */,
 				9695E8102105DE6F005000B0 /* notificationmanger */,
 				9695E80F2105DE57005000B0 /* spritemanager */,
@@ -144,8 +164,6 @@
 				9695E80C2105DE10005000B0 /* pirate */,
 				9695E7CA2105D797005000B0 /* AppDelegate.h */,
 				9695E7CB2105D798005000B0 /* AppDelegate.m */,
-				9695E7CD2105D798005000B0 /* ViewController.h */,
-				9695E7CE2105D798005000B0 /* ViewController.m */,
 				9695E7D02105D798005000B0 /* Main.storyboard */,
 				9695E7D32105D798005000B0 /* Assets.xcassets */,
 				9695E7D52105D798005000B0 /* LaunchScreen.storyboard */,
@@ -369,10 +387,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9695E8192105DF1A005000B0 /* Storage.m in Sources */,
+				961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */,
 				9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */,
 				9695E81F2105DF6E005000B0 /* NotificationManager.m in Sources */,
 				96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */,
 				9695E7CF2105D798005000B0 /* ViewController.m in Sources */,
+				961B5D652107295300EA09A3 /* MainGameViewController.m in Sources */,
 				9695E8162105DEE4005000B0 /* Desires.m in Sources */,
 				9695E7DA2105D798005000B0 /* main.m in Sources */,
 				9695E8132105DEC1005000B0 /* Pirates.m in Sources */,

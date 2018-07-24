@@ -22,6 +22,7 @@
                                 <rect key="frame" x="148" y="328.5" width="78" height="30"/>
                                 <state key="normal" title="Start Game"/>
                                 <connections>
+                                    <action selector="onStartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n3t-bQ-6dm"/>
                                     <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T8R-0Z-gD0"/>
                                 </connections>
                             </button>
@@ -43,11 +44,36 @@
                     </view>
                     <connections>
                         <outlet property="charName" destination="u8o-yK-Bt0" id="a9F-Zy-Jmg"/>
+                        <segue destination="psn-SU-xoX" kind="show" identifier="ViewControllerMainGameSegue" id="pZx-RJ-tGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+        <!--Main Game View Controller-->
+        <scene sceneID="Jge-jO-q1s">
+            <objects>
+                <viewController storyboardIdentifier="MainGameViewControllerID" id="psn-SU-xoX" customClass="MainGameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uP0-l0-78r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main Game Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9O-yk-OuF">
+                                <rect key="frame" x="115" y="323" width="145" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VRP-1l-nT7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K3n-27-xyH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950" y="118"/>
         </scene>
     </scenes>
 </document>

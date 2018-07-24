@@ -60,4 +60,9 @@ bool isGrantedNotificationAccess;
         [center addNotificationRequest:request withCompletionHandler:nil];
     }
 }
+
+- (IBAction)onStartButton:(id)sender {
+    [self performSegueWithIdentifier:@"ViewControllerMainGameSegue" sender:self];
+}
+
 @end

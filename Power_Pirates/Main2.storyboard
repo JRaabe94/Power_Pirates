@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Continue View Controller-->
         <scene sceneID="peZ-X5-dRO">
             <objects>
-                <viewController id="g8Z-Sh-jAh" sceneMemberID="viewController">
+                <viewController id="g8Z-Sh-jAh" customClass="ContinueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="umM-fP-lrz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,6 +52,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luq-So-DaS">
                                 <rect key="frame" x="252" y="423" width="62" height="30"/>
                                 <state key="normal" title="Continue"/>
+                                <connections>
+                                    <action selector="onContinueButton:" destination="g8Z-Sh-jAh" eventType="touchUpInside" id="xat-Er-VXW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alv-rm-iGp">
                                 <rect key="frame" x="252" y="250" width="77" height="21"/>
@@ -92,10 +95,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eFS-DH-rql"/>
                     </view>
+                    <connections>
+                        <segue destination="x0m-dh-Ngm" kind="show" identifier="ContinueMainGameSegue" id="Xwg-iT-u4b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADv-m0-fSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="169.56521739130437" y="-223.36956521739131"/>
+        </scene>
+        <!--MainGameViewControllerID-->
+        <scene sceneID="4Yb-5b-yFn">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MainGameViewControllerID" storyboardName="Main" referencedIdentifier="MainGameViewControllerID" id="x0m-dh-Ngm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbR-nt-tfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="851" y="-229"/>
         </scene>
     </scenes>
 </document>
