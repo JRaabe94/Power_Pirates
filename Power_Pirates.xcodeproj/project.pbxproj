@@ -23,6 +23,8 @@
 		9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81B2105DF40005000B0 /* SpriteManger.m */; };
 		9695E81F2105DF6E005000B0 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81E2105DF6E005000B0 /* NotificationManager.m */; };
 		96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C30EFA2106162700E6F253 /* Main2.storyboard */; };
+		96CF7E7A2107291E002A3BA2 /* beach_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CF7E792107291E002A3BA2 /* beach_1.png */; };
+		96CF7E7C21072925002A3BA2 /* beach_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CF7E7B21072925002A3BA2 /* beach_2.png */; };
 		96DD6F2C21070AB900DF78A0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */; };
 		96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6F2D21070B7700DF78A0 /* DBManager.m */; };
 		96DD6F3421071F0900DF78A0 /* piratesdb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 96DD6F3321071F0800DF78A0 /* piratesdb.sql */; };
@@ -77,6 +79,8 @@
 		9695E81D2105DF5E005000B0 /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		9695E81E2105DF6E005000B0 /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		96C30EFA2106162700E6F253 /* Main2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
+		96CF7E792107291E002A3BA2 /* beach_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_1.png; sourceTree = "<group>"; };
+		96CF7E7B21072925002A3BA2 /* beach_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_2.png; sourceTree = "<group>"; };
 		96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		96DD6F2D21070B7700DF78A0 /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		96DD6F2F21070BA800DF78A0 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 		9607F86621060A23001A59DA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				96CF7E792107291E002A3BA2 /* beach_1.png */,
+				96CF7E7B21072925002A3BA2 /* beach_2.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -362,6 +368,8 @@
 				96DD6F3421071F0900DF78A0 /* piratesdb.sql in Resources */,
 				96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */,
 				9695E7D22105D798005000B0 /* Main.storyboard in Resources */,
+				96CF7E7C21072925002A3BA2 /* beach_2.png in Resources */,
+				96CF7E7A2107291E002A3BA2 /* beach_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
