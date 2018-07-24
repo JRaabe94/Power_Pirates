@@ -7,3 +7,5 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DBManager.h"
+#import "Storage.h"
