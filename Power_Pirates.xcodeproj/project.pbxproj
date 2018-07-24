@@ -114,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				96DD6F3321071F0800DF78A0 /* piratesdb.sql */,
-				96DD6F35210724CB00DF78A0 /* database */,
 				9695E7C92105D797005000B0 /* Power_Pirates */,
 				9695E7E22105D798005000B0 /* Power_PiratesTests */,
 				9695E7ED2105D798005000B0 /* Power_PiratesUITests */,
@@ -137,6 +136,7 @@
 		9695E7C92105D797005000B0 /* Power_Pirates */ = {
 			isa = PBXGroup;
 			children = (
+				96DD6F35210724CB00DF78A0 /* database */,
 				9695E8102105DE6F005000B0 /* notificationmanger */,
 				9695E80F2105DE57005000B0 /* spritemanager */,
 				9695E80E2105DE46005000B0 /* storage */,
