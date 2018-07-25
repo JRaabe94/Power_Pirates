@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DBManager.h"
 
 @interface AppDelegate ()
 
@@ -64,6 +65,12 @@
     }
     
     return storyboard;
+}
+
++ (void)checkDesires;
+{
+    // NSDate *now = [NSDate date];
+    // NSArray *desires =
 }
 
 @end
