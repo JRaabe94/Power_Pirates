@@ -14,6 +14,13 @@
 		961B5D8321075BBF00EA09A3 /* ExploreMinigameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D8221075BBF00EA09A3 /* ExploreMinigameViewController.m */; };
 		961B5D8621076F4A00EA09A3 /* MinigamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D8521076F4A00EA09A3 /* MinigamesViewController.m */; };
 		962EAB052108996B00F0624B /* island in Resources */ = {isa = PBXBuildFile; fileRef = 962EAB042108996B00F0624B /* island */; };
+		962EAB0E21089B4E00F0624B /* Iconx60.png in Resources */ = {isa = PBXBuildFile; fileRef = 962EAB0D21089B4E00F0624B /* Iconx60.png */; };
+		962EAB1021089B5200F0624B /* Iconx120.png in Resources */ = {isa = PBXBuildFile; fileRef = 962EAB0F21089B5200F0624B /* Iconx120.png */; };
+		962EAB1221089BAE00F0624B /* Iconx40.png in Resources */ = {isa = PBXBuildFile; fileRef = 962EAB1121089BAE00F0624B /* Iconx40.png */; };
+		962EAB1421089C4E00F0624B /* Iconx180.png in Resources */ = {isa = PBXBuildFile; fileRef = 962EAB1321089C4E00F0624B /* Iconx180.png */; };
+		962EAB1621089CA100F0624B /* Iconx80.png in Resources */ = {isa = PBXBuildFile; fileRef = 962EAB1521089CA100F0624B /* Iconx80.png */; };
+		962EAB1821089D4C00F0624B /* Iconx58.png in Resources */ = {isa = PBXBuildFile; fileRef = 962EAB1721089D4C00F0624B /* Iconx58.png */; };
+		962EAB1A21089D5400F0624B /* Iconx87.png in Resources */ = {isa = PBXBuildFile; fileRef = 962EAB1921089D5400F0624B /* Iconx87.png */; };
 		9673ABD621076C7400A02374 /* piratendb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9673ABD521076C7300A02374 /* piratendb.sql */; };
 		9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CB2105D798005000B0 /* AppDelegate.m */; };
 		9695E7CF2105D798005000B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CE2105D798005000B0 /* ViewController.m */; };
@@ -66,7 +73,13 @@
 		961B5D8421076F4A00EA09A3 /* MinigamesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinigamesViewController.h; sourceTree = "<group>"; };
 		961B5D8521076F4A00EA09A3 /* MinigamesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinigamesViewController.m; sourceTree = "<group>"; };
 		962EAB042108996B00F0624B /* island */ = {isa = PBXFileReference; lastKnownFileType = folder; path = island; sourceTree = "<group>"; };
-		962EAB082108999800F0624B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		962EAB0D21089B4E00F0624B /* Iconx60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx60.png; sourceTree = "<group>"; };
+		962EAB0F21089B5200F0624B /* Iconx120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx120.png; sourceTree = "<group>"; };
+		962EAB1121089BAE00F0624B /* Iconx40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx40.png; sourceTree = "<group>"; };
+		962EAB1321089C4E00F0624B /* Iconx180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx180.png; sourceTree = "<group>"; };
+		962EAB1521089CA100F0624B /* Iconx80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx80.png; sourceTree = "<group>"; };
+		962EAB1721089D4C00F0624B /* Iconx58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx58.png; sourceTree = "<group>"; };
+		962EAB1921089D5400F0624B /* Iconx87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iconx87.png; sourceTree = "<group>"; };
 		9673ABD521076C7300A02374 /* piratendb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = piratendb.sql; sourceTree = "<group>"; };
 		9695E7C72105D797005000B0 /* Power_Pirates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Power_Pirates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7CA2105D797005000B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,7 +146,13 @@
 		9607F86621060A23001A59DA /* images */ = {
 			isa = PBXGroup;
 			children = (
-				962EAB082108999800F0624B /* Icon.png */,
+				962EAB1121089BAE00F0624B /* Iconx40.png */,
+				962EAB1721089D4C00F0624B /* Iconx58.png */,
+				962EAB0D21089B4E00F0624B /* Iconx60.png */,
+				962EAB1521089CA100F0624B /* Iconx80.png */,
+				962EAB1921089D5400F0624B /* Iconx87.png */,
+				962EAB0F21089B5200F0624B /* Iconx120.png */,
+				962EAB1321089C4E00F0624B /* Iconx180.png */,
 				962EAB042108996B00F0624B /* island */,
 			);
 			path = images;
@@ -403,9 +422,16 @@
 				9695E7D72105D798005000B0 /* LaunchScreen.storyboard in Resources */,
 				962EAB052108996B00F0624B /* island in Resources */,
 				9673ABD621076C7400A02374 /* piratendb.sql in Resources */,
+				962EAB1021089B5200F0624B /* Iconx120.png in Resources */,
+				962EAB1621089CA100F0624B /* Iconx80.png in Resources */,
+				962EAB0E21089B4E00F0624B /* Iconx60.png in Resources */,
+				962EAB1221089BAE00F0624B /* Iconx40.png in Resources */,
 				9695E7D42105D798005000B0 /* Assets.xcassets in Resources */,
+				962EAB1821089D4C00F0624B /* Iconx58.png in Resources */,
 				96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */,
 				9695E7D22105D798005000B0 /* Main.storyboard in Resources */,
+				962EAB1A21089D5400F0624B /* Iconx87.png in Resources */,
+				962EAB1421089C4E00F0624B /* Iconx180.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
