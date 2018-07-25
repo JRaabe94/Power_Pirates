@@ -27,7 +27,7 @@
     [formatter setDateFormat:@"yyyy-MM-dd' 'HH:mm:ss"];
     NSDate *now = [NSDate date];
     NSDate *expiryDate = [now dateByAddingTimeInterval:expiry];
-    NSLog(@"New Date: %@",[formatter stringFromDate:expiryDate]);
+    NSLog(@"Expiry Date: %@",[formatter stringFromDate:expiryDate]);
     
     // Add desire to DB
     DBManager *dbManager = [[DBManager alloc] init];

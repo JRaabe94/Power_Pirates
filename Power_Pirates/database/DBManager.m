@@ -170,7 +170,7 @@
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 
--(void)insertDesire:(int)desireId withTimer:(NSString *)time;
+- (void)insertDesire:(int)desireId withTimer:(NSString *)time;
 {
     
     // Prepare query string
@@ -184,6 +184,13 @@
     }else{
         NSLog(@"Could not execute the query.");
     }
+}
+
+- (NSArray *)readDesires;
+{
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM aktuellebeduerfnisse"];
+    NSArray *result = [self loadDataFromDB:query];
+    return result;
 }
 
 @end

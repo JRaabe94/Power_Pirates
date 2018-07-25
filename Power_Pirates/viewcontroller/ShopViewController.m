@@ -22,6 +22,9 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     // Do any additional setup after loading the view.
+    DBManager *dbManager = [[DBManager alloc] init];    // Test
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    [dbManager readDesires];
 }
 
 - (void)didReceiveMemoryWarning {
