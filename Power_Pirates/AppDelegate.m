@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Pirates.h"
 #import "DBManager.h"
 
 @interface AppDelegate ()
@@ -67,6 +68,10 @@
     }
     
     return storyboard;
+}
+
+- (void) initGame {
+    
 }
 
 + (void)checkDesires;
