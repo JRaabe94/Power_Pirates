@@ -170,4 +170,20 @@
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 
+-(void)insertDesire:(int)desireId withTimer:(NSString *)time;
+{
+    
+    // Prepare query string
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO aktuellebeduerfnisse VALUES ('%d', '%@')", desireId, time];
+    
+    //Execute query
+    [self executeQuery:query];
+    
+    if (self.affectedRows != 0) {
+        NSLog(@"Query was executed successfully. Affected rows = %d", self.affectedRows);
+    }else{
+        NSLog(@"Could not execute the query.");
+    }
+}
+
 @end
