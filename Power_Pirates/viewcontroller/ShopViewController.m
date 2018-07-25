@@ -24,6 +24,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+//************ Rum Button Action ************
+- (IBAction)onRumBuyButton:(id)sender {
+    
+}
+- (IBAction)onRumSellButton:(id)sender {
+}
+
 /*
 #pragma mark - Navigation
 
