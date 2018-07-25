@@ -23,6 +23,8 @@
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
     
+    [self initGame];
+    
     return YES;
 }
 

@@ -8,6 +8,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Storage;
+@class Pirates;
+@class DBManager;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
