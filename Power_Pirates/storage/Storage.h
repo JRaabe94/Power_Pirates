@@ -9,7 +9,21 @@
 #ifndef Storage_h
 #define Storage_h
 
-@interface Storage
+@interface Storage :NSObject
+
+@property int money;
+
+@property NSArray *supplies;
+
+-(void)loadData;
+
+-(void)saveData;
+
+-(NSString *)buy:(NSString *) selectedItem;
+
+-(NSString *)sell:(NSString *) selectedItem;
+
+-(NSString *)useItem:(NSString *) selectedItem;
 
 @end
 
