@@ -18,9 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Load images
-    NSArray *imageNames = @[@"island/island_1.png", @"island/island_2.png", @"island/island_3.png", @"island/island_4.png",
-                            @"island/island_5.png", @"island/island_6.png", @"island/island_7.png", @"island/island_8.png",
-                            @"island/island_9.png", @"island/island_10.png"];
+    NSArray *imageNames = @[@"island_1", @"island_2", @"island_3", @"island_4",
+                            @"island_5", @"island_6", @"island_7", @"island_8",
+                            @"island_9", @"island_10"];
     
     NSMutableArray *images = [[NSMutableArray alloc] init];
     for (int i = 0; i < imageNames.count; i++) {
