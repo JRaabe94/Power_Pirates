@@ -11,7 +11,6 @@
 #import "Storage.h"
 
 @interface Storage()
-@property (nonatomic, strong) DBManager *dbManager;
 @property int currentMoney;
 @property int moneyIndex;
 @end
