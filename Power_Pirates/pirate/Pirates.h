@@ -19,8 +19,6 @@
 
 @property int alcoholLevel;
 
-@property int activeNeeds;
-
 -(void)loadData;
 
 -(void)saveData;

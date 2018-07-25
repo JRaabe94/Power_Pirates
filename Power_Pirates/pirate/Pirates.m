@@ -17,7 +17,7 @@
 @implementation Pirates
 -(void)saveData{
     //prepare query string
-    NSString *query = [NSString stringWithFormat:@"update piraten set leben = '%d', level = '%d', aktivesBeduerfnis = '%d', pegel = '%d'", self.lifes, self.level, self.activeNeeds, self.alcoholLevel];
+    NSString *query = [NSString stringWithFormat:@"update piraten set leben = '%d', level = '%d', pegel = '%d'", self.lifes, self.level, self.alcoholLevel];
     
     //Execute query
     [self.dbManager executeQuery:query];
@@ -38,6 +38,5 @@
     self.lifes = (int)[[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"lebens"]];
     self.level = (int)[[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"level"]];
     self.alcoholLevel = (int)[[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"pegel"]];
-    self.activeNeeds = (int)[[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"aktivesBeduerfnis"]];
 }
 @end
