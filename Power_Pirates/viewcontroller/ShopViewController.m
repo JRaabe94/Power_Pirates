@@ -8,7 +8,8 @@
 
 #import "ShopViewController.h"
 #import "AppDelegate.h"
-
+#import "DBManager.h"
+#import "Pirates.h"
 
 @interface ShopViewController ()
 
