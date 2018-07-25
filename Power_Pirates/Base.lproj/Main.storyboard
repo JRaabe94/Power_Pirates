@@ -361,7 +361,7 @@
         <!--Game Over View Controller-->
         <scene sceneID="59R-6O-CPd">
             <objects>
-                <viewController id="geL-NA-4vj" customClass="GameOverViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameOverViewControllerID" id="geL-NA-4vj" customClass="GameOverViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yea-vO-oXd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -373,14 +373,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NI-ll-uEI">
+                                <rect key="frame" x="112" y="480" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Zurück zum Startbildschirm"/>
+                                <connections>
+                                    <action selector="goToRegisterButton:" destination="geL-NA-4vj" eventType="touchUpInside" id="My2-sn-S3F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1Ef-9v-fIe"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="GameOverRegisterSegue" id="huT-nC-mCM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX2-gD-rO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3322" y="36"/>
+            <point key="canvasLocation" x="117" y="-749"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="S2j-3U-Bk5">

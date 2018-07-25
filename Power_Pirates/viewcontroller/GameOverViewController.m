@@ -2,7 +2,7 @@
 //  GameOverViewController.m
 //  Power_Pirates
 //
-//  Created by Codecamp on 24.07.18.
+//  Created by Codecamp on 25.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
@@ -22,6 +22,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)goToRegisterButton:(id)sender {
+    [self performSegueWithIdentifier:@"GameOverRegisterSegue" sender:self];
 }
 
 /*
