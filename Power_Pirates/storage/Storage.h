@@ -9,4 +9,6 @@
 #ifndef Storage_h
 #define Storage_h
 
+@interface Storage
+
 #endif /* Storage_h */

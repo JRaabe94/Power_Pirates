@@ -9,5 +9,22 @@
 #ifndef Pirates_h
 #define Pirates_h
 
+@interface Pirates : NSObject
+
+@property NSString *name;
+
+@property int lifes;
+
+@property int level;
+
+@property int alcoholLevel;
+
+@property int activeNeeds;
+
+-(void)loadData;
+
+-(void)saveData;
+
+@end
 
 #endif /* Pirates_h */
