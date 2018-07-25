@@ -19,13 +19,15 @@
 		9695E7E42105D798005000B0 /* Power_PiratesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7E32105D798005000B0 /* Power_PiratesTests.m */; };
 		9695E7EF2105D798005000B0 /* Power_PiratesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7EE2105D798005000B0 /* Power_PiratesUITests.m */; };
 		9695E8132105DEC1005000B0 /* Pirates.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8122105DEC1005000B0 /* Pirates.m */; };
-		9695E8162105DEE4005000B0 /* Desires.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8152105DEE4005000B0 /* Desires.m */; };
 		9695E8192105DF1A005000B0 /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E8182105DF1A005000B0 /* Storage.m */; };
 		9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E81B2105DF40005000B0 /* SpriteManger.m */; };
 		96C30EFB2106162700E6F253 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C30EFA2106162700E6F253 /* Main2.storyboard */; };
 		96CF7E7A2107291E002A3BA2 /* beach_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CF7E792107291E002A3BA2 /* beach_1.png */; };
 		96CF7E7C21072925002A3BA2 /* beach_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CF7E7B21072925002A3BA2 /* beach_2.png */; };
 		96CF7E8221073DD8002A3BA2 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF7E8121073DD8002A3BA2 /* NotificationManager.m */; };
+		96CF7E8B21075C84002A3BA2 /* Desires.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CF7E8A21075C84002A3BA2 /* Desires.m */; };
+		96DAD05721085C9900FC0629 /* MainGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DAD05621085C9900FC0629 /* MainGameViewController.m */; };
+		96DAD05A21085D3C00FC0629 /* StockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DAD05921085D3C00FC0629 /* StockViewController.m */; };
 		96DD6F2C21070AB900DF78A0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */; };
 		96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6F2D21070B7700DF78A0 /* DBManager.m */; };
 /* End PBXBuildFile section */
@@ -71,8 +73,6 @@
 		9695E7F02105D798005000B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9695E8112105DEB3005000B0 /* Pirates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pirates.h; sourceTree = "<group>"; };
 		9695E8122105DEC1005000B0 /* Pirates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pirates.m; sourceTree = "<group>"; };
-		9695E8142105DED8005000B0 /* Desires.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Desires.h; sourceTree = "<group>"; };
-		9695E8152105DEE4005000B0 /* Desires.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Desires.m; sourceTree = "<group>"; };
 		9695E8172105DF07005000B0 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		9695E8182105DF1A005000B0 /* Storage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		9695E81A2105DF32005000B0 /* SpriteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteManager.h; sourceTree = "<group>"; };
@@ -82,6 +82,12 @@
 		96CF7E7B21072925002A3BA2 /* beach_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach_2.png; sourceTree = "<group>"; };
 		96CF7E8021073DD8002A3BA2 /* NotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		96CF7E8121073DD8002A3BA2 /* NotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
+		96CF7E8921075C84002A3BA2 /* Desires.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Desires.h; sourceTree = "<group>"; };
+		96CF7E8A21075C84002A3BA2 /* Desires.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Desires.m; sourceTree = "<group>"; };
+		96DAD05521085C9900FC0629 /* MainGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainGameViewController.h; sourceTree = "<group>"; };
+		96DAD05621085C9900FC0629 /* MainGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainGameViewController.m; sourceTree = "<group>"; };
+		96DAD05821085D3C00FC0629 /* StockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StockViewController.h; sourceTree = "<group>"; };
+		96DAD05921085D3C00FC0629 /* StockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StockViewController.m; sourceTree = "<group>"; };
 		96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		96DD6F2D21070B7700DF78A0 /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		96DD6F2F21070BA800DF78A0 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -129,10 +135,29 @@
 				9695E7CE2105D798005000B0 /* ViewController.m */,
 				961B5D60210728FF00EA09A3 /* ContinueViewController.h */,
 				961B5D61210728FF00EA09A3 /* ContinueViewController.m */,
-				961B5D632107295300EA09A3 /* MainGameViewController.h */,
-				961B5D642107295300EA09A3 /* MainGameViewController.m */,
+				961B5D6621072BF700EA09A3 /* GameOverViewController.h */,
+				961B5D6721072BF700EA09A3 /* GameOverViewController.m */,
+				961B5D7221075A5100EA09A3 /* ShopViewController.h */,
+				961B5D7321075A5100EA09A3 /* ShopViewController.m */,
+				961B5D7E21075BB200EA09A3 /* ShipMinigameViewController.h */,
+				961B5D7F21075BB200EA09A3 /* ShipMinigameViewController.m */,
+				961B5D8121075BBF00EA09A3 /* ExploreMinigameViewController.h */,
+				961B5D8221075BBF00EA09A3 /* ExploreMinigameViewController.m */,
+				961B5D8421076F4A00EA09A3 /* MinigamesViewController.h */,
+				961B5D8521076F4A00EA09A3 /* MinigamesViewController.m */,
+				96DAD05521085C9900FC0629 /* MainGameViewController.h */,
+				96DAD05621085C9900FC0629 /* MainGameViewController.m */,
+				96DAD05821085D3C00FC0629 /* StockViewController.h */,
+				96DAD05921085D3C00FC0629 /* StockViewController.m */,
 			);
 			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		961B5D6B2107440700EA09A3 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		9695E7BE2105D797005000B0 = {
@@ -142,6 +167,7 @@
 				9695E7E22105D798005000B0 /* Power_PiratesTests */,
 				9695E7ED2105D798005000B0 /* Power_PiratesUITests */,
 				9695E7C82105D797005000B0 /* Products */,
+				961B5D6B2107440700EA09A3 /* lib */,
 				9607F86621060A23001A59DA /* images */,
 				96DD6F2A21070AB900DF78A0 /* Frameworks */,
 			);
@@ -210,8 +236,8 @@
 		9695E80D2105DE32005000B0 /* desires */ = {
 			isa = PBXGroup;
 			children = (
-				9695E8142105DED8005000B0 /* Desires.h */,
-				9695E8152105DEE4005000B0 /* Desires.m */,
+				96CF7E8921075C84002A3BA2 /* Desires.h */,
+				96CF7E8A21075C84002A3BA2 /* Desires.m */,
 			);
 			path = desires;
 			sourceTree = "<group>";
@@ -396,15 +422,21 @@
 			files = (
 				9695E8192105DF1A005000B0 /* Storage.m in Sources */,
 				96CF7E8221073DD8002A3BA2 /* NotificationManager.m in Sources */,
+				96CF7E8B21075C84002A3BA2 /* Desires.m in Sources */,
+				96DAD05A21085D3C00FC0629 /* StockViewController.m in Sources */,
 				961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */,
+				961B5D8621076F4A00EA09A3 /* MinigamesViewController.m in Sources */,
 				9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */,
 				96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */,
 				9695E7CF2105D798005000B0 /* ViewController.m in Sources */,
-				961B5D652107295300EA09A3 /* MainGameViewController.m in Sources */,
-				9695E8162105DEE4005000B0 /* Desires.m in Sources */,
+				961B5D8021075BB200EA09A3 /* ShipMinigameViewController.m in Sources */,
+				961B5D652107295300EA09A3 /* (null) in Sources */,
 				9695E7DA2105D798005000B0 /* main.m in Sources */,
+				961B5D7421075A5100EA09A3 /* ShopViewController.m in Sources */,
 				9695E8132105DEC1005000B0 /* Pirates.m in Sources */,
 				9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */,
+				961B5D8321075BBF00EA09A3 /* ExploreMinigameViewController.m in Sources */,
+				96DAD05721085C9900FC0629 /* MainGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

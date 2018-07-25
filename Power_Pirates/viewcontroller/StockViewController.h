@@ -1,5 +1,5 @@
 //
-//  MainGameViewController.h
+//  StockViewController.h
 //  Power_Pirates
 //
 //  Created by Codecamp on 25.07.18.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainGameViewController : UIViewController
+@interface StockViewController : UIViewController
 
 @end

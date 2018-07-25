@@ -1,18 +1,18 @@
 //
-//  MainGameViewController.m
+//  ShopViewController.m
 //  Power_Pirates
 //
-//  Created by Codecamp on 25.07.18.
+//  Created by Codecamp on 24.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
-#import "MainGameViewController.h"
+#import "ShopViewController.h"
 
-@interface MainGameViewController ()
+@interface ShopViewController ()
 
 @end
 
-@implementation MainGameViewController
+@implementation ShopViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

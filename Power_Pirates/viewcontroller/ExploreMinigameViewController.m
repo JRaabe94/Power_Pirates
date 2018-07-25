@@ -1,18 +1,18 @@
 //
-//  MainGameViewController.m
+//  ExploreMinigameViewController.m
 //  Power_Pirates
 //
-//  Created by Codecamp on 25.07.18.
+//  Created by Codecamp on 24.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
-#import "MainGameViewController.h"
+#import "ExploreMinigameViewController.h"
 
-@interface MainGameViewController ()
+@interface ExploreMinigameViewController ()
 
 @end
 
-@implementation MainGameViewController
+@implementation ExploreMinigameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +22,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onBackButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
