@@ -17,18 +17,42 @@
 {
     bool isGrantedNotificationAccess = true;
     if (isGrantedNotificationAccess) {
+        __block NSInteger idCounter = 0;
+        __block NSInteger readyCounter;
+        __block BOOL ready = NO;
+        __block NSString *newId = [NSString stringWithFormat: @"notification_%ld", (long)idCounter];
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        
+        while (!ready) {
+            // Get existing notifications
+            [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+                readyCounter = 0;
+                for (NSUInteger i = 0; i < requests.count; i++) {
+                    UNNotificationRequest *pendingRequest = [requests objectAtIndex:i];
+                    newId = [NSString stringWithFormat: @"notification_%ld", (long)idCounter];
+                    if ([newId isEqualToString:pendingRequest.identifier]) {
+                        idCounter++;
+                    } else {
+                        readyCounter++;
+                    }
+                }
+                if (readyCounter == requests.count) {
+                    ready = YES;
+                }
+            }];
+        }
+        newId = [NSString stringWithFormat: @"notification_%ld", (long)idCounter];
+        NSLog(@"Id: %@", newId);
+        
         UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
         content.title = @"Power Pirates";
-        // content.subtitle = @"Untertitel";
         content.body = message;
         content.sound = [UNNotificationSound defaultSound];
         
         UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:time repeats:NO];
         
         // Setting up the request for notification
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"UYLocalNotification" content:content trigger:trigger];
-        
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:newId content:content trigger:trigger];
         [center addNotificationRequest:request withCompletionHandler:nil];
     }
 }

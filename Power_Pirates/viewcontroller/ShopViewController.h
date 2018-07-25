@@ -10,4 +10,8 @@
 
 @interface ShopViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *rumTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rumPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rumStorageLabel;
+
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "ShopViewController.h"
+#import "DBManager.h"
+#import "Pirates.h"
 
 @interface ShopViewController ()
 
@@ -17,11 +19,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    DBManager *dbManager = [[DBManager alloc] init];    // Test
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    [dbManager readDesires];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+//************ Rum Button Action ************
+- (IBAction)onRumBuyButton:(id)sender {
+    
+}
+- (IBAction)onRumSellButton:(id)sender {
 }
 
 /*

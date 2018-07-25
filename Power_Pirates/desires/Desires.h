@@ -10,8 +10,6 @@
 
 @interface Desires : NSObject
 
-+ (void)createDesire:(int)desireId withTimer:(int)time;
-
-- (void)insertDesire:(int)desireId withTimer:(NSString *)time;
++ (void)createDesire:(int)desireId withTimer:(int)time andExpiryDate:(int)expiry;
 
 @end
