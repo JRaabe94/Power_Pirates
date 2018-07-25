@@ -10,4 +10,10 @@
 
 @interface MainGameViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *dropDownButton;
+@property (weak, nonatomic) IBOutlet UITableView *dropDownTableView;
+@property (strong, nonatomic) NSArray *dropDownTableData;
+
+@property (weak, nonatomic) IBOutlet UIButton *onDropDownButton;
+
 @end

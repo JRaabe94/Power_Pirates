@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="169.56521739130437" y="-223.36956521739131"/>
         </scene>
-        <!--MainGameViewControllerID-->
+        <!--TabBarControllerID-->
         <scene sceneID="4Yb-5b-yFn">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MainGameViewControllerID" storyboardName="Main" referencedIdentifier="MainGameViewControllerID" id="x0m-dh-Ngm" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="TabBarControllerID" storyboardName="Main" referencedIdentifier="TabBarControllerID" id="x0m-dh-Ngm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbR-nt-tfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="851" y="-229"/>

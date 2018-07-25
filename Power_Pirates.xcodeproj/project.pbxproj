@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D61210728FF00EA09A3 /* ContinueViewController.m */; };
 		961B5D652107295300EA09A3 /* MainGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D642107295300EA09A3 /* MainGameViewController.m */; };
+		961B5D6821072BF700EA09A3 /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D6721072BF700EA09A3 /* GameOverViewController.m */; };
+		961B5D7421075A5100EA09A3 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D7321075A5100EA09A3 /* ShopViewController.m */; };
+		961B5D7D21075B8700EA09A3 /* StockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D7C21075B8700EA09A3 /* StockViewController.m */; };
+		961B5D8021075BB200EA09A3 /* ShipMinigameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D7F21075BB200EA09A3 /* ShipMinigameViewController.m */; };
+		961B5D8321075BBF00EA09A3 /* ExploreMinigameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D8221075BBF00EA09A3 /* ExploreMinigameViewController.m */; };
+		961B5D8621076F4A00EA09A3 /* MinigamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D8521076F4A00EA09A3 /* MinigamesViewController.m */; };
 		9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CB2105D798005000B0 /* AppDelegate.m */; };
 		9695E7CF2105D798005000B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CE2105D798005000B0 /* ViewController.m */; };
 		9695E7D22105D798005000B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9695E7D02105D798005000B0 /* Main.storyboard */; };
@@ -52,6 +58,18 @@
 		961B5D61210728FF00EA09A3 /* ContinueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContinueViewController.m; sourceTree = "<group>"; };
 		961B5D632107295300EA09A3 /* MainGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainGameViewController.h; sourceTree = "<group>"; };
 		961B5D642107295300EA09A3 /* MainGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainGameViewController.m; sourceTree = "<group>"; };
+		961B5D6621072BF700EA09A3 /* GameOverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
+		961B5D6721072BF700EA09A3 /* GameOverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
+		961B5D7221075A5100EA09A3 /* ShopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
+		961B5D7321075A5100EA09A3 /* ShopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
+		961B5D7B21075B8700EA09A3 /* StockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StockViewController.h; sourceTree = "<group>"; };
+		961B5D7C21075B8700EA09A3 /* StockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StockViewController.m; sourceTree = "<group>"; };
+		961B5D7E21075BB200EA09A3 /* ShipMinigameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShipMinigameViewController.h; sourceTree = "<group>"; };
+		961B5D7F21075BB200EA09A3 /* ShipMinigameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShipMinigameViewController.m; sourceTree = "<group>"; };
+		961B5D8121075BBF00EA09A3 /* ExploreMinigameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExploreMinigameViewController.h; sourceTree = "<group>"; };
+		961B5D8221075BBF00EA09A3 /* ExploreMinigameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExploreMinigameViewController.m; sourceTree = "<group>"; };
+		961B5D8421076F4A00EA09A3 /* MinigamesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinigamesViewController.h; sourceTree = "<group>"; };
+		961B5D8521076F4A00EA09A3 /* MinigamesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinigamesViewController.m; sourceTree = "<group>"; };
 		9695E7C72105D797005000B0 /* Power_Pirates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Power_Pirates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7CA2105D797005000B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9695E7CB2105D798005000B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -131,8 +149,27 @@
 				961B5D61210728FF00EA09A3 /* ContinueViewController.m */,
 				961B5D632107295300EA09A3 /* MainGameViewController.h */,
 				961B5D642107295300EA09A3 /* MainGameViewController.m */,
+				961B5D6621072BF700EA09A3 /* GameOverViewController.h */,
+				961B5D6721072BF700EA09A3 /* GameOverViewController.m */,
+				961B5D7221075A5100EA09A3 /* ShopViewController.h */,
+				961B5D7321075A5100EA09A3 /* ShopViewController.m */,
+				961B5D7B21075B8700EA09A3 /* StockViewController.h */,
+				961B5D7C21075B8700EA09A3 /* StockViewController.m */,
+				961B5D7E21075BB200EA09A3 /* ShipMinigameViewController.h */,
+				961B5D7F21075BB200EA09A3 /* ShipMinigameViewController.m */,
+				961B5D8121075BBF00EA09A3 /* ExploreMinigameViewController.h */,
+				961B5D8221075BBF00EA09A3 /* ExploreMinigameViewController.m */,
+				961B5D8421076F4A00EA09A3 /* MinigamesViewController.h */,
+				961B5D8521076F4A00EA09A3 /* MinigamesViewController.m */,
 			);
 			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		961B5D6B2107440700EA09A3 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		9695E7BE2105D797005000B0 = {
@@ -143,6 +180,7 @@
 				9695E7E22105D798005000B0 /* Power_PiratesTests */,
 				9695E7ED2105D798005000B0 /* Power_PiratesUITests */,
 				9695E7C82105D797005000B0 /* Products */,
+				961B5D6B2107440700EA09A3 /* lib */,
 				9607F86621060A23001A59DA /* images */,
 				96DD6F2A21070AB900DF78A0 /* Frameworks */,
 			);
@@ -394,17 +432,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961B5D6821072BF700EA09A3 /* GameOverViewController.m in Sources */,
 				9695E8192105DF1A005000B0 /* Storage.m in Sources */,
+				961B5D7D21075B8700EA09A3 /* StockViewController.m in Sources */,
 				961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */,
+				961B5D8621076F4A00EA09A3 /* MinigamesViewController.m in Sources */,
 				9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */,
 				9695E81F2105DF6E005000B0 /* NotificationManager.m in Sources */,
 				96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */,
 				9695E7CF2105D798005000B0 /* ViewController.m in Sources */,
+				961B5D8021075BB200EA09A3 /* ShipMinigameViewController.m in Sources */,
 				961B5D652107295300EA09A3 /* MainGameViewController.m in Sources */,
 				9695E8162105DEE4005000B0 /* Desires.m in Sources */,
 				9695E7DA2105D798005000B0 /* main.m in Sources */,
+				961B5D7421075A5100EA09A3 /* ShopViewController.m in Sources */,
 				9695E8132105DEC1005000B0 /* Pirates.m in Sources */,
 				9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */,
+				961B5D8321075BBF00EA09A3 /* ExploreMinigameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

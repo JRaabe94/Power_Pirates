@@ -1,22 +1,22 @@
 //
-//  MainGameViewController.m
+//  GameOverViewController.m
 //  Power_Pirates
 //
 //  Created by Codecamp on 24.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
-#import "MainGameViewController.h"
+#import "GameOverViewController.h"
 
-@interface MainGameViewController ()
+@interface GameOverViewController ()
 
 @end
 
-@implementation MainGameViewController
+@implementation GameOverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

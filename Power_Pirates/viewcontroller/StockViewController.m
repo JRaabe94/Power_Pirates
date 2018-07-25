@@ -1,22 +1,22 @@
 //
-//  MainGameViewController.m
+//  StockViewController.m
 //  Power_Pirates
 //
 //  Created by Codecamp on 24.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
-#import "MainGameViewController.h"
+#import "StockViewController.h"
 
-@interface MainGameViewController ()
+@interface StockViewController ()
 
 @end
 
-@implementation MainGameViewController
+@implementation StockViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

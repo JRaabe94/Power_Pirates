@@ -1,27 +1,31 @@
 //
-//  MainGameViewController.m
+//  ShipMinigameViewController.m
 //  Power_Pirates
 //
 //  Created by Codecamp on 24.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
-#import "MainGameViewController.h"
+#import "ShipMinigameViewController.h"
 
-@interface MainGameViewController ()
+@interface ShipMinigameViewController ()
 
 @end
 
-@implementation MainGameViewController
+@implementation ShipMinigameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onBackButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
