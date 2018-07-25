@@ -11,4 +11,7 @@
 
 @interface Storage
 
+@end
+
 #endif /* Storage_h */
+

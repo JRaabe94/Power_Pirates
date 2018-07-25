@@ -2,7 +2,7 @@
 //  MainGameViewController.m
 //  Power_Pirates
 //
-//  Created by Codecamp on 24.07.18.
+//  Created by Codecamp on 25.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
