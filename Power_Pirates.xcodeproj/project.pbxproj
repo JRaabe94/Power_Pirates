@@ -127,13 +127,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9607F86621060A23001A59DA /* images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = images;
-			sourceTree = "<group>";
-		};
 		961B5D5F210728D500EA09A3 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +167,6 @@
 				9695E7ED2105D798005000B0 /* Power_PiratesUITests */,
 				9695E7C82105D797005000B0 /* Products */,
 				961B5D6B2107440700EA09A3 /* lib */,
-				9607F86621060A23001A59DA /* images */,
 				96DD6F2A21070AB900DF78A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
