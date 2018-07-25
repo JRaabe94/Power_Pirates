@@ -11,8 +11,6 @@
 
 @interface Storage :NSObject
 
-@property int money;
-
 @property NSArray *supplies;
 
 -(void)loadData;
