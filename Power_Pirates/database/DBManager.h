@@ -21,9 +21,11 @@
 
 -(NSArray *)loadDataFromDB:(NSString *)query;
 
--(void)executeQuery:(NSString *)query;
+- (void)executeQuery:(NSString *)query;
 
--(void)insertDesire:(int)desireId withTimer:(NSString *)time;
+- (void)insertDesire:(int)desireId withTimer:(NSString *)time;
+
+- (NSArray *)readDesires;
 
 @end
 
