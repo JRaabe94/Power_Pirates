@@ -23,6 +23,8 @@
 
 -(void)executeQuery:(NSString *)query;
 
+-(void)insertDesire:(int)desireId withTimer:(NSString *)time;
+
 @end
 
 #endif /* DBManager_h */
