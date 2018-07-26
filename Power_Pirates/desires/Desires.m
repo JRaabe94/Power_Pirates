@@ -16,26 +16,37 @@
 
 @implementation Desires
 
-NSString *format = @"yyyy-MM-dd hh:mm:ss";
+NSString *format = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
 
 + (void)createDesire:(int)desireId withTimer:(int)timer andExpiryDate:(int)expiry
 {
-    // Create a Push-notification
-    [NotificationManager createPushNotification:@"Ich will essen" withTimer:timer];
-    [NotificationManager createPushNotification:@"Ich bin verhungert :(" withTimer:expiry];
+    NSArray *desireText = [NSArray arrayWithObjects:@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut", nil];
     
-    // Get expiry date
+    // Get dates
+    NSDate *startDate = [NSDate dateWithTimeIntervalSinceNow:timer];
+    NSDate *expiryDate = [NSDate dateWithTimeIntervalSinceNow:expiry];
+    
+    // Create push notifications
+    [NotificationManager createPushNotification:desireText[desireId] withTimer:startDate];
+    [NotificationManager createPushNotification:@"Ich bin tot :(" withTimer:expiryDate];
+
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
-    NSDate *now = [NSDate date];
-    NSDate *startDate = [now dateByAddingTimeInterval:timer];
-    NSDate *expiryDate = [now dateByAddingTimeInterval:expiry];
-    NSLog(@"Expiry Date: %@",[formatter stringFromDate:expiryDate]);
     
     // Add desire to DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     [dbManager insertDesire:desireId withStartDate:[formatter stringFromDate:startDate] andExpiryDate:[formatter stringFromDate:expiryDate]];
+}
+
++ (void)removeDesire:(NSDate *)time
+{
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    [dbManager deleteDesire:[formatter stringFromDate:time]];
+    [NotificationManager removePushNotification:time];
 }
 
 + (void)checkStatus
@@ -44,21 +55,26 @@ NSString *format = @"yyyy-MM-dd hh:mm:ss";
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     NSArray *desires = [dbManager readDesires];
-    NSLog(@"%@", desires);
+    NSMutableArray *delete = [[NSMutableArray alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
     for (NSInteger i = 0; i < [desires count]; i++) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:format];
         NSDate *startDate = [formatter dateFromString: desires[i][1]];
         NSDate *expiryDate = [formatter dateFromString: desires[i][2]];
-        // NSLog(@"Aufgabe Nummer %d", desires[i][1]);
         NSLog(@"%@", startDate);
         NSLog(@"%@", expiryDate);
         if ([startDate compare:now] == NSOrderedSame || [startDate compare:now] == NSOrderedAscending) {
-            NSLog(@"Aufgabe ist aktiv!!");
+            NSLog(@"Aufgabe ist aktiv");
         }
         if ([expiryDate compare:now] == NSOrderedSame || [expiryDate compare:now] == NSOrderedAscending) {
             NSLog(@"Aufgabe ist abgelaufen!!");
+            [delete addObject:startDate];
         }
+    }
+
+    // Delete expired desires
+    for (NSDate *date in delete) {
+        [dbManager deleteDesire:[formatter stringFromDate:date]];
     }
 }
 

@@ -182,11 +182,25 @@
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 
-- (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end;
-{
+- (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end {
     
     // Prepare query string
     NSString *query = [NSString stringWithFormat:@"INSERT INTO aktuellebeduerfnisse VALUES ('%d', '%@', '%@')", desireId, start, end];
+    
+    //Execute query
+    [self executeQuery:query];
+    
+    if (self.affectedRows != 0) {
+        NSLog(@"Query was executed successfully. Affected rows = %d", self.affectedRows);
+    }else{
+        NSLog(@"Could not execute the query.");
+    }
+}
+
+- (void)deleteDesire:(NSString *)startDate {
+    
+    // Prepare query string
+    NSString *query = [NSString stringWithFormat:@"DELETE FROM aktuellebeduerfnisse WHERE startDate = '%@'", startDate];
     
     //Execute query
     [self executeQuery:query];
