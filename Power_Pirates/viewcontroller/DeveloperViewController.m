@@ -1,29 +1,22 @@
 //
-//  StockViewController.m
+//  DeveloperViewController.m
 //  Power_Pirates
 //
-//  Created by Codecamp on 25.07.18.
+//  Created by Codecamp on 26.07.18.
 //  Copyright © 2018 Codecamp. All rights reserved.
 //
 
-#import "StockViewController.h"
-#import "GameOverViewController.h"
+#import "DeveloperViewController.h"
 
-@interface StockViewController ()
+@interface DeveloperViewController ()
 
 @end
 
-@implementation StockViewController
+@implementation DeveloperViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // Method to directly go to the GameOver Screen
-    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
-    [self presentViewController:viewController animated:YES completion:nil];*/
-    
 }
 
 - (void)didReceiveMemoryWarning {
