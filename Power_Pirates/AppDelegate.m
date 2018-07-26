@@ -84,6 +84,16 @@
     
     self.storage = [[Storage alloc] init];
     [self.storage loadData];
+    
+    NSTimer *myTimer =[NSTimer scheduledTimerWithTimeInterval:0.03
+                                                       target:self
+                                                     selector:@selector(gameLoop)
+                                                     userInfo:nil
+                                                      repeats:YES];‚
+}
+
+-(void)gameLoop{
+    NSLog(@"---Fire---");
 }
 
 + (void)checkDesires;
