@@ -60,7 +60,7 @@
 - (UIStoryboard *)grabStoryboard {
     
     UIStoryboard *storyboard;
-    int test = 0;
+    int test = 1;
     if (test == 0) {
         storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     } else {
@@ -72,6 +72,12 @@
 
 - (void) initGame {
     
+}
+
++ (void)checkDesires;
+{
+    // NSDate *now = [NSDate date];
+    // NSArray *desires =
 }
 
 @end

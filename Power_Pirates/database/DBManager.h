@@ -23,7 +23,7 @@
 
 - (void)executeQuery:(NSString *)query;
 
-- (void)insertDesire:(int)desireId withTimer:(NSString *)time;
+- (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end;
 
 - (NSArray *)readDesires;
 

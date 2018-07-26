@@ -17,6 +17,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // Load images
+    NSArray *imageNames = @[@"island_1", @"island_2", @"island_3", @"island_4",
+                            @"island_5", @"island_6", @"island_7", @"island_8",
+                            @"island_9", @"island_10"];
+    
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int i = 0; i < imageNames.count; i++) {
+        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+    }
+    
+    // Normal Animation
+    UIImageView *animationImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 420, 700)];
+    animationImageView.animationImages = images;
+    animationImageView.animationDuration = 8;
+    
+    [self.view addSubview:animationImageView];
+    [self.view sendSubviewToBack:animationImageView];
+    [animationImageView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -13,6 +13,10 @@
 		961B5D8021075BB200EA09A3 /* ShipMinigameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D7F21075BB200EA09A3 /* ShipMinigameViewController.m */; };
 		961B5D8321075BBF00EA09A3 /* ExploreMinigameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D8221075BBF00EA09A3 /* ExploreMinigameViewController.m */; };
 		961B5D8621076F4A00EA09A3 /* MinigamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961B5D8521076F4A00EA09A3 /* MinigamesViewController.m */; };
+		961CDFE52109AD0E00079150 /* DeveloperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFE42109AD0E00079150 /* DeveloperViewController.m */; };
+		961CDFE92109B43100079150 /* PiratButtonStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFE82109B43100079150 /* PiratButtonStyle.m */; };
+		961CDFEC2109C02700079150 /* BuySellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFEB2109C02700079150 /* BuySellButton.m */; };
+		961CDFEF2109C95C00079150 /* PiratLabelStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFEE2109C95C00079150 /* PiratLabelStyle.m */; };
 		9673ABD621076C7400A02374 /* piratendb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9673ABD521076C7300A02374 /* piratendb.sql */; };
 		9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CB2105D798005000B0 /* AppDelegate.m */; };
 		9695E7CF2105D798005000B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CE2105D798005000B0 /* ViewController.m */; };
@@ -64,6 +68,14 @@
 		961B5D8221075BBF00EA09A3 /* ExploreMinigameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExploreMinigameViewController.m; sourceTree = "<group>"; };
 		961B5D8421076F4A00EA09A3 /* MinigamesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinigamesViewController.h; sourceTree = "<group>"; };
 		961B5D8521076F4A00EA09A3 /* MinigamesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinigamesViewController.m; sourceTree = "<group>"; };
+		961CDFE32109AD0E00079150 /* DeveloperViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeveloperViewController.h; sourceTree = "<group>"; };
+		961CDFE42109AD0E00079150 /* DeveloperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeveloperViewController.m; sourceTree = "<group>"; };
+		961CDFE72109B43100079150 /* PiratButtonStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PiratButtonStyle.h; sourceTree = "<group>"; };
+		961CDFE82109B43100079150 /* PiratButtonStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PiratButtonStyle.m; sourceTree = "<group>"; };
+		961CDFEA2109C02700079150 /* BuySellButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuySellButton.h; sourceTree = "<group>"; };
+		961CDFEB2109C02700079150 /* BuySellButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuySellButton.m; sourceTree = "<group>"; };
+		961CDFED2109C95C00079150 /* PiratLabelStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PiratLabelStyle.h; sourceTree = "<group>"; };
+		961CDFEE2109C95C00079150 /* PiratLabelStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PiratLabelStyle.m; sourceTree = "<group>"; };
 		9673ABD521076C7300A02374 /* piratendb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = piratendb.sql; sourceTree = "<group>"; };
 		9695E7C72105D797005000B0 /* Power_Pirates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Power_Pirates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7CA2105D797005000B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,6 +162,8 @@
 				96DAD05921085D3C00FC0629 /* StockViewController.m */,
 				96D083072108C6E900F83222 /* GameOverViewController.h */,
 				96D083082108C6E900F83222 /* GameOverViewController.m */,
+				961CDFE32109AD0E00079150 /* DeveloperViewController.h */,
+				961CDFE42109AD0E00079150 /* DeveloperViewController.m */,
 			);
 			path = viewcontroller;
 			sourceTree = "<group>";
@@ -159,6 +173,19 @@
 			children = (
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		961CDFE62109B40700079150 /* styles */ = {
+			isa = PBXGroup;
+			children = (
+				961CDFE72109B43100079150 /* PiratButtonStyle.h */,
+				961CDFE82109B43100079150 /* PiratButtonStyle.m */,
+				961CDFEA2109C02700079150 /* BuySellButton.h */,
+				961CDFEB2109C02700079150 /* BuySellButton.m */,
+				961CDFED2109C95C00079150 /* PiratLabelStyle.h */,
+				961CDFEE2109C95C00079150 /* PiratLabelStyle.m */,
+			);
+			path = styles;
 			sourceTree = "<group>";
 		};
 		9695E7BE2105D797005000B0 = {
@@ -186,6 +213,7 @@
 		9695E7C92105D797005000B0 /* Power_Pirates */ = {
 			isa = PBXGroup;
 			children = (
+				961CDFE62109B40700079150 /* styles */,
 				9673ABD521076C7300A02374 /* piratendb.sql */,
 				961B5D5F210728D500EA09A3 /* viewcontroller */,
 				96DD6F35210724CB00DF78A0 /* database */,
@@ -421,10 +449,13 @@
 			files = (
 				96D083092108C6E900F83222 /* GameOverViewController.m in Sources */,
 				9695E8192105DF1A005000B0 /* Storage.m in Sources */,
+				961CDFE92109B43100079150 /* PiratButtonStyle.m in Sources */,
 				96CF7E8221073DD8002A3BA2 /* NotificationManager.m in Sources */,
 				96CF7E8B21075C84002A3BA2 /* Desires.m in Sources */,
 				96DAD05A21085D3C00FC0629 /* StockViewController.m in Sources */,
 				961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */,
+				961CDFE52109AD0E00079150 /* DeveloperViewController.m in Sources */,
+				961CDFEC2109C02700079150 /* BuySellButton.m in Sources */,
 				961B5D8621076F4A00EA09A3 /* MinigamesViewController.m in Sources */,
 				9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */,
 				96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */,
@@ -437,6 +468,7 @@
 				9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */,
 				961B5D8321075BBF00EA09A3 /* ExploreMinigameViewController.m in Sources */,
 				96DAD05721085C9900FC0629 /* MainGameViewController.m in Sources */,
+				961CDFEF2109C95C00079150 /* PiratLabelStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
