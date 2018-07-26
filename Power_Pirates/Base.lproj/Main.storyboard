@@ -421,25 +421,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main Game Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9O-yk-OuF" customClass="PiratLabelStyle">
-                                <rect key="frame" x="115" y="323" width="145" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvm-mu-Uyv" customClass="PiratButtonStyle">
+                                <rect key="frame" x="0.0" y="25" width="46" height="30"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <action selector="openMenu:" destination="psn-SU-xoX" eventType="touchUpInside" id="VIN-f4-1VN"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="da0-ZQ-8Xg">
+                                <rect key="frame" x="-180" y="55" width="329" height="512"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MRN-V3-NoU">
+                                        <rect key="frame" x="0.0" y="0.0" width="329" height="120"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rkj-XL-TAx" customClass="MenuButtonStyle">
+                                                <rect key="frame" x="0.0" y="0.0" width="329" height="30"/>
+                                                <state key="normal" title="Frucht Essen"/>
+                                                <connections>
+                                                    <action selector="onFeedingButton:" destination="psn-SU-xoX" eventType="touchUpInside" id="FOd-ok-0nj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3H-GB-pRt" customClass="MenuButtonStyle">
+                                                <rect key="frame" x="0.0" y="30" width="329" height="30"/>
+                                                <state key="normal" title="Wasser trinken"/>
+                                                <connections>
+                                                    <action selector="onWaterButton:" destination="psn-SU-xoX" eventType="touchUpInside" id="BKb-oF-lSf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4U-Xq-HI8" customClass="MenuButtonStyle">
+                                                <rect key="frame" x="0.0" y="60" width="329" height="30"/>
+                                                <state key="normal" title="Rum trinken"/>
+                                                <connections>
+                                                    <action selector="onRumButton:" destination="psn-SU-xoX" eventType="touchUpInside" id="11m-KS-KPb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruS-9F-cpV" customClass="MenuButtonStyle">
+                                                <rect key="frame" x="0.0" y="90" width="329" height="30"/>
+                                                <state key="normal" title="Medizin"/>
+                                                <connections>
+                                                    <action selector="onMedicineButton:" destination="psn-SU-xoX" eventType="touchUpInside" id="6WU-ks-AOd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MRN-V3-NoU" firstAttribute="leading" secondItem="da0-ZQ-8Xg" secondAttribute="leading" id="hCE-Yr-uQf"/>
+                                    <constraint firstItem="MRN-V3-NoU" firstAttribute="top" secondItem="da0-ZQ-8Xg" secondAttribute="top" id="lFa-z4-p7U"/>
+                                    <constraint firstAttribute="trailing" secondItem="MRN-V3-NoU" secondAttribute="trailing" id="nKU-2b-UVD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VRP-1l-nT7" firstAttribute="bottom" secondItem="da0-ZQ-8Xg" secondAttribute="bottom" constant="120" id="NeS-bW-NBe"/>
+                            <constraint firstItem="da0-ZQ-8Xg" firstAttribute="leading" secondItem="VRP-1l-nT7" secondAttribute="leading" constant="-180" id="T0e-Nf-24e"/>
+                            <constraint firstItem="da0-ZQ-8Xg" firstAttribute="top" secondItem="Hvm-mu-Uyv" secondAttribute="bottom" id="eE3-VX-ePH"/>
+                            <constraint firstAttribute="top" secondItem="Hvm-mu-Uyv" secondAttribute="bottom" constant="-55" id="hMo-Oq-BSI"/>
+                            <constraint firstItem="VRP-1l-nT7" firstAttribute="trailing" secondItem="da0-ZQ-8Xg" secondAttribute="trailing" constant="265" id="lbL-ee-JKC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VRP-1l-nT7"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Main" id="8xK-iY-Of9"/>
                     <connections>
+                        <outlet property="leadingConstraint" destination="T0e-Nf-24e" id="4yg-jM-01K"/>
+                        <outlet property="menuView" destination="da0-ZQ-8Xg" id="x1k-tN-3Pc"/>
                         <outlet property="view" destination="uP0-l0-78r" id="wZE-ml-7zZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3n-27-xyH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925.5999999999999" y="-765.06746626686663"/>
+            <point key="canvasLocation" x="1924.6376811594205" y="-765.48913043478262"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="59R-6O-CPd">
