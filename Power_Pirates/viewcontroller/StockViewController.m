@@ -7,6 +7,7 @@
 //
 
 #import "StockViewController.h"
+#import "GameOverViewController.h"
 
 @interface StockViewController ()
 
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Method to directly go to the GameOver Screen
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
+    [self presentViewController:viewController animated:YES completion:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
