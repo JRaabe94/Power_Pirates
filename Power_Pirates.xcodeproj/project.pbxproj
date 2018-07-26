@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9607E9EC2109CE3600BC8420 /* TypeDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDef.h; sourceTree = "<group>"; };
 		961B5D60210728FF00EA09A3 /* ContinueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContinueViewController.h; sourceTree = "<group>"; };
 		961B5D61210728FF00EA09A3 /* ContinueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContinueViewController.m; sourceTree = "<group>"; };
 		961B5D7221075A5100EA09A3 /* ShopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 				9695E7D82105D798005000B0 /* Info.plist */,
 				9695E7D92105D798005000B0 /* main.m */,
 				96C30EFA2106162700E6F253 /* Main2.storyboard */,
+				9607E9EC2109CE3600BC8420 /* TypeDef.h */,
 			);
 			path = Power_Pirates;
 			sourceTree = "<group>";
