@@ -21,11 +21,13 @@
 
 -(void)saveData;
 
--(NSString *)buy:(NSString *) selectedItem;
+-(NSString *)buy:(int) selectedItem;
 
--(NSString *)sell:(NSString *) selectedItem;
+-(NSString *)sell:(int) selectedItem;
 
--(NSString *)useItem:(NSString *) selectedItem;
+-(NSString *)useItem:(int) selectedItem;
+
+-(void)update:(int)selectedItem amount:(int)amount;
 
 @end
 

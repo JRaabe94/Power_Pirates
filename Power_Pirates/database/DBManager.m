@@ -8,16 +8,7 @@
 #import <sqlite3.h>
 #import <Foundation/Foundation.h>
 #import "DBManager.h"
-
-#define LIFES (5)
-#define LEVEL (1)
-#define ALCLVL (0)
-
-#define FOOD (1)
-#define DRINKS (1)
-#define RUM (0)
-#define FRUITS (0)
-#define MONEY (50)
+#import "TypeDef.h"
 
 @interface DBManager()
 
@@ -182,11 +173,25 @@
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 
-- (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end;
-{
+- (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end {
     
     // Prepare query string
     NSString *query = [NSString stringWithFormat:@"INSERT INTO aktuellebeduerfnisse VALUES ('%d', '%@', '%@')", desireId, start, end];
+    
+    //Execute query
+    [self executeQuery:query];
+    
+    if (self.affectedRows != 0) {
+        NSLog(@"Query was executed successfully. Affected rows = %d", self.affectedRows);
+    }else{
+        NSLog(@"Could not execute the query.");
+    }
+}
+
+- (void)deleteDesire:(NSString *)startDate {
+    
+    // Prepare query string
+    NSString *query = [NSString stringWithFormat:@"DELETE FROM aktuellebeduerfnisse WHERE startDate = '%@'", startDate];
     
     //Execute query
     [self executeQuery:query];
@@ -209,14 +214,33 @@
 {
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM piraten"];
     NSArray *result = [self loadDataFromDB:query];
-    NSLog(@"PIRATEN Eintraege: ");
-    NSLog(@"%@", result);
+    return result;
+}
+
+- (NSArray *)readStorage;
+{
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM lager"];
+    NSArray *result = [self loadDataFromDB:query];
     return result;
 }
 
 -(void)savePirates:(int)newLifes newLvl:(int)newLvl newAlcLvl:(int)newAlcLvl{
     //prepare query string
     NSString *query = [NSString stringWithFormat:@"update piraten set leben = '%d', level = '%d', pegel = '%d'", newLifes, newLvl, newAlcLvl];
+    
+    //Execute query
+    [self executeQuery:query];
+    
+    if (self.affectedRows != 0) {
+        NSLog(@"Query was executed successfully. Affected rows = %d", self.affectedRows);
+    }else{
+        NSLog(@"Could not execute the query.");
+    }
+}
+
+-(void)saveStorage:(int)newAmount newColumn:(const char *)newColumn{
+    //prepare query string
+    NSString *query = [NSString stringWithFormat:@"update lager set anzahl = '%d' where name = '%s'", newAmount, newColumn];
     
     //Execute query
     [self executeQuery:query];
@@ -235,25 +259,24 @@
 }
 
 -(void)generatePirate:(NSString *) pirateName{
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO piraten values(1, '%@', '%d', '%d', '%d')", pirateName, LIFES, LEVEL, ALCLVL];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO piraten values(1, '%@', '%d', '%d', '%d')", pirateName, LIFES_AMOUNT, LEVEL_AMOUNT, ALCLVL_AMOUNT];
     [self executeQuery:query];
 }
 
-//ToDo: schoener machen
 -(void)generateStorage{
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO lager values(1, 'food', 2, 5)"];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO lager values(1, 'food', '%d', '%d')", FOOD_AMOUNT, FOOD_PRICE];
     [self executeQuery:query];
     
-    query = [NSString stringWithFormat:@"INSERT INTO lager values(2, 'drinks', 2, 5)"];
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(2, 'drinks', '%d', '%d')", DRINKS_AMOUNT, DRINKS_PRICE];
     [self executeQuery:query];
     
-    query = [NSString stringWithFormat:@"INSERT INTO lager values(3, 'rum', 0, 15)"];
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(3, 'rum', '%d', '%d')", RUM_AMOUNT, RUM_PRICE];
     [self executeQuery:query];
     
-    query = [NSString stringWithFormat:@"INSERT INTO lager values(4, 'fruits', 0, 15)"];
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(4, 'fruits', '%d', '%d')", FRUITS_AMOUNT, FRUITS_PRICE];
     [self executeQuery:query];
     
-    query = [NSString stringWithFormat:@"INSERT INTO lager values(5, 'money', 20, 0)"];
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(5, 'money', '%d', '%d')", MONEY_AMOUNT, MONEY_PRICE];
     [self executeQuery:query];
 }
 
@@ -266,6 +289,21 @@
     }else{
         return false;
     }
+}
+
+-(void)cleanDatabase{
+    NSString *query = [NSString stringWithFormat:@"DELETE FROM piraten"];
+    [self executeQuery:query];
+    
+    query = [NSString stringWithFormat:@"DELETE FROM lager"];
+    [self executeQuery:query];
+    
+    query = [NSString stringWithFormat:@"DELETE FROM aktuellebeduerfnisse"];
+    [self executeQuery:query];
+}
+-(void)updateField:(NSString *)dbName fieldID:(int)fieldID newAmount:(int)newAmount{
+    NSString *query = [NSString stringWithFormat:@"update '%@' set anzahl = '%d' where id = '%d'", dbName, newAmount, fieldID];
+    [self executeQuery:query];
 }
 
 @end

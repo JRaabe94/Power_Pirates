@@ -25,15 +25,25 @@
 
 - (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end;
 
+- (void)deleteDesire:(NSString *)startDate;
+
 - (NSArray *)readDesires;
 
 - (NSArray *)readPirates;
 
+- (NSArray *)readStorage;
+
 - (void)savePirates:(int)newLifes newLvl:(int)newLvl newAlcLvl:(int)newAlcLvl;
+
+- (void)saveStorage:(int)newAmount newColumn:(const char *) newColumn;
+
+-(void)updateField:(NSString *)dbName fieldID:(int)fieldID newAmount:(int)newAmount;
 
 - (void)newPlayerDatas:(NSString *) pirateName;
 
 - (BOOL)checkPlayerExisting;
+
+-(void)cleanDatabase;
 
 @end
 

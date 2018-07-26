@@ -12,6 +12,8 @@
 
 + (void)createDesire:(int)desireId withTimer:(int)timer andExpiryDate:(int)expiry;
 
++ (void)removeDesire:(NSDate *)time;
+
 + (void)checkStatus;
 
 @end

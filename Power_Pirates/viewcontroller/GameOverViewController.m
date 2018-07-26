@@ -27,33 +27,6 @@
     [self performSegueWithIdentifier:@"GameOverRegisterSegue" sender:self];
 }
 
-//*************** Test Methods ***************
-
-- (IBAction)onNotificationButton:(id)sender {
-}
-
-- (IBAction)onHungryButton:(id)sender {
-}
-
-- (IBAction)onThirstyButton:(id)sender {
-}
-
-- (IBAction)onScurvyButton:(id)sender {
-}
-
-- (IBAction)onDeathButton:(id)sender {
-}
-
-- (IBAction)onLevelUpButton:(id)sender {
-}
-
-- (IBAction)onLooseLifeButton:(id)sender {
-}
-
-- (IBAction)onGameButton:(id)sender {
-}
-
-
 /*
 #pragma mark - Navigation
 

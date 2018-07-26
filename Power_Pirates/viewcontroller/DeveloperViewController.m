@@ -7,6 +7,7 @@
 //
 
 #import "DeveloperViewController.h"
+#import "Desires.h"
 
 @interface DeveloperViewController ()
 
@@ -22,6 +23,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onSkorbutButton:(id)sender {
+    [Desires createDesire:3 withTimer:10 andExpiryDate:20];
 }
 
 /*

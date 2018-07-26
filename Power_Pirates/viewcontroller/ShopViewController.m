@@ -9,7 +9,7 @@
 #import "ShopViewController.h"
 #import "AppDelegate.h"
 #import "DBManager.h"
-#import "Pirates.h"
+#import "Storage.h"
 
 @interface ShopViewController ()
 
@@ -26,6 +26,17 @@
     DBManager *dbManager = [[DBManager alloc] init];    // Test
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     [dbManager readDesires];
+    
+    Storage *storage = [[Storage alloc] init];
+    [storage loadData];
+    
+    //Image
+    NSString *shopIcon = @"shopIcon";
+    UIImage *shopImg = [UIImage imageNamed: shopIcon];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 420, 700)];
+    imageView.image = shopImg;
+    [self.view sendSubviewToBack:imageView];
+    [self.view addSubview:imageView];
 }
 
 - (void)didReceiveMemoryWarning {

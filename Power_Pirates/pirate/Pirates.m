@@ -43,4 +43,16 @@
     NSLog(@"Pegel des Piraten:");
     NSLog(@"%d", self.alcoholLevel);
 }
+-(void)looseLife{
+    self.lifes = self.lifes - 1;
+}
+-(void)gainLevel{
+    self.level = self.level + 1;
+}
+-(void)gainAlcLevel{
+    self.alcoholLevel = self.alcoholLevel + 1;
+}
+-(void)resetAlcLevel{
+    self.alcoholLevel = 0;
+}
 @end
