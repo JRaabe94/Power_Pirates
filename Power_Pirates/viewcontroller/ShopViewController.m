@@ -7,6 +7,7 @@
 //
 
 #import "ShopViewController.h"
+#import "AppDelegate.h"
 #import "DBManager.h"
 #import "Pirates.h"
 
@@ -18,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     // Do any additional setup after loading the view.
     DBManager *dbManager = [[DBManager alloc] init];    // Test
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];

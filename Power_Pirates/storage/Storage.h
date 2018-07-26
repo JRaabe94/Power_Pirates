@@ -9,9 +9,13 @@
 #ifndef Storage_h
 #define Storage_h
 
+@class DBManager;
+
 @interface Storage :NSObject
 
 @property NSArray *supplies;
+
+@property (nonatomic, strong) DBManager *dbManager;
 
 -(void)loadData;
 

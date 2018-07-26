@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Pirates.h"
+#import "DBManager.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +23,8 @@
     // change storyboard
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
+    
+    [self initGame];
     
     return YES;
 }
@@ -64,6 +68,10 @@
     }
     
     return storyboard;
+}
+
+- (void) initGame {
+    
 }
 
 @end
