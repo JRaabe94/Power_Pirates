@@ -48,6 +48,11 @@
     [NotificationManager removePushNotification:time];
 }
 
++ (void)fulfilDesire
+{
+    
+}
+
 + (void)checkStatus
 {
     NSDate *now = [NSDate date];

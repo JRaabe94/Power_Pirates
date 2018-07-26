@@ -14,6 +14,8 @@
 
 + (void)removeDesire:(NSDate *)time;
 
++ (void)fulfilDesire;
+
 + (void)checkStatus;
 
 @end

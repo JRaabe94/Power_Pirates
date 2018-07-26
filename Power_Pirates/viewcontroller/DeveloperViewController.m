@@ -25,9 +25,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onSkorbutButton:(id)sender {
+- (IBAction)onScurvyButton:(id)sender {
+    NSLog(@"Skorbut erstellt");
     [Desires createDesire:3 withTimer:10 andExpiryDate:20];
 }
+
+- (IBAction)onFulfilButton:(id)sender {
+    NSLog(@"Aufgabe erledigt (nicht implementiert");
+    [Desires fulfilDesire];
+}
+
 
 /*
 #pragma mark - Navigation
