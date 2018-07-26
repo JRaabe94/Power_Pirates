@@ -402,7 +402,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvm-mu-Uyv" customClass="PiratButtonStyle">
                                 <rect key="frame" x="0.0" y="25" width="46" height="30"/>
-                                <state key="normal" title="Menu"/>
+                                <state key="normal" title="Menü"/>
                                 <connections>
                                     <action selector="openMenu:" destination="psn-SU-xoX" eventType="touchUpInside" id="VIN-f4-1VN"/>
                                 </connections>
