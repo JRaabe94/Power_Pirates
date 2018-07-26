@@ -23,9 +23,17 @@
 
 - (void)executeQuery:(NSString *)query;
 
-- (void)insertDesire:(int)desireId withTimer:(NSString *)time;
+- (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end;
 
 - (NSArray *)readDesires;
+
+- (NSArray *)readPirates;
+
+- (void)savePirates:(int)newLifes newLvl:(int)newLvl newAlcLvl:(int)newAlcLvl;
+
+- (void)newPlayerDatas:(NSString *) pirateName;
+
+- (BOOL)checkPlayerExisting;
 
 @end
 

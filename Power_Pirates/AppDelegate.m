@@ -74,4 +74,10 @@
     
 }
 
++ (void)checkDesires;
+{
+    // NSDate *now = [NSDate date];
+    // NSArray *desires =
+}
+
 @end

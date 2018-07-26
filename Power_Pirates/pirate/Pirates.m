@@ -16,27 +16,31 @@
 
 @implementation Pirates
 -(void)saveData{
-    //prepare query string
-    NSString *query = [NSString stringWithFormat:@"update piraten set leben = '%d', level = '%d', pegel = '%d'", self.lifes, self.level, self.alcoholLevel];
-    
-    //Execute query
-    [self.dbManager executeQuery:query];
-    
-    if (self.dbManager.affectedRows != 0) {
-        NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
-    }else{
-        NSLog(@"Could not execute the query.");
-    }
+    DBManager *dbManager = [[DBManager alloc] init];    // Test
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    [dbManager savePirates:self.lifes newLvl:self.level newAlcLvl:self.alcoholLevel];
 }
 -(void)loadData{
-    //From query
-    NSString *query = @"select * from piraten";
+    DBManager *dbManager = [[DBManager alloc] init];    // Test
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     
     //Get the results
-    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
-    self.name = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
-    self.lifes = (int)[[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"lebens"]];
-    self.level = (int)[[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"level"]];
-    self.alcoholLevel = (int)[[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"pegel"]];
+    NSArray *results = [dbManager readPirates];
+    //self.name = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
+    self.name = [[results objectAtIndex:0] objectAtIndex:1];
+    NSString *readLifes = [[results objectAtIndex:0] objectAtIndex:2];
+    self.lifes = [readLifes intValue];
+    NSString *readLevel = [[results objectAtIndex:0] objectAtIndex:3];
+    self.level = [readLevel intValue];
+    NSString *readAlc = [[results objectAtIndex:0] objectAtIndex:4];
+    self.alcoholLevel = [readAlc intValue];
+    NSLog(@"Name des Piraten:");
+    NSLog(@"%@", self.name);
+    NSLog(@"Leben des Piraten:");
+    NSLog(@"%d", self.lifes);
+    NSLog(@"Level des Piraten:");
+    NSLog(@"%d", self.level);
+    NSLog(@"Pegel des Piraten:");
+    NSLog(@"%d", self.alcoholLevel);
 }
 @end

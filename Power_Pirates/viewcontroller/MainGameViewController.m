@@ -34,6 +34,30 @@
     
     [self.view addSubview:animationImageView];
     [animationImageView startAnimating];
+    
+    int test = 1;
+    NSString *pirateIcon;
+    switch (test){
+    case 2:
+        pirateIcon = @"Pirate_lvl2";
+        break;
+    case 3:
+        pirateIcon = @"Pirate_lvl3";
+        break;
+    case 4:
+        pirateIcon = @"Pirate_lvl4";
+        break;
+    case 5:
+        pirateIcon = @"Pirate_lvl5";
+        break;
+    default:
+        pirateIcon = @"Pirate_lvl1";
+        break;
+    }
+    UIImage *pirateImg = [UIImage imageNamed:pirateIcon];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 450, 100, 100)];
+    imageView.image = pirateImg;
+    [self.view addSubview:imageView];
 }
 
 - (void)didReceiveMemoryWarning {

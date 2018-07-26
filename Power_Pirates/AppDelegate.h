@@ -16,11 +16,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property DBManager *dbManager;
-@property Storage *storage;
-@property Pirates *pirat;
-
-- (void) initGame;
++ (void)checkDesires;
 
 @end
 

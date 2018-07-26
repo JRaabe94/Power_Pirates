@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "DBManager.h"
 
+#define LIFES (5)
+#define LEVEL (1)
+#define ALCLVL (0)
+
+#define FOOD (1)
+#define DRINKS (1)
+#define RUM (0)
+#define FRUITS (0)
+#define MONEY (50)
+
 @interface DBManager()
 
 @property (nonatomic, strong) NSString *documentsDirectory;
@@ -17,6 +27,8 @@
 
 -(void)runQuery:(const char *)query isQueryExecutable:(BOOL)queryExecutable;
 -(void)copyDatabaseIntoDocumentsDirectory;
+-(void)generatePirate:(NSString *)pirateName;
+-(void)generateStorage;
 
 @end
 
@@ -170,11 +182,11 @@
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 
-- (void)insertDesire:(int)desireId withTimer:(NSString *)time;
+- (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end;
 {
     
     // Prepare query string
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO aktuellebeduerfnisse VALUES ('%d', '%@')", desireId, time];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO aktuellebeduerfnisse VALUES ('%d', '%@', '%@')", desireId, start, end];
     
     //Execute query
     [self executeQuery:query];
@@ -191,6 +203,69 @@
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM aktuellebeduerfnisse"];
     NSArray *result = [self loadDataFromDB:query];
     return result;
+}
+
+- (NSArray *)readPirates;
+{
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM piraten"];
+    NSArray *result = [self loadDataFromDB:query];
+    NSLog(@"PIRATEN Eintraege: ");
+    NSLog(@"%@", result);
+    return result;
+}
+
+-(void)savePirates:(int)newLifes newLvl:(int)newLvl newAlcLvl:(int)newAlcLvl{
+    //prepare query string
+    NSString *query = [NSString stringWithFormat:@"update piraten set leben = '%d', level = '%d', pegel = '%d'", newLifes, newLvl, newAlcLvl];
+    
+    //Execute query
+    [self executeQuery:query];
+    
+    if (self.affectedRows != 0) {
+        NSLog(@"Query was executed successfully. Affected rows = %d", self.affectedRows);
+    }else{
+        NSLog(@"Could not execute the query.");
+    }
+}
+
+//Generates a new Pirate with pre defined values and a given name
+- (void)newPlayerDatas:(NSString *) pirateName {
+    [self generatePirate:pirateName];
+    [self generateStorage];
+}
+
+-(void)generatePirate:(NSString *) pirateName{
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO piraten values(1, '%@', '%d', '%d', '%d')", pirateName, LIFES, LEVEL, ALCLVL];
+    [self executeQuery:query];
+}
+
+//ToDo: schoener machen
+-(void)generateStorage{
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO lager values(1, 'food', 2, 5)"];
+    [self executeQuery:query];
+    
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(2, 'drinks', 2, 5)"];
+    [self executeQuery:query];
+    
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(3, 'rum', 0, 15)"];
+    [self executeQuery:query];
+    
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(4, 'fruits', 0, 15)"];
+    [self executeQuery:query];
+    
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(5, 'money', 20, 0)"];
+    [self executeQuery:query];
+}
+
+//Checks if a player is currently in the database
+- (BOOL)checkPlayerExisting{
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM piraten"];
+    NSArray *result = [self loadDataFromDB:query];
+    if(result != NULL){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 @end
