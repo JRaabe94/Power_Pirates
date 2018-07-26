@@ -29,9 +29,9 @@
 
 - (NSArray *)readPirates;
 
-- (void)savePirates:(int)newLifes newLvl:(int)newLvl newAlcLvl:(int)newAlcLvl;;
+- (void)savePirates:(int)newLifes newLvl:(int)newLvl newAlcLvl:(int)newAlcLvl;
 
-- (void)newPlayerDatas:(NSString *)pirateName;
+- (void)newPlayerDatas:(NSString *) pirateName;
 
 - (BOOL)checkPlayerExisting;
 
