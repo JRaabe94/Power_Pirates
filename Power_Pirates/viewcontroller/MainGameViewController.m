@@ -10,12 +10,17 @@
 
 @interface MainGameViewController ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstraint;
+@property (weak, nonatomic) IBOutlet UIView *menuView;
+@property bool menuShowing;
+
 @end
 
 @implementation MainGameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     // Load images
     NSArray *imageNames = @[@"island_1", @"island_2", @"island_3", @"island_4",
@@ -33,6 +38,7 @@
     animationImageView.animationDuration = 8;
     
     [self.view addSubview:animationImageView];
+    [self.view sendSubviewToBack:animationImageView];
     [animationImageView startAnimating];
     
     int test = 1;
@@ -58,11 +64,41 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 450, 100, 100)];
     imageView.image = pirateImg;
     [self.view addSubview:imageView];
+    
+    
+    // setup Sliding Menu
+    _menuShowing = false;
+    _menuView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//**************** Menu Bar ****************
+- (IBAction)openMenu:(id)sender {
+    // hide or show menuView
+    if(_menuShowing) {
+        _menuView.hidden = YES;
+        _leadingConstraint.constant = -180;
+    } else {
+        _menuView.hidden = NO;
+        _leadingConstraint.constant = 0;
+    }
+    _menuShowing = !_menuShowing;
+}
+
+- (IBAction)onFeedingButton:(id)sender {
+}
+
+- (IBAction)onWaterButton:(id)sender {
+}
+
+- (IBAction)onRumButton:(id)sender {
+}
+
+- (IBAction)onMedicineButton:(id)sender {
 }
 
 /*
