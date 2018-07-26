@@ -23,6 +23,14 @@
 
 -(void)saveData;
 
+-(void)looseLife;
+
+-(void)gainLevel;
+
+-(void)gainAlcLevel;
+
+-(void)resetAlcLevel;
+
 @end
 
 #endif /* Pirates_h */
