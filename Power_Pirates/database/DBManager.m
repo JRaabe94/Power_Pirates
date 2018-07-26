@@ -229,7 +229,7 @@
 }
 
 //Generates a new Pirate with pre defined values and a given name
-- (void)newPlayerDatas:(NSString *) pirateName storageValues:(NSMutableArray *)storageValues {
+- (void)newPlayerDatas:(NSString *) pirateName {
     [self generatePirate:pirateName];
     [self generateStorage];
 }
