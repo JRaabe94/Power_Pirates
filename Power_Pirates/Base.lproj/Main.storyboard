@@ -183,22 +183,25 @@
         <!--Dev-->
         <scene sceneID="Hbn-jl-JkU">
             <objects>
-                <viewController id="6rE-st-jBe" sceneMemberID="viewController">
+                <viewController id="6rE-st-jBe" customClass="DeveloperViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dwu-A2-9Bd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDd-O7-foe" customClass="PiratButtonStyle">
-                                <rect key="frame" x="50" y="123" width="79" height="30"/>
+                                <rect key="frame" x="63" y="123" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Notification"/>
+                                <state key="normal" title="Erfüllen"/>
+                                <connections>
+                                    <action selector="onFulfilButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="Wp2-Bc-LNR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwX-tI-5HJ" customClass="PiratButtonStyle">
                                 <rect key="frame" x="275" y="272" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Skorbut"/>
                                 <connections>
-                                    <action selector="onSkorbutButton:" destination="khH-66-MdW" eventType="touchUpInside" id="mcC-j1-cE2"/>
+                                    <action selector="onScurvyButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="ush-ZS-ozj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOu-Gl-Vp3" customClass="PiratButtonStyle">
@@ -238,7 +241,6 @@
                     <tabBarItem key="tabBarItem" title="Dev" id="ljC-5c-bPv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtL-4T-4BU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="khH-66-MdW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="695.6521739130435" y="1230.9782608695652"/>
         </scene>

@@ -16,6 +16,12 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property DBManager *dbManager;
+
+@property Pirates *pirate;
+
+@property Storage *storage;
+
 + (void)checkDesires;
 
 @end
