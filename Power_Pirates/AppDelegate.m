@@ -89,11 +89,11 @@
                                                        target:self
                                                      selector:@selector(gameLoop)
                                                      userInfo:nil
-                                                      repeats:YES];‚
+                                                      repeats:YES];
 }
 
 -(void)gameLoop{
-    NSLog(@"---Fire---");
+    //NSLog(@"---Fire---");
 }
 
 + (void)checkDesires;
