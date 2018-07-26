@@ -29,6 +29,14 @@
     
     Storage *storage = [[Storage alloc] init];
     [storage loadData];
+    
+    //Image
+    NSString *shopIcon = @"shopIcon";
+    UIImage *shopImg = [UIImage imageNamed: shopIcon];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 420, 700)];
+    imageView.image = shopImg;
+    [self.view sendSubviewToBack:imageView];
+    [self.view addSubview:imageView];
 }
 
 - (void)didReceiveMemoryWarning {
