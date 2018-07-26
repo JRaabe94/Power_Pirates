@@ -9,7 +9,7 @@
 #import "ShopViewController.h"
 #import "AppDelegate.h"
 #import "DBManager.h"
-#import "Pirates.h"
+#import "Storage.h"
 
 @interface ShopViewController ()
 
@@ -26,6 +26,9 @@
     DBManager *dbManager = [[DBManager alloc] init];    // Test
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     [dbManager readDesires];
+    
+    Storage *storage = [[Storage alloc] init];
+    [storage loadData];
 }
 
 - (void)didReceiveMemoryWarning {

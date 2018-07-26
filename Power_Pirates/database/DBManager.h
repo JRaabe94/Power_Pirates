@@ -31,7 +31,11 @@
 
 - (NSArray *)readPirates;
 
+- (NSArray *)readStorage;
+
 - (void)savePirates:(int)newLifes newLvl:(int)newLvl newAlcLvl:(int)newAlcLvl;
+
+- (void)saveStorage:(int)newAmount newColumn:(const char *) newColumn;
 
 - (void)newPlayerDatas:(NSString *) pirateName;
 
