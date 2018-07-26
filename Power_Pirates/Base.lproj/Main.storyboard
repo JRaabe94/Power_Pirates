@@ -356,9 +356,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikp-sK-WgP" customClass="PiratButtonStyle">
-                                <rect key="frame" x="58" y="459" width="109" height="30"/>
+                                <rect key="frame" x="80" y="459" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Inseln erkunden"/>
+                                <state key="normal" title="Erkunden"/>
                                 <connections>
                                     <segue destination="GnU-7x-Q6l" kind="show" id="go9-uX-XWR"/>
                                 </connections>
