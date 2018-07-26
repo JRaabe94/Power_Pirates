@@ -17,6 +17,7 @@
 @end
 
 @implementation Storage
+//Maybe Deprecated
 -(void)saveData{
     //Iterate over all supplie items
     for(int i = 0; i < self.supplies.count; i++){
@@ -36,63 +37,67 @@
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     
     //Get the results
-    NSArray *results = [dbManager readStorage];
-    NSString *readMoney = [[results objectAtIndex:MONEY] objectAtIndex:AMOUNT];
+    self.supplies = [[dbManager readStorage] copy];
+    NSString *readMoney = [[self.supplies objectAtIndex:MONEY] objectAtIndex:AMOUNT];
     self.currentMoney = [readMoney intValue];
-    NSLog(@"AKTUELLER GELDBETRAG:");
-    NSLog(@"%d", self.currentMoney);
 }
--(NSString *)buy:(NSString *)selectedItem{
+-(NSString *)buy:(int)selectedItem{
     int costs = 0;
     int amount = 0;
-    for(int i = 0; i < self.supplies.count; i++){
-        if((NSString*)[[self.supplies objectAtIndex:i] objectAtIndex:NAME] == selectedItem){
-            costs = (int)[[self.supplies objectAtIndex:i] objectAtIndex:PRICE];
-            amount = (int)[[self.supplies objectAtIndex:i] objectAtIndex:AMOUNT];
-            if(costs != 0 && self.currentMoney != 0 && self.currentMoney >= costs){
-                self.currentMoney = self.currentMoney - costs;
-                amount = amount + 1;
-                [[self.supplies objectAtIndex:self.moneyIndex] setValue: [NSNumber numberWithInt:((int)self.currentMoney)] forKey:@"anzahl"];
-                [[self.supplies objectAtIndex:i] setValue: [NSNumber numberWithInt:((int)amount)] forKey:@"anzahl"];
-                return @"Kauf erfolgreich!";
-            }else{
-                return @"Kauf nicht erfolgreich, nicht genug Geld!";
-            }
+    NSLog(@"---------BUY-----------");
+    if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
+        NSString *readCosts = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:PRICE];
+        costs = [readCosts intValue];
+        NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
+        amount = [readAmount intValue];
+        if(costs != 0 && self.currentMoney != 0 && self.currentMoney >= costs){
+            self.currentMoney = self.currentMoney - costs;
+            amount = amount + 1;
+            [self update:selectedItem amount:amount];
+            return @"Kauf erfolgreich!";
+        }else{
+            return @"Kauf nicht erfolgreich, nicht genug Geld!";
         }
     }
     return @"Objekt nicht gefunden!";
 }
--(NSString *)sell:(NSString *)selectedItem{
+-(NSString *)sell:(int)selectedItem{
     int costs = 0;
     int amount = 0;
-    int itemIndex = 0;
-    for(int i = 0; i < self.supplies.count; i++){
-        if((NSString*)[[self.supplies objectAtIndex:i] objectAtIndex:NAME] == selectedItem){
-            costs = (int)[[self.supplies objectAtIndex:i] objectAtIndex:PRICE];
-            amount = (int)[[self.supplies objectAtIndex:i] objectAtIndex:AMOUNT];
-            self.currentMoney = self.currentMoney + (0.5*costs);
+    if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
+        NSString *readCosts = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:PRICE];
+        costs = [readCosts intValue];
+        NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
+        amount = [readAmount intValue];
+        self.currentMoney = self.currentMoney + (0.5*costs);
+        amount = amount - 1;
+        [self update:selectedItem amount:amount];
+        return @"Verkauf erfolgreich!";
+    }else{
+        return @"Verkauf nicht erfolgreich!";
+    }
+}
+-(NSString *)useItem:(int)selectedItem{
+    int amount = 0;
+    if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
+        NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
+        amount = [readAmount intValue];
+        if(amount > 0){
             amount = amount - 1;
-            [[self.supplies objectAtIndex:self.moneyIndex] setValue: [NSNumber numberWithInt:((int)self.currentMoney)] forKey:@"anzahl"];
-            [[self.supplies objectAtIndex:itemIndex] setValue: [NSNumber numberWithInt:((int)amount)] forKey:@"anzahl"];
-            return @"Verkauf erfolgreich!";
+            [self update:selectedItem amount:amount];
+            return @"Erolfgreich benutzt!";
+        }else{
+            return @"Nicht genug Objekte dieser Art!";
         }
     }
     return @"Objekt nicht gefunden!";
 }
--(NSString *)useItem:(NSString *)selectedItem{
-    int amount = 0;
-    for(int i = 0; i < self.supplies.count; i++){
-        if((NSString*)[[self.supplies objectAtIndex:i] objectAtIndex:NAME] == selectedItem){
-            amount = (int)[[self.supplies objectAtIndex:i] objectAtIndex:AMOUNT];
-            if(amount > 1){
-                amount = amount - 1;
-                [[self.supplies objectAtIndex:i] setValue: [NSNumber numberWithInt:((int)amount)] forKey:@"anzahl"];
-                return @"Erolfgreich benutzt!";
-            }else{
-                return @"Nicht genug Objekte dieser Art!";
-            }
-        }
-    }
-    return @"Objekt nicht gefunden!";
+-(void)update:(int)selectedItem amount:(int)amount{
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+
+    [dbManager updateField:@"lager" fieldID:(selectedItem+1) newAmount:amount];
+    [dbManager updateField:@"lager" fieldID:(MONEY+1) newAmount:self.currentMoney];
+    [self loadData];
 }
 @end

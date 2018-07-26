@@ -9,13 +9,21 @@
 #ifndef TypeDef_h
 #define TypeDef_h
 
-//Storage index
+//Storage Attribute index
 /*********************************************************************/
  #define NAME (1)
  #define AMOUNT (2)
  #define PRICE (3)
- #define MONEY (4)
  /********************************************************************/
+
+//Storage Data index
+/*********************************************************************/
+#define FOOD (0)
+#define DRINKS (1)
+#define RUM (2)
+#define FRUITS (3)
+#define MONEY (4)
+/********************************************************************/
 
 
 //Storage/Pirate Standard Amount Values
@@ -29,6 +37,8 @@
 #define RUM_AMOUNT (0)
 #define FRUITS_AMOUNT (0)
 #define MONEY_AMOUNT (50)
+
+#define MAX_SUPPLIES (5)
 /*********************************************************************/
 
 //Storage Standard Price Values
