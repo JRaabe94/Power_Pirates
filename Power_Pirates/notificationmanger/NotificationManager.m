@@ -8,10 +8,9 @@
 
 #import "NotificationManager.h"
 #import "ViewController.h"
+#import "TypeDef.h"
 
 @implementation NotificationManager
-
-NSString *format5 = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
 
 + (void)createPushNotification:(NSString *)message withTimer:(NSDate *)time
 // Creates a Push-notification with the given message that appears at the given time
@@ -19,7 +18,7 @@ NSString *format5 = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
     bool isGrantedNotificationAccess = true;
     if (isGrantedNotificationAccess) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:format5];
+        [formatter setDateFormat:DATE_FORMAT];
         NSString *newId = [formatter stringFromDate:time];
         NSTimeInterval timer = [time timeIntervalSinceNow];
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];

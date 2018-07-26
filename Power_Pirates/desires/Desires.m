@@ -9,14 +9,13 @@
 #import "Desires.h"
 #import "NotificationManager.h"
 #import "DBManager.h"
+#import "TypeDef.h"
 
 @interface Desires()
 
 @end
 
 @implementation Desires
-
-NSString *format = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
 
 + (void)createDesire:(int)desireId withTimer:(int)timer andExpiryDate:(int)expiry
 {
@@ -31,7 +30,7 @@ NSString *format = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
     [NotificationManager createPushNotification:@"Ich bin tot :(" withTimer:expiryDate];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:format];
+    [formatter setDateFormat:DATE_FORMAT];
     
     // Add desire to DB
     DBManager *dbManager = [[DBManager alloc] init];
@@ -44,7 +43,7 @@ NSString *format = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:format];
+    [formatter setDateFormat:DATE_FORMAT];
     [dbManager deleteDesire:[formatter stringFromDate:time]];
     [NotificationManager removePushNotification:time];
 }
@@ -57,7 +56,7 @@ NSString *format = @"yyyy-MM-dd'T'HH:mm:ssZZZZZ";
     NSArray *desires = [dbManager readDesires];
     NSMutableArray *delete = [[NSMutableArray alloc] init];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:format];
+    [formatter setDateFormat:DATE_FORMAT];
     for (NSInteger i = 0; i < [desires count]; i++) {
         NSDate *startDate = [formatter dateFromString: desires[i][1]];
         NSDate *expiryDate = [formatter dateFromString: desires[i][2]];
