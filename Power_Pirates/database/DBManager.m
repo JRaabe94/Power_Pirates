@@ -200,8 +200,6 @@
 {
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM piraten"];
     NSArray *result = [self loadDataFromDB:query];
-    NSLog(@"PIRATEN Eintraege: ");
-    NSLog(@"%@", result);
     return result;
 }
 
@@ -209,8 +207,6 @@
 {
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM lager"];
     NSArray *result = [self loadDataFromDB:query];
-    NSLog(@"STORAGE Eintraege: ");
-    NSLog(@"%@", result);
     return result;
 }
 
@@ -253,7 +249,6 @@
     [self executeQuery:query];
 }
 
-//ToDo: schoener machen
 -(void)generateStorage{
     NSString *query = [NSString stringWithFormat:@"INSERT INTO lager values(1, 'food', '%d', '%d')", FOOD_AMOUNT, FOOD_PRICE];
     [self executeQuery:query];
@@ -280,6 +275,21 @@
     }else{
         return false;
     }
+}
+
+-(void)cleanDatabase{
+    NSString *query = [NSString stringWithFormat:@"DELETE FROM piraten"];
+    [self executeQuery:query];
+    
+    query = [NSString stringWithFormat:@"DELETE FROM lager"];
+    [self executeQuery:query];
+    
+    query = [NSString stringWithFormat:@"DELETE FROM aktuellebeduerfnisse"];
+    [self executeQuery:query];
+}
+-(void)updateField:(NSString *)dbName fieldID:(int)fieldID newAmount:(int)newAmount{
+    NSString *query = [NSString stringWithFormat:@"update '%@' set anzahl = '%d' where id = '%d'", dbName, newAmount, fieldID];
+    [self executeQuery:query];
 }
 
 @end

@@ -35,9 +35,13 @@
 
 - (void)saveStorage:(int)newAmount newColumn:(const char *) newColumn;
 
+-(void)updateField:(NSString *)dbName fieldID:(int)fieldID newAmount:(int)newAmount;
+
 - (void)newPlayerDatas:(NSString *) pirateName;
 
 - (BOOL)checkPlayerExisting;
+
+-(void)cleanDatabase;
 
 @end
 
