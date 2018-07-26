@@ -35,4 +35,13 @@
     [dbManager insertDesire:desireId withTimer:[formatter stringFromDate:expiryDate]];
 }
 
++ (void)checkStatus;
+{
+    NSDate *now = [NSDate date];
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    NSArray *desires = [dbManager readDesires];
+    NSLog(@"%@", desires);
+}
+
 @end

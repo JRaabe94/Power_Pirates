@@ -12,4 +12,6 @@
 
 + (void)createDesire:(int)desireId withTimer:(int)time andExpiryDate:(int)expiry;
 
++ (void)checkStatus;
+
 @end
