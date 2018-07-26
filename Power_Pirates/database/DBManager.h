@@ -25,6 +25,8 @@
 
 - (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end;
 
+- (void)deleteDesire:(NSString *)startDate;
+
 - (NSArray *)readDesires;
 
 - (NSArray *)readPirates;
