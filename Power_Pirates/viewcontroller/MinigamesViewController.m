@@ -15,8 +15,19 @@
 @implementation MinigamesViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self viewLoadSetup];
+}
+
+// this Method will be called everytime the main View is opened
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self viewLoadSetup];
+}
+
+- (void) viewLoadSetup {
+    
 }
 
 - (void)didReceiveMemoryWarning {

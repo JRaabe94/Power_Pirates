@@ -10,4 +10,8 @@
 
 @interface StockViewController : UIViewController
 
+- (void) viewDidLoad;
+
+- (void) viewWillAppear:(BOOL)animated;
+
 @end

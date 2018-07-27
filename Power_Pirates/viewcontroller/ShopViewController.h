@@ -14,4 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *rumPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rumStorageLabel;
 
+- (void) viewDidLoad;
+
+- (void) viewWillAppear:(BOOL)animated;
+
 @end
