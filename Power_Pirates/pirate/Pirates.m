@@ -40,7 +40,6 @@
 -(void)looseLife{
     self.lifes = self.lifes - 1;
     [self.dbManager updatePirateField:P_LIFEDB newAmount:self.lifes];
-    [self loadData];
 }
 -(void)gainLevel{
     self.level = self.level + 1;
