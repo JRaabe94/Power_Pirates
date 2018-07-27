@@ -10,6 +10,7 @@
 #import "Pirates.h"
 #import "DBManager.h"
 #import "Storage.h"
+#import "Desires.h"
 
 @interface AppDelegate ()
 
@@ -70,22 +71,22 @@
     return storyboard;
 }
 
-- (void) initGame {
+- (void)initGame {
     self.pirate = [[Pirates alloc] init];
     [self.pirate loadData];
     
     self.storage = [[Storage alloc] init];
     [self.storage loadData];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.03
-                                                       target:self
-                                                     selector:@selector(gameLoop)
-                                                     userInfo:nil
-                                                      repeats:YES];
-}
+    [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(gameLoop)
+                                   userInfo:nil
+                                    repeats:YES];}
 
--(void)gameLoop{
-    //NSLog(@"---Fire---");
+- (void)gameLoop {
+    NSLog(@"---Fire---");
+    [Desires checkStatus];
 }
 
 @end

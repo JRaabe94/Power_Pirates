@@ -8,6 +8,7 @@
 
 #import "MainGameViewController.h"
 #import "Desires.h"
+#import "AppDelegate.h"
 
 @interface MainGameViewController ()
 
@@ -24,11 +25,10 @@
     
     [super viewDidLoad];
     
-     [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                       target:self
-                                                     selector:@selector(updateDesires)
-                                                     userInfo:nil
-                                                      repeats:YES];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate initGame];
+    
+     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
     
     // Do any additional setup after loading the view.
     // Load images
