@@ -51,6 +51,7 @@
     UNAuthorizationOptions options = UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
     [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
     
+    // show infos from current pirat
     Pirates *pirate = [[Pirates alloc] init];
     [pirate loadData];
 
@@ -78,7 +79,6 @@
     [dbManager cleanDatabase];
     
     [self performSegueWithIdentifier:@"ContinueRegisterSegue" sender:self];
-    //ToDo: laden des alternativen main bildschirms, wo der name eingetragen wird.sonst absturz
 }
 
 /*

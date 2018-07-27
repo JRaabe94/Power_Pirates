@@ -42,6 +42,8 @@
 }
 
 - (void) viewLoadSetup {
+    AppDelegate *appDelegate;
+    
     // Do any additional setup after loading the view.
     // Load images
     NSArray *imageNames = @[@"Storage_1", @"Storage_2", @"Storage_3"];
@@ -114,7 +116,7 @@
      GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
      [self presentViewController:viewController animated:YES completion:nil];*/
    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     _storage = [[Storage alloc] init];
     _pirat = appDelegate.pirate;
