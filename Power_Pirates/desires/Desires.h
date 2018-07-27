@@ -14,7 +14,9 @@
 
 + (void)removeDesire:(NSDate *)time;
 
-+ (void)fulfilDesire;
++ (NSArray *)getActiveDesire;
+
++ (void)fulfilDesire:(NSInteger)givenDesireId;
 
 + (void)checkStatus;
 

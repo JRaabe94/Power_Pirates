@@ -27,12 +27,14 @@
 
 - (IBAction)onScurvyButton:(id)sender {
     NSLog(@"Skorbut erstellt");
-    [Desires createDesire:3 withTimer:10 andExpiryDate:20];
+    [Desires createDesire:3 withTimer:10 andExpiryDate:13];
+    [Desires createDesire:3 withTimer:20 andExpiryDate:60];
+    [Desires createDesire:3 withTimer:80 andExpiryDate:99];
+    [Desires createDesire:3 withTimer:100 andExpiryDate:120];
 }
 
 - (IBAction)onFulfilButton:(id)sender {
-    NSLog(@"Aufgabe erledigt (nicht implementiert");
-    [Desires fulfilDesire];
+    NSLog(@"Kann gelöscht werden");
 }
 
 

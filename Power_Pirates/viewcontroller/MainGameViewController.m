@@ -7,6 +7,7 @@
 //
 
 #import "MainGameViewController.h"
+#import "Desires.h"
 
 @interface MainGameViewController ()
 
@@ -19,6 +20,7 @@
 @implementation MainGameViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
@@ -90,15 +92,19 @@
 }
 
 - (IBAction)onFeedingButton:(id)sender {
+    [Desires fulfilDesire:0];
 }
 
 - (IBAction)onWaterButton:(id)sender {
+    [Desires fulfilDesire:1];
 }
 
 - (IBAction)onRumButton:(id)sender {
+    [Desires fulfilDesire:2];
 }
 
 - (IBAction)onMedicineButton:(id)sender {
+    [Desires fulfilDesire:3];
 }
 
 /*

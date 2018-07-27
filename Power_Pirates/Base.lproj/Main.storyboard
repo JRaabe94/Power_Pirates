@@ -452,6 +452,13 @@
                                     <constraint firstAttribute="trailing" secondItem="MRN-V3-NoU" secondAttribute="trailing" id="nKU-2b-UVD"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-zH-xwm">
+                                <rect key="frame" x="200" y="241" width="89" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -465,6 +472,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Main" id="8xK-iY-Of9"/>
                     <connections>
+                        <outlet property="desireText" destination="CR5-zH-xwm" id="J3x-lj-Sdy"/>
                         <outlet property="leadingConstraint" destination="T0e-Nf-24e" id="4yg-jM-01K"/>
                         <outlet property="menuView" destination="da0-ZQ-8Xg" id="x1k-tN-3Pc"/>
                         <outlet property="view" destination="uP0-l0-78r" id="wZE-ml-7zZ"/>
