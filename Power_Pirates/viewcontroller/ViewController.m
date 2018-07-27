@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NotificationManager.h"
+#import "DBManager.h"
 
 @interface ViewController ()
 
@@ -58,6 +59,10 @@ bool isGrantedNotificationAccess;
 - (IBAction)startGame:(id)sender {
     NSString *enteredText = [_charName text];
     NSLog(@"Value of Input = %@", enteredText);
+    
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    [dbManager newPlayerDatas:enteredText];
 }
 
 - (IBAction)onStartButton:(id)sender {

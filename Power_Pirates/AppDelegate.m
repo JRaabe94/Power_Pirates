@@ -25,9 +25,7 @@
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
     
-    [self initGame];
-    
-    return YES;
+   return YES;
 }
 
 
@@ -59,26 +57,20 @@
 
 //change Storyboard depends if there is a charakter
 - (UIStoryboard *)grabStoryboard {
+    self.dbManager = [[DBManager alloc] init];
+    self.dbManager = [self.dbManager initWithDatabaseFilename:@"piratendb.sql"];
     
     UIStoryboard *storyboard;
-    int test = 1;
-    if (test == 0) {
-        storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    } else {
-        storyboard = [UIStoryboard storyboardWithName:@"Main2" bundle:nil];
-    }
     
+    if([self.dbManager checkIfPlayerExists]){
+        storyboard = [UIStoryboard storyboardWithName:@"Main2" bundle:nil];
+    } else {
+        storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    }
     return storyboard;
 }
 
 - (void) initGame {
-    DBManager *dbManager = [[DBManager alloc] init];    // Test
-    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
-    
-    if([dbManager checkPlayerExisting]){
-        [dbManager newPlayerDatas:@"Ahmed"];
-    }
-    
     self.pirate = [[Pirates alloc] init];
     [self.pirate loadData];
     
@@ -94,12 +86,6 @@
 
 -(void)gameLoop{
     //NSLog(@"---Fire---");
-}
-
-+ (void)checkDesires;
-{
-    // NSDate *now = [NSDate date];
-    // NSArray *desires =
 }
 
 @end

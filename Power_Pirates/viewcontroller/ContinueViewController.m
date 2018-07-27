@@ -53,10 +53,10 @@
     
     Pirates *pirate = [[Pirates alloc] init];
     [pirate loadData];
-    
+
     Storage *storage = [[Storage alloc] init];
     [storage loadData];
-    
+
     _piratNameLabel.text = pirate.name;
     NSString *string = [@(pirate.level) stringValue];
     _piratLvlLabel.text = string;
@@ -77,6 +77,7 @@
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     [dbManager cleanDatabase];
     
+    [self performSegueWithIdentifier:@"ContinueRegisterSegue" sender:self];
     //ToDo: laden des alternativen main bildschirms, wo der name eingetragen wird.sonst absturz
 }
 

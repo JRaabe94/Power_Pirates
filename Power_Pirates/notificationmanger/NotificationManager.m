@@ -22,7 +22,6 @@
         NSString *newId = [formatter stringFromDate:time];
         NSTimeInterval timer = [time timeIntervalSinceNow];
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        NSLog(@"Id: %@", newId);
         
         UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
         content.title = @"Power Pirates";
