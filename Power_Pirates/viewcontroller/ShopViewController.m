@@ -62,18 +62,29 @@ int selectedItem;
     // Dispose of any resources that can be recreated.
 }
 
+//************ Shop Item Buttons ************
 
-//************ Create Shop Information ************
+- (IBAction)onFruitButton:(id)sender {
+    selectedItem = FRUITS;
+    [self createItemInformation:selectedItem];
+}
 
-- (IBAction)onShopItemClick:(id)sender {
+- (IBAction)onRumButton:(id)sender {
+    selectedItem = RUM;
+    [self createItemInformation:selectedItem];
+}
+
+- (IBAction)onFoodButton:(id)sender {
+    selectedItem = FOOD;
+    [self createItemInformation:selectedItem];
+}
+
+- (IBAction)onDrinksButton:(id)sender {
     selectedItem = DRINKS;
     [self createItemInformation:selectedItem];
 }
 
-- (IBAction)onShopItem2Button:(id)sender {
-    selectedItem = FOOD;
-    [self createItemInformation:selectedItem];
-}
+//************ Create Shop Information ************
 
 - (void)onBuyButton:(UIButton *)sender {
     [storage buy:selectedItem];

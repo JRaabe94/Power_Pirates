@@ -35,11 +35,6 @@
     
     [super viewDidLoad];
     [self viewLoadSetup];
-
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate initGame];
-    
-     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
 }
 
 // this Method will be called everytime the main View is opened
@@ -50,10 +45,15 @@
 
 - (void) viewLoadSetup {
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate initGame];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
+    
     // initialice storage and pirat
     _storage = [[Storage alloc] init];
     [_storage loadData];
-    _pirat = [[Pirates alloc] init];
+    _pirat = appDelegate.pirate;		
     [_pirat loadData];
     
     // set up new game Thread
@@ -83,9 +83,9 @@
     [self.view sendSubviewToBack:animationImageView];
     [animationImageView startAnimating];
     
-    int test = 1;
+    int piratLevel = _pirat.level;
     NSString *pirateIcon;
-    switch (test){
+    switch (piratLevel){
         case 2:
             pirateIcon = @"Pirate_lvl2";
             break;

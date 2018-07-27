@@ -11,12 +11,19 @@
 #import "Pirates.h"
 #import "Storage.h"
 #include "AppDelegate.h"
+#import "TypeDef.h"
 #include <stdlib.h>
 
 @interface StockViewController ()
 
 @property Pirates *pirat;
 @property Storage *storage;
+
+@property (weak, nonatomic) IBOutlet UILabel *foodLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fruitsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *drinksLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rumLabel;
+
 
 @end
 
@@ -113,6 +120,18 @@
     _pirat = appDelegate.pirate;
     [_pirat loadData];
     [_storage loadData];
+    
+    // set Amount of Items to Labels
+    _rumLabel.text = _storage.supplies[RUM][AMOUNT];
+    _foodLabel.text = _storage.supplies[FOOD][AMOUNT];
+    _fruitsLabel.text = _storage.supplies[FRUITS][AMOUNT];
+    _drinksLabel.text = _storage.supplies[DRINKS][AMOUNT];
+    
+    // add them to view, to set them to the front
+    [self.view addSubview:_rumLabel];
+    [self.view addSubview:_foodLabel];
+    [self.view addSubview:_fruitsLabel];
+    [self.view addSubview:_drinksLabel];
 }
 
 - (void)didReceiveMemoryWarning {
