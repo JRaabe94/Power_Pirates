@@ -10,4 +10,8 @@
 
 @interface DeveloperViewController : UIViewController
 
+- (void) viewDidLoad;
+
+- (void) viewWillAppear:(BOOL)animated;
+
 @end

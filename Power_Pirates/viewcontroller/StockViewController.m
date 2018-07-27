@@ -22,7 +22,18 @@
 @implementation StockViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    [self viewLoadSetup];
+}
+
+// this Method will be called everytime the main View is opened
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self viewLoadSetup];
+}
+
+- (void) viewLoadSetup {
     // Do any additional setup after loading the view.
     // Load images
     NSArray *imageNames = @[@"Storage_1", @"Storage_2", @"Storage_3"];
@@ -66,11 +77,13 @@
     
     // Method to directly go to the GameOver Screen
     /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
-    [self presentViewController:viewController animated:YES completion:nil];*/
+     GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
+     [self presentViewController:viewController animated:YES completion:nil];*/
     
     _storage = [[Storage alloc] init];
     _pirat = [[Pirates alloc] init];
+    [_pirat loadData];
+    [_storage loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,9 +92,7 @@
 }
 
 - (IBAction)onLootButton:(id)sender {
-    [_pirat loadData];
-    [_storage loadData];
-    
+
     int randomValue = arc4random_uniform(101); // create Random Number
     int numberToWin;
     

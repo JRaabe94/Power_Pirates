@@ -10,4 +10,8 @@
 
 @interface MainGameViewController : UIViewController
 
+- (void) viewDidLoad;
+
+- (void) viewWillAppear:(BOOL)animated;
+
 @end

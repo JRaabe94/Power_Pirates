@@ -26,8 +26,18 @@ int selectedItem;
 @implementation ShopViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     
+    [super viewDidLoad];
+    [self viewLoadSetup];
+}
+
+// this Method will be called everytime the main View is opened
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self viewLoadSetup];
+}
+
+- (void) viewLoadSetup {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //Image
