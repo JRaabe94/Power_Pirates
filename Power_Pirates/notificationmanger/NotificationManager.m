@@ -40,7 +40,9 @@
 + (void)removePushNotification:(NSDate *)time
 {
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    NSString *identifier = [[NSString alloc] initWithFormat:@"%@", time];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DATE_FORMAT];
+    NSString *identifier = [formatter stringFromDate:time];
     [center removePendingNotificationRequestsWithIdentifiers:@[identifier]];
 }
 

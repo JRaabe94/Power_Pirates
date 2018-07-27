@@ -7,11 +7,13 @@
 //
 
 #import "MainGameViewController.h"
+#import "Desires.h"
 
 @interface MainGameViewController ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (weak, nonatomic) IBOutlet UILabel *desireText;
 @property bool menuShowing;
 
 @end
@@ -19,9 +21,10 @@
 @implementation MainGameViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    NSTimer *myTimer =[NSTimer scheduledTimerWithTimeInterval:0.03
+     [NSTimer scheduledTimerWithTimeInterval:0.5
                                                        target:self
                                                      selector:@selector(updateDesires)
                                                      userInfo:nil
@@ -96,19 +99,32 @@
 }
 
 - (IBAction)onFeedingButton:(id)sender {
+    [Desires fulfilDesire:0];
 }
 
 - (IBAction)onWaterButton:(id)sender {
+    [Desires fulfilDesire:1];
 }
 
 - (IBAction)onRumButton:(id)sender {
+    [Desires fulfilDesire:2];
 }
 
 - (IBAction)onMedicineButton:(id)sender {
+    [Desires fulfilDesire:3];
 }
 
 -(void)updateDesires{
-    
+    NSArray *desireText = [NSArray arrayWithObjects:@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut", nil];
+    NSArray *activeDesire = [Desires getActiveDesire];
+    if ([activeDesire count] == 0) {
+        _desireText.text = @"-";
+    } else {
+        NSNumber *desireNumber = activeDesire[0];
+        NSInteger desireId = [desireNumber integerValue];
+        NSString *label = [NSString stringWithFormat:@"%@", desireText[desireId]];
+        _desireText.text = label;
+    }
 }
 
 /*

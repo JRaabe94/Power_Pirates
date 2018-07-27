@@ -200,11 +200,17 @@
                                 <rect key="frame" x="50" y="272" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Durstig"/>
+                                <connections>
+                                    <action selector="onThirstyButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="bRJ-bb-BYC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz7-Kt-3cW" customClass="PiratButtonStyle">
                                 <rect key="frame" x="275" y="123" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Hunger"/>
+                                <connections>
+                                    <action selector="onHungerButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="Qdg-47-Wec"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -355,6 +361,13 @@
                                     <constraint firstAttribute="trailing" secondItem="MRN-V3-NoU" secondAttribute="trailing" id="nKU-2b-UVD"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-zH-xwm">
+                                <rect key="frame" x="126" y="241" width="163" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -368,6 +381,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Main" id="8xK-iY-Of9"/>
                     <connections>
+                        <outlet property="desireText" destination="CR5-zH-xwm" id="m3d-MN-o6b"/>
                         <outlet property="leadingConstraint" destination="T0e-Nf-24e" id="4yg-jM-01K"/>
                         <outlet property="menuView" destination="da0-ZQ-8Xg" id="x1k-tN-3Pc"/>
                         <outlet property="view" destination="uP0-l0-78r" id="wZE-ml-7zZ"/>
