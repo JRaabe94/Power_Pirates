@@ -282,9 +282,9 @@
 
 //Checks if a player is currently in the database
 - (BOOL)checkPlayerExisting{
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM piraten"];
+    NSString *query = [NSString stringWithFormat:@"SELECT count(*) FROM piraten"];
     NSArray *result = [self loadDataFromDB:query];
-    if(result != NULL){
+    if(result != 0){
         return true;
     }else{
         return false;
@@ -301,8 +301,12 @@
     query = [NSString stringWithFormat:@"DELETE FROM aktuellebeduerfnisse"];
     [self executeQuery:query];
 }
--(void)updateField:(NSString *)dbName fieldID:(int)fieldID newAmount:(int)newAmount{
-    NSString *query = [NSString stringWithFormat:@"update '%@' set anzahl = '%d' where id = '%d'", dbName, newAmount, fieldID];
+-(void)updateStorageField:(int)fieldID newAmount:(int)newAmount{
+    NSString *query = [NSString stringWithFormat:@"update lager set anzahl = '%d' where id = '%d'", newAmount, fieldID];
+    [self executeQuery:query];
+}
+-(void)updatePirateField:(NSString *)fieldName newAmount:(int)newAmount{
+    NSString *query = [NSString stringWithFormat:@"update pirate set '%@' = '%d' where id = 1", fieldName, newAmount];
     [self executeQuery:query];
 }
 

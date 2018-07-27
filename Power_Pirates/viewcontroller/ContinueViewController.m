@@ -7,8 +7,18 @@
 //
 
 #import "ContinueViewController.h"
+#import "PiratLabelStyle.h"
+#import "Pirates.h"
+#import "Storage.h"
+#import "DBManager.h"
+#import "TypeDef.h"
 
 @interface ContinueViewController ()
+
+@property (weak, nonatomic) IBOutlet PiratLabelStyle *piratNameLabel;
+@property (weak, nonatomic) IBOutlet PiratLabelStyle *piratLvlLabel;
+@property (weak, nonatomic) IBOutlet PiratLabelStyle *piratGoldLabel;
+
 
 @end
 
@@ -40,6 +50,17 @@
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     UNAuthorizationOptions options = UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
     [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+    
+    Pirates *pirate = [[Pirates alloc] init];
+    [pirate loadData];
+    
+    Storage *storage = [[Storage alloc] init];
+    [storage loadData];
+    
+    _piratNameLabel.text = pirate.name;
+    NSString *string = [@(pirate.level) stringValue];
+    _piratLvlLabel.text = string;
+    _piratGoldLabel.text = storage.supplies[MONEY][AMOUNT];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +70,14 @@
 
 - (IBAction)onContinueButton:(id)sender {
     [self performSegueWithIdentifier:@"ContinueMainGameSegue" sender:self];
+}
+
+- (IBAction)onResetButton:(id)sender {
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    [dbManager cleanDatabase];
+    
+    //ToDo: laden des alternativen main bildschirms, wo der name eingetragen wird.sonst absturz
 }
 
 /*

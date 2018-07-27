@@ -27,7 +27,6 @@
     
     //Get the results
     NSArray *results = [dbManager readPirates];
-    //self.name = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
     self.name = [[results objectAtIndex:0] objectAtIndex:P_NAME];
     NSString *readLifes = [[results objectAtIndex:0] objectAtIndex:P_LIFE];
     self.lifes = [readLifes intValue];
@@ -35,25 +34,32 @@
     self.level = [readLevel intValue];
     NSString *readAlc = [[results objectAtIndex:0] objectAtIndex:P_ALCLVL];
     self.alcoholLevel = [readAlc intValue];
-    NSLog(@"Name des Piraten:");
-    NSLog(@"%@", self.name);
-    NSLog(@"Leben des Piraten:");
-    NSLog(@"%d", self.lifes);
-    NSLog(@"Level des Piraten:");
-    NSLog(@"%d", self.level);
-    NSLog(@"Pegel des Piraten:");
-    NSLog(@"%d", self.alcoholLevel);
+    NSString *readDes = [[results objectAtIndex:0] objectAtIndex:P_BED];
+    self.ffdesires = [readDes intValue];
 }
 -(void)looseLife{
     self.lifes = self.lifes - 1;
+    [self.dbManager updatePirateField:P_LIFEDB newAmount:self.lifes];
+    [self loadData];
 }
 -(void)gainLevel{
     self.level = self.level + 1;
+    [self.dbManager updatePirateField:P_LVLDB newAmount:self.lifes];
+    [self loadData];
 }
 -(void)gainAlcLevel{
     self.alcoholLevel = self.alcoholLevel + 1;
+    [self.dbManager updatePirateField:P_ALCLVLDB newAmount:self.lifes];
+    [self loadData];
 }
 -(void)resetAlcLevel{
     self.alcoholLevel = 0;
+    [self.dbManager updatePirateField:P_ALCLVLDB newAmount:self.lifes];
+    [self loadData];
+}
+-(void)gainEP{
+    self.ffdesires = self.ffdesires + 1;
+    [self.dbManager updatePirateField:P_BEDDB newAmount:self.ffdesires];
+    [self loadData];
 }
 @end
