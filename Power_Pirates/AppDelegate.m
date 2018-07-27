@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Pirates.h"
 #import "DBManager.h"
+#import "Storage.h"
 
 @interface AppDelegate ()
 
@@ -60,7 +61,7 @@
 - (UIStoryboard *)grabStoryboard {
     
     UIStoryboard *storyboard;
-    int test = 1;
+    int test = 0;
     if (test == 0) {
         storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     } else {
@@ -71,7 +72,28 @@
 }
 
 - (void) initGame {
+    DBManager *dbManager = [[DBManager alloc] init];    // Test
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    //[dbManager cleanDatabase];
+    if([dbManager checkPlayerExisting]==false){
+        [dbManager newPlayerDatas:@"Hans"];
+    }
     
+    self.pirate = [[Pirates alloc] init];
+    [self.pirate loadData];
+    
+    self.storage = [[Storage alloc] init];
+    [self.storage loadData];
+    
+    NSTimer *myTimer =[NSTimer scheduledTimerWithTimeInterval:0.03
+                                                       target:self
+                                                     selector:@selector(gameLoop)
+                                                     userInfo:nil
+                                                      repeats:YES];
+}
+
+-(void)gameLoop{
+    //NSLog(@"---Fire---");
 }
 
 + (void)checkDesires;

@@ -8,13 +8,26 @@
 
 #import "ExploreMinigameViewController.h"
 
+@import CoreMotion;
+
 @interface ExploreMinigameViewController ()
 
+@property (nonatomic) CMPedometer *pedometer;
+
+@property (nonatomic) int stepCount;
+
+-(void)updateCounter:(CMPedometerData *)pedometerData;
+
+-(BOOL)checkWin;
+
 @end
+
+int stepsNeeded = 0;
 
 @implementation ExploreMinigameViewController
 
 - (void)viewDidLoad {
+    stepsNeeded = 500;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -26,6 +39,43 @@
 
 - (IBAction)onBackButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)onStartButton:(id)sender {
+    NSLog(@"Gestartet");
+    //live tracking start
+    [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
+       //called for each live update
+        [self updateCounter:pedometerData];
+    }];
+}
+
+-(void)updateCounter:(CMPedometerData *)pedometerData{
+    //Formatter for cutting the data
+    //NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    if([CMPedometer isStepCountingAvailable]){
+        self.stepCount = [[pedometerData numberOfSteps] intValue];
+        NSLog(@"%d", self.stepCount);
+    }
+    if([self checkWin]){
+        [self.pedometer stopPedometerUpdates];
+        NSLog(@"Geschafft!");
+    }
+}
+
+-(BOOL)checkWin{
+    if(self.stepCount > stepsNeeded){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+-(CMPedometer *) pedometer{
+    if(!_pedometer){
+        _pedometer = [[CMPedometer alloc] init];
+    }
+    return _pedometer;
 }
 
 /*

@@ -44,7 +44,6 @@
 -(NSString *)buy:(int)selectedItem{
     int costs = 0;
     int amount = 0;
-    NSLog(@"---------BUY-----------");
     if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
         NSString *readCosts = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:PRICE];
         costs = [readCosts intValue];
@@ -100,4 +99,5 @@
     [dbManager updateField:@"lager" fieldID:(MONEY+1) newAmount:self.currentMoney];
     [self loadData];
 }
+
 @end

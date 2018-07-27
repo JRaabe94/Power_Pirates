@@ -9,14 +9,14 @@
 #ifndef TypeDef_h
 #define TypeDef_h
 
-//Storage Attribute index
+//Storage Attribute Array-index
 /*********************************************************************/
  #define NAME (1)
  #define AMOUNT (2)
  #define PRICE (3)
  /********************************************************************/
 
-//Storage Data index
+//Storage Data Array-index
 /*********************************************************************/
 #define FOOD (0)
 #define DRINKS (1)
@@ -25,12 +25,21 @@
 #define MONEY (4)
 /********************************************************************/
 
+//Storage Attribute Array-index
+/*********************************************************************/
+#define P_NAME (1)
+#define P_LIFE (2)
+#define P_LVL (3)
+#define P_ALCLVL (4)
+/********************************************************************/
+
 
 //Storage/Pirate Standard Amount Values
 /*********************************************************************/
 #define LIFES_AMOUNT (5)
 #define LEVEL_AMOUNT (1)
 #define ALCLVL_AMOUNT (0)
+#define FFDESIRE_AMOUNT (0)
 
 #define FOOD_AMOUNT (1)
 #define DRINKS_AMOUNT (1)

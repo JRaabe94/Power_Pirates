@@ -23,6 +23,12 @@
     
     [super viewDidLoad];
     
+    NSTimer *myTimer =[NSTimer scheduledTimerWithTimeInterval:0.03
+                                                       target:self
+                                                     selector:@selector(updateDesires)
+                                                     userInfo:nil
+                                                      repeats:YES];
+    
     // Do any additional setup after loading the view.
     // Load images
     NSArray *imageNames = @[@"island_1", @"island_2", @"island_3", @"island_4",
@@ -105,6 +111,10 @@
 
 - (IBAction)onMedicineButton:(id)sender {
     [Desires fulfilDesire:3];
+}
+
+-(void)updateDesires{
+    
 }
 
 /*
