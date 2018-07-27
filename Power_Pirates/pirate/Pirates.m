@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Pirates.h"
 #import "DBManager.h"
+#import "TypeDef.h"
 
 @interface Pirates()
 @property (nonatomic, strong) DBManager *dbManager;
@@ -27,12 +28,12 @@
     //Get the results
     NSArray *results = [dbManager readPirates];
     //self.name = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
-    self.name = [[results objectAtIndex:0] objectAtIndex:1];
-    NSString *readLifes = [[results objectAtIndex:0] objectAtIndex:2];
+    self.name = [[results objectAtIndex:0] objectAtIndex:P_NAME];
+    NSString *readLifes = [[results objectAtIndex:0] objectAtIndex:P_LIFE];
     self.lifes = [readLifes intValue];
-    NSString *readLevel = [[results objectAtIndex:0] objectAtIndex:3];
+    NSString *readLevel = [[results objectAtIndex:0] objectAtIndex:P_LVL];
     self.level = [readLevel intValue];
-    NSString *readAlc = [[results objectAtIndex:0] objectAtIndex:4];
+    NSString *readAlc = [[results objectAtIndex:0] objectAtIndex:P_ALCLVL];
     self.alcoholLevel = [readAlc intValue];
     NSLog(@"Name des Piraten:");
     NSLog(@"%@", self.name);
