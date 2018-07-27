@@ -60,6 +60,16 @@
     }
     return @"Objekt nicht gefunden!";
 }
+-(NSString *)give:(int)selectedItem{
+    int amount = 0;
+    if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
+        NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
+        amount = [readAmount intValue];
+        amount = amount + 1;
+        [self update:selectedItem amount:amount];
+    }
+    return @"Objekt nicht gefunden!";
+}
 -(NSString *)sell:(int)selectedItem{
     int costs = 0;
     int amount = 0;
