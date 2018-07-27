@@ -74,7 +74,7 @@
 - (void) initGame {
     DBManager *dbManager = [[DBManager alloc] init];    // Test
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
-    
+    //[dbManager cleanDatabase];
     if([dbManager checkPlayerExisting]==false){
         [dbManager newPlayerDatas:@"Hans"];
     }

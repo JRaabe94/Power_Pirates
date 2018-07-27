@@ -259,7 +259,7 @@
 }
 
 -(void)generatePirate:(NSString *) pirateName{
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO piraten values(1, '%@', '%d', '%d', '%d')", pirateName, LIFES_AMOUNT, LEVEL_AMOUNT, ALCLVL_AMOUNT];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO piraten values(1, '%@', '%d', '%d', '%d', '%d')", pirateName, LIFES_AMOUNT, LEVEL_AMOUNT, ALCLVL_AMOUNT, FFDESIRE_AMOUNT];
     [self executeQuery:query];
 }
 

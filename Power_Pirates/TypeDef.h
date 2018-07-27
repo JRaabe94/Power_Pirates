@@ -39,6 +39,7 @@
 #define LIFES_AMOUNT (5)
 #define LEVEL_AMOUNT (1)
 #define ALCLVL_AMOUNT (0)
+#define FFDESIRE_AMOUNT (0)
 
 #define FOOD_AMOUNT (1)
 #define DRINKS_AMOUNT (1)
