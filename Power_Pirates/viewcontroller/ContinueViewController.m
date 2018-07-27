@@ -53,10 +53,10 @@
     
     Pirates *pirate = [[Pirates alloc] init];
     [pirate loadData];
-    
+
     Storage *storage = [[Storage alloc] init];
     [storage loadData];
-    
+
     _piratNameLabel.text = pirate.name;
     NSString *string = [@(pirate.level) stringValue];
     _piratLvlLabel.text = string;

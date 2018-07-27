@@ -22,7 +22,5 @@
 
 @property Storage *storage;
 
-+ (void)checkDesires;
-
 @end
 

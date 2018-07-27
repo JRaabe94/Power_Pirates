@@ -43,7 +43,7 @@
 
 - (void)newPlayerDatas:(NSString *) pirateName;
 
-- (BOOL)checkPlayerExisting;
+- (BOOL)checkIfPlayerExists;
 
 -(void)cleanDatabase;
 
