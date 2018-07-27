@@ -12,10 +12,16 @@
 #import "Storage.h"
 #import "PiratLabelStyle.h"
 #import "BuySellButton.h"
+#import "TypeDef.h"
 
 @interface ShopViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 
 @end
+
+UIStackView *horizontalStackView;
+Storage *storage;
+int selectedItem;
 
 @implementation ShopViewController
 
@@ -24,14 +30,6 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    // Do any additional setup after loading the view.
-    DBManager *dbManager = [[DBManager alloc] init];    // Test
-    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
-    [dbManager readDesires];
-    
-    Storage *storage = [[Storage alloc] init];
-    [storage loadData];
-    
     //Image
     NSString *shopIcon = @"shopIcon";
     UIImage *shopImg = [UIImage imageNamed: shopIcon];
@@ -39,6 +37,14 @@
     imageView.image = shopImg;
     [self.view sendSubviewToBack:imageView];
     [self.view addSubview:imageView];
+    
+    
+    
+    storage = [[Storage alloc] init];
+    [storage loadData];
+    _moneyLabel.text = storage.supplies[MONEY][AMOUNT];
+    
+    NSLog(@"%@", storage.supplies);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +56,43 @@
 //************ Create Shop Information ************
 
 - (IBAction)onShopItemClick:(id)sender {
-    UIStackView *horizontalStackView = [[UIStackView alloc] init];
+    selectedItem = DRINKS;
+    [self createItemInformation:selectedItem];
+}
+
+- (IBAction)onShopItem2Button:(id)sender {
+    selectedItem = FOOD;
+    [self createItemInformation:selectedItem];
+}
+
+- (void)onBuyButton:(UIButton *)sender {
+    [storage buy:selectedItem];
+    [self updateLabels:selectedItem];
+    
+    NSLog(@"Buy button was tapped: dismiss the view controller.");
+}
+
+- (void)onSellButton:(UIButton *)sender {
+    [storage sell:selectedItem];
+    [self updateLabels:selectedItem];
+    
+    NSLog(@"Sell button was tapped: dismiss the view controller.");
+}
+
+- (void) createItemInformation:(int)itemID {
+    
+    if(horizontalStackView != nil) {
+        // remove all previous elements
+        [horizontalStackView.arrangedSubviews[0] removeFromSuperview];
+        [horizontalStackView.arrangedSubviews[0] removeFromSuperview];
+        [horizontalStackView.arrangedSubviews[0] removeFromSuperview];
+        [horizontalStackView.arrangedSubviews[0] removeFromSuperview];
+    } else {
+        // for the first time there are no elements in the stack view
+        horizontalStackView = [[UIStackView alloc] init];
+    }
+    
+    // create content for stack view
     PiratLabelStyle *itemName =[[PiratLabelStyle alloc] init];
     PiratLabelStyle *itemPriceName =[[PiratLabelStyle alloc] init];
     PiratLabelStyle *itemNumberName =[[PiratLabelStyle alloc] init];
@@ -64,10 +106,10 @@
     horizontalStackView.distribution = UIStackViewDistributionFillEqually;
     horizontalStackView.frame = CGRectMake(0, 600, UIScreen.mainScreen.bounds.size.width, 100);
     
-    itemName.text = @"Wasser";
-    itemPriceName.text = @"5";
-    [itemPriceName.text stringByAppendingString:@"Dublonen"]; // is like + for Strings
-    itemNumberName.text = @"0";
+    itemName.text = storage.supplies[itemID][NAME];
+    itemPriceName.text = storage.supplies[itemID][PRICE];
+    itemPriceName.text = [itemPriceName.text stringByAppendingString:@" Dublonen"];
+    itemNumberName.text = storage.supplies[itemID][AMOUNT];
     itemNumberName.textAlignment = NSTextAlignmentRight;
     
     verticalStackView.axis = UILayoutConstraintAxisVertical;
@@ -76,13 +118,14 @@
     
     [buyButton setTitle:@"Kaufen" forState:UIControlStateNormal];
     [sellButton setTitle:@"Verkaufen" forState:UIControlStateNormal];
-    
+
     
     // add functionality to buy/sell-Button
     [buyButton addTarget:self action:@selector(onBuyButton:) forControlEvents:UIControlEventTouchUpInside];
     
     [sellButton addTarget:self action:@selector(onSellButton:) forControlEvents:UIControlEventTouchUpInside];
     
+    // add content to the stack views
     [verticalStackView addArrangedSubview:buyButton];
     [verticalStackView addArrangedSubview:sellButton];
     
@@ -92,17 +135,13 @@
     [horizontalStackView addArrangedSubview:itemNumberName];
     
     [self.view addSubview:horizontalStackView];
-    
 }
 
-- (void)onBuyButton:(UIButton *)sender {
-    NSLog(@"Buy button was tapped: dismiss the view controller.");
-}
+- (void) updateLabels:(int)itemID {
+    ((PiratLabelStyle*)horizontalStackView.arrangedSubviews[3]).text = storage.supplies [itemID][AMOUNT];
 
-- (void)onSellButton:(UIButton *)sender {
-    NSLog(@"Sell button was tapped: dismiss the view controller.");
+    _moneyLabel.text = storage.supplies[MONEY][AMOUNT];
 }
-
 
 /*
 #pragma mark - Navigation
