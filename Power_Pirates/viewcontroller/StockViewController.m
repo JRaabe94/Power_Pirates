@@ -107,11 +107,10 @@
      GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
      [self presentViewController:viewController animated:YES completion:nil];*/
    
-    //AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     _storage = [[Storage alloc] init];
-    //_pirat = appDelegate.pirate;
-    _pirat = [[Pirates alloc] init];
+    _pirat = appDelegate.pirate;
     [_pirat loadData];
     [_storage loadData];
 }
@@ -159,7 +158,7 @@
         NSLog(@"Gewonnen");
     } else {
         [_pirat looseLife];
-        NSLog(@"%d Leben verloren", _pirat.lifes);
+        NSLog(@"Leben: %d", _pirat.lifes);
     }
 }
 
