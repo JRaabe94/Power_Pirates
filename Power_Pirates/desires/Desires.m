@@ -11,6 +11,7 @@
 #import "DBManager.h"
 #import "TypeDef.h"
 #import "AppDelegate.h"
+#import "Pirates.h"
 
 @interface Desires()
 
@@ -95,6 +96,8 @@
             NSLog(@"Bedürfnis erfüllt");
             [self removeDesire:startDate];
             [NotificationManager removePushNotification:expiryDate];
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appDelegate.pirate gainEP];
         } else {
             NSLog(@"Falsches Bedürfnis!");
         }
