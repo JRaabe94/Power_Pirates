@@ -98,7 +98,7 @@
     [self.view addSubview:imageView8];
     
     UIImage *meatImg2 = [UIImage imageNamed:@"Meat"];
-    UIImageView *imageView9 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 510, 100, 100)];
+    UIImageView *imageView9 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 530, 100, 100)];
     imageView9.image = meatImg2;
     [self.view addSubview:imageView9];
     
