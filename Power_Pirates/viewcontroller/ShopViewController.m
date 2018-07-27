@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "DBManager.h"
 #import "Storage.h"
+#import "PiratLabelStyle.h"
+#import "BuySellButton.h"
 
 @interface ShopViewController ()
 
@@ -45,12 +47,62 @@
 }
 
 
-//************ Rum Button Action ************
-- (IBAction)onRumBuyButton:(id)sender {
+//************ Create Shop Information ************
+
+- (IBAction)onShopItemClick:(id)sender {
+    UIStackView *horizontalStackView = [[UIStackView alloc] init];
+    PiratLabelStyle *itemName =[[PiratLabelStyle alloc] init];
+    PiratLabelStyle *itemPriceName =[[PiratLabelStyle alloc] init];
+    PiratLabelStyle *itemNumberName =[[PiratLabelStyle alloc] init];
+    
+    UIStackView *verticalStackView = [[UIStackView alloc] init];
+    BuySellButton *buyButton =[[BuySellButton alloc] init];
+    BuySellButton *sellButton =[[BuySellButton alloc] init];
+    
+    horizontalStackView.axis = UILayoutConstraintAxisHorizontal;
+    horizontalStackView.alignment = UIStackViewAlignmentCenter;
+    horizontalStackView.distribution = UIStackViewDistributionFillEqually;
+    horizontalStackView.frame = CGRectMake(0, 600, UIScreen.mainScreen.bounds.size.width, 100);
+    
+    itemName.text = @"Wasser";
+    itemPriceName.text = @"5";
+    [itemPriceName.text stringByAppendingString:@"Dublonen"]; // is like + for Strings
+    itemNumberName.text = @"0";
+    itemNumberName.textAlignment = NSTextAlignmentRight;
+    
+    verticalStackView.axis = UILayoutConstraintAxisVertical;
+    verticalStackView.alignment = UIStackViewAlignmentFill;
+    verticalStackView.distribution = UIStackViewDistributionFill;
+    
+    [buyButton setTitle:@"Kaufen" forState:UIControlStateNormal];
+    [sellButton setTitle:@"Verkaufen" forState:UIControlStateNormal];
+    
+    
+    // add functionality to buy/sell-Button
+    [buyButton addTarget:self action:@selector(onBuyButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [sellButton addTarget:self action:@selector(onSellButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [verticalStackView addArrangedSubview:buyButton];
+    [verticalStackView addArrangedSubview:sellButton];
+    
+    [horizontalStackView addArrangedSubview:itemName];
+    [horizontalStackView addArrangedSubview:itemPriceName];
+    [horizontalStackView addArrangedSubview:verticalStackView];
+    [horizontalStackView addArrangedSubview:itemNumberName];
+    
+    [self.view addSubview:horizontalStackView];
     
 }
-- (IBAction)onRumSellButton:(id)sender {
+
+- (void)onBuyButton:(UIButton *)sender {
+    NSLog(@"Buy button was tapped: dismiss the view controller.");
 }
+
+- (void)onSellButton:(UIButton *)sender {
+    NSLog(@"Sell button was tapped: dismiss the view controller.");
+}
+
 
 /*
 #pragma mark - Navigation
