@@ -39,7 +39,6 @@
 
 + (void)removePushNotification:(NSDate *)time
 {
-    NSLog(@"removePushNotification aufgerufen");
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];

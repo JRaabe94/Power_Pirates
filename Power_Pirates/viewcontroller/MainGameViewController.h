@@ -10,6 +10,4 @@
 
 @interface MainGameViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *desireText;
-
 @end

@@ -47,9 +47,6 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
     [dbManager deleteDesire:[formatter stringFromDate:time]];
-    // Remove notification for failed desire
-    [NotificationManager removePushNotification:time];
-    // Change displayed active-desire-text
 }
 
 + (NSArray *)getActiveDesire
@@ -63,13 +60,14 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
     
-    NSInteger desireId = -1;
+    NSNumber *desireId;
     NSDate *startDate;
     NSDate *expiryDate;
     NSDate *now = [NSDate date];
     
     for (NSInteger i = 0; i < [desires count]; i++) {
-        desireId = [desires[i][0] intValue];
+        desireId = desires[i][0];
+//        desireId = [NSNumber numberWithInt:[desires[i][0] intValue]];
         startDate = [formatter dateFromString: desires[i][1]];
         expiryDate = [formatter dateFromString: desires[i][2]];
         if ([startDate compare:now] == NSOrderedSame || [startDate compare:now] == NSOrderedAscending) {
@@ -77,43 +75,26 @@
                 break;
             }
         }
+        desireId = NULL;
         startDate = NULL;
+        expiryDate = NULL;
     }
-    NSArray *result = [NSArray arrayWithObjects:startDate, expiryDate, desireId, nil];
+    NSArray *result = [NSArray arrayWithObjects:desireId, startDate, expiryDate, nil];
     return result;
 }
 
 + (void)fulfilDesire:(NSInteger)givenDesireId
 {
-    // Read from db
-    DBManager *dbManager = [[DBManager alloc] init];
-    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
-    NSArray *desires = [dbManager readDesires];
-    
-    NSDate *now = [NSDate date];
-    NSDate *startDate;
-    NSDate *expiryDate;
-    NSString *readId;
-    NSInteger desireId = -1;
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:DATE_FORMAT];
-    for (NSInteger i = 0; i < [desires count]; i++) {
-        readId = desires[i][0];
-        desireId = [desires[i][0] intValue];
-        startDate = [formatter dateFromString: desires[i][1]];
-        expiryDate = [formatter dateFromString: desires[i][2]];
-        if ([startDate compare:now] == NSOrderedSame || [startDate compare:now] == NSOrderedAscending) {
-            if (!([expiryDate compare:now] == NSOrderedSame || [expiryDate compare:now] == NSOrderedAscending)) {
-                break;
-            }
-        }
-        startDate = NULL;
-    }
-    if (startDate != NULL) {
+    NSArray *desire = [self getActiveDesire];
+    if ([desire count] != 0) {
+        NSInteger desireId = [desire[0] integerValue];
+        NSDate *startDate = desire[1];
+        NSDate *expiryDate = desire[2];
         NSLog(@"Selectet desire: %@", startDate);
         if (givenDesireId == desireId) {
             NSLog(@"Bedürfnis erfüllt");
             [self removeDesire:startDate];
+            [NotificationManager removePushNotification:expiryDate];
         } else {
             NSLog(@"Falsches Bedürfnis!");
         }
