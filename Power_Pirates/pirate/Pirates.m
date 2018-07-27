@@ -58,7 +58,7 @@
     [self loadData];
 }
 -(void)gainEP{
-    self.ffdesires = 0;
+    self.ffdesires = self.ffdesires + 1;
     [self.dbManager updatePirateField:P_BEDDB newAmount:self.ffdesires];
     [self loadData];
 }
