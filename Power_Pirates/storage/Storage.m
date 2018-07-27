@@ -71,13 +71,11 @@
     return @"Objekt nicht gefunden!";
 }
 -(NSString *)sell:(int)selectedItem{
-    int costs = 0;
-    int amount = 0;
+    NSString *readCosts = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:PRICE];
+    int costs = [readCosts intValue];
+    NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
+    int amount = [readAmount intValue];
     if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1) && amount > 0){
-        NSString *readCosts = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:PRICE];
-        costs = [readCosts intValue];
-        NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
-        amount = [readAmount intValue];
         self.currentMoney = self.currentMoney + (0.5*costs);
         amount = amount - 1;
         [self update:selectedItem amount:amount];
@@ -87,10 +85,9 @@
     }
 }
 -(NSString *)useItem:(int)selectedItem{
-    int amount = 0;
+    NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
+    int amount = [readAmount intValue];
     if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
-        NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
-        amount = [readAmount intValue];
         if(amount > 0){
             amount = amount - 1;
             [self update:selectedItem amount:amount];
