@@ -15,8 +15,8 @@
 
 @interface MainGameViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *lifeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goldLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *lifeImageView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
@@ -49,19 +49,19 @@
 }
 
 - (void) viewLoadSetup {
-    [NSTimer scheduledTimerWithTimeInterval:0.5
-                                     target:self
-                                   selector:@selector(updateDesires)
-                                   userInfo:nil
-                                    repeats:YES];
     
-    // set life and gold Labels
+    // initialice storage and pirat
     _storage = [[Storage alloc] init];
     [_storage loadData];
     _pirat = [[Pirates alloc] init];
     [_pirat loadData];
     
-    _goldLabel.text = _storage.supplies[MONEY][AMOUNT];
+    // set up new game Thread
+    [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(updateDesires)
+                                   userInfo:nil
+                                    repeats:YES];
     
     // Do any additional setup after loading the view.
     // Load images
@@ -111,6 +111,33 @@
     // setup Sliding Menu
     _menuShowing = false;
     _menuView.hidden = YES;
+    
+    // gold Label and Heart Image
+    _goldLabel.text = _storage.supplies[MONEY][AMOUNT];
+    
+    int piratLife = _pirat.lifes;
+    NSString *lifeImageString;
+    switch (piratLife) {
+        case 1:
+            lifeImageString = @"Heart_5";
+            break;
+        case 2:
+            lifeImageString = @"Heart_4";
+            break;
+        case 3:
+            lifeImageString = @"Heart_3";
+            break;
+        case 4:
+            lifeImageString = @"Heart_2";
+            break;
+        case 5:
+            lifeImageString = @"Heart_1";
+            break;
+        default:
+            break;
+    }
+    UIImage *lifeImage = [UIImage imageNamed:lifeImageString];
+    _lifeImageView.image = lifeImage;
 }
 
 - (void)didReceiveMemoryWarning {
