@@ -301,8 +301,12 @@
     query = [NSString stringWithFormat:@"DELETE FROM aktuellebeduerfnisse"];
     [self executeQuery:query];
 }
--(void)updateField:(NSString *)dbName fieldID:(int)fieldID newAmount:(int)newAmount{
-    NSString *query = [NSString stringWithFormat:@"update '%@' set anzahl = '%d' where id = '%d'", dbName, newAmount, fieldID];
+-(void)updateStorageField:(int)fieldID newAmount:(int)newAmount{
+    NSString *query = [NSString stringWithFormat:@"update lager set anzahl = '%d' where id = '%d'", newAmount, fieldID];
+    [self executeQuery:query];
+}
+-(void)updatePirateField:(NSString *)fieldName newAmount:(int)newAmount{
+    NSString *query = [NSString stringWithFormat:@"update pirate set '%@' = '%d' where id = 1", fieldName, newAmount];
     [self executeQuery:query];
 }
 

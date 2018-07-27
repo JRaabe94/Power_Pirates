@@ -25,12 +25,22 @@
 #define MONEY (4)
 /********************************************************************/
 
-//Storage Attribute Array-index
+//Pirate Attribute Array-index
 /*********************************************************************/
 #define P_NAME (1)
 #define P_LIFE (2)
 #define P_LVL (3)
 #define P_ALCLVL (4)
+#define P_BED (5)
+/********************************************************************/
+
+//Pirate Attribute DBNames
+/*********************************************************************/
+#define P_NAMEDB @"name"
+#define P_LIFEDB @"leben"
+#define P_LVLDB @"level"
+#define P_ALCLVLDB @"pegel"
+#define P_BEDDB @"geschaffteBeduerfnisse"
 /********************************************************************/
 
 

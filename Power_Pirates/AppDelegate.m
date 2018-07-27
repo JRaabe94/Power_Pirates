@@ -61,7 +61,7 @@
 - (UIStoryboard *)grabStoryboard {
     
     UIStoryboard *storyboard;
-    int test = 0;
+    int test = 1;
     if (test == 0) {
         storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     } else {
@@ -74,9 +74,11 @@
 - (void) initGame {
     DBManager *dbManager = [[DBManager alloc] init];    // Test
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    
     if([dbManager checkPlayerExisting]){
         [dbManager newPlayerDatas:@"Ahmed"];
     }
+    
     self.pirate = [[Pirates alloc] init];
     [self.pirate loadData];
     

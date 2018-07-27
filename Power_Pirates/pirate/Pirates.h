@@ -19,6 +19,8 @@
 
 @property int alcoholLevel;
 
+@property int ffdesires;
+
 -(void)loadData;
 
 -(void)saveData;
@@ -26,6 +28,8 @@
 -(void)looseLife;
 
 -(void)gainLevel;
+
+-(void)gainEP;
 
 -(void)gainAlcLevel;
 

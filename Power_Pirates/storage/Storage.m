@@ -95,8 +95,8 @@
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
 
-    [dbManager updateField:@"lager" fieldID:(selectedItem+1) newAmount:amount];
-    [dbManager updateField:@"lager" fieldID:(MONEY+1) newAmount:self.currentMoney];
+    [dbManager updateStorageField:(selectedItem+1) newAmount:amount];
+    [dbManager updateStorageField:(MONEY+1) newAmount:self.currentMoney];
     [self loadData];
 }
 

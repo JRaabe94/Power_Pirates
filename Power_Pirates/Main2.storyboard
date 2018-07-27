@@ -39,6 +39,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVc-FZ-DU4" customClass="PiratButtonStyle">
                                 <rect key="frame" x="100" y="423" width="62" height="30"/>
                                 <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="onResetButton:" destination="g8Z-Sh-jAh" eventType="touchUpInside" id="8CL-UX-VwQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GR-qP-AYk" customClass="PiratLabelStyle">
                                 <rect key="frame" x="252" y="148" width="77" height="21"/>
@@ -96,6 +99,9 @@
                         <viewLayoutGuide key="safeArea" id="eFS-DH-rql"/>
                     </view>
                     <connections>
+                        <outlet property="piratGoldLabel" destination="alv-rm-iGp" id="GHF-mC-Q10"/>
+                        <outlet property="piratLvlLabel" destination="JhW-Tf-s5O" id="ODD-6o-NXR"/>
+                        <outlet property="piratNameLabel" destination="8GR-qP-AYk" id="WZj-Ly-c2z"/>
                         <segue destination="x0m-dh-Ngm" kind="show" identifier="ContinueMainGameSegue" id="Xwg-iT-u4b"/>
                     </connections>
                 </viewController>
