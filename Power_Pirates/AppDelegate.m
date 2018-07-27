@@ -85,7 +85,7 @@
                                     repeats:YES];}
 
 - (void)gameLoop {
-    NSLog(@"---Fire---");
+//    NSLog(@"---Fire---");
     [Desires checkStatus];
 }
 

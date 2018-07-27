@@ -9,6 +9,9 @@
 #import "MainGameViewController.h"
 #import "Desires.h"
 #import "AppDelegate.h"
+#import "Storage.h"
+#import "Pirates.h"
+#import "TypeDef.h"
 
 @interface MainGameViewController ()
 
@@ -32,6 +35,11 @@
     
     [super viewDidLoad];
     [self viewLoadSetup];
+
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate initGame];
+    
+     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
 }
 
 // this Method will be called everytime the main View is opened
@@ -53,10 +61,7 @@
     _pirat = [[Pirates alloc] init];
     [_pirat loadData];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate initGame];
-    
-     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
+    _goldLabel.text = _storage.supplies[MONEY][AMOUNT];
     
     // Do any additional setup after loading the view.
     // Load images
