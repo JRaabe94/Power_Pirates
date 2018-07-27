@@ -12,6 +12,7 @@
 #import "Storage.h"
 #import "Pirates.h"
 #import "TypeDef.h"
+#import "DBManager.h"
 
 @interface MainGameViewController ()
 
@@ -32,7 +33,6 @@
 
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     [self viewLoadSetup];
 }
@@ -40,7 +40,8 @@
 // this Method will be called everytime the main View is opened
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self viewLoadSetup];
+    // Auskommentiert, weil sonst immer ein neuer Pirat erstellt wird
+//    [self viewLoadSetup];
 }
 
 - (void) viewLoadSetup {
@@ -49,6 +50,7 @@
     [appDelegate initGame];
     
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateLifes) userInfo:nil repeats:YES];
     
     // initialice storage and pirat
     _storage = [[Storage alloc] init];
@@ -57,11 +59,7 @@
     [_pirat loadData];
     
     // set up new game Thread
-    [NSTimer scheduledTimerWithTimeInterval:0.5
-                                     target:self
-                                   selector:@selector(updateDesires)
-                                   userInfo:nil
-                                    repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
     
     // Do any additional setup after loading the view.
     // Load images
@@ -174,17 +172,44 @@
     [Desires fulfilDesire:3];
 }
 
--(void)updateDesires{
+- (void)updateDesires {
     NSArray *desireText = [NSArray arrayWithObjects:@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut", nil];
     NSArray *activeDesire = [Desires getActiveDesire];
     if ([activeDesire count] == 0) {
-        _desireText.text = @"-";
+        _desireText.text = @"";
     } else {
         NSNumber *desireNumber = activeDesire[0];
         NSInteger desireId = [desireNumber integerValue];
         NSString *label = [NSString stringWithFormat:@"%@", desireText[desireId]];
         _desireText.text = label;
     }
+}
+
+- (void)updateLifes {
+    int piratLife = _pirat.lifes;
+    NSLog(@"Leben: %d", piratLife);
+    NSString *lifeImageString;
+    switch (piratLife) {
+        case 1:
+            lifeImageString = @"Heart_5";
+            break;
+        case 2:
+            lifeImageString = @"Heart_4";
+            break;
+        case 3:
+            lifeImageString = @"Heart_3";
+            break;
+        case 4:
+            lifeImageString = @"Heart_2";
+            break;
+        case 5:
+            lifeImageString = @"Heart_1";
+            break;
+        default:
+            break;
+    }
+    UIImage *lifeImage = [UIImage imageNamed:lifeImageString];
+    _lifeImageView.image = lifeImage;
 }
 
 /*

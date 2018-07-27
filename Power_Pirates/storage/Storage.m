@@ -21,7 +21,7 @@
 -(void)saveData{
     //Iterate over all supplie items
     for(int i = 0; i < self.supplies.count; i++){
-        DBManager *dbManager = [[DBManager alloc] init];    // Test
+        DBManager *dbManager = [[DBManager alloc] init];
         dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
         
         //Get the attribute values
@@ -33,7 +33,7 @@
     }
 }
 -(void)loadData{
-    DBManager *dbManager = [[DBManager alloc] init];    // Test
+    DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     
     //Get the results

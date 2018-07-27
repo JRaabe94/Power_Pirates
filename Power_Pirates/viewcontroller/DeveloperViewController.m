@@ -38,19 +38,19 @@
 
 - (IBAction)onScurvyButton:(id)sender {
     NSLog(@"Viel Skorbut erstellt");
-    [Desires createDesire:3 withTimer:10 andExpiryDate:13];
-    [Desires createDesire:3 withTimer:20 andExpiryDate:60];
-    [Desires createDesire:3 withTimer:80 andExpiryDate:99];
-    [Desires createDesire:3 withTimer:100 andExpiryDate:120];
+    [Desires createDesire:3 withTimer:4 andExpiryDate:8];
+    [Desires createDesire:3 withTimer:12 andExpiryDate:16];
+    [Desires createDesire:3 withTimer:20 andExpiryDate:24];
+    [Desires createDesire:3 withTimer:28 andExpiryDate:32];
 }
 
 - (IBAction)onHungerButton:(id)sender {
-    NSLog(@"Hunger in 10 sek erstellt");
+    NSLog(@"Hunger in 10s mit 10s Zeit erstellt");
     [Desires createDesire:0 withTimer:10 andExpiryDate:20];
 }
 
 - (IBAction)onThirstyButton:(id)sender {
-    NSLog(@"Durst in 30 sek erstellt");
+    NSLog(@"Durst in 30s mit 20s Zeit erstellt");
     [Desires createDesire:1 withTimer:30 andExpiryDate:50];
 }
 

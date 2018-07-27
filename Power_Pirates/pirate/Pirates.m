@@ -17,12 +17,12 @@
 
 @implementation Pirates
 -(void)saveData{
-    DBManager *dbManager = [[DBManager alloc] init];    // Test
+    DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     [dbManager savePirates:self.lifes newLvl:self.level newAlcLvl:self.alcoholLevel];
 }
 -(void)loadData{
-    DBManager *dbManager = [[DBManager alloc] init];    // Test
+    DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     
     //Get the results

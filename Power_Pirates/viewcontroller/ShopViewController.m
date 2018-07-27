@@ -38,7 +38,7 @@ int selectedItem;
 }
 
 - (void) viewLoadSetup {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //Image
     NSString *shopIcon = @"shopIcon";
@@ -54,7 +54,7 @@ int selectedItem;
     [storage loadData];
     _moneyLabel.text = storage.supplies[MONEY][AMOUNT];
     
-    NSLog(@"%@", storage.supplies);
+//    NSLog(@"%@", storage.supplies);
 }
 
 - (void)didReceiveMemoryWarning {
