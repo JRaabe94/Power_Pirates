@@ -295,7 +295,7 @@
     [self executeQuery:query];
 }
 -(void)updatePirateField:(NSString *)fieldName newAmount:(int)newAmount{
-    NSString *query = [NSString stringWithFormat:@"update pirate set '%@' = '%d' where id = 1", fieldName, newAmount];
+    NSString *query = [NSString stringWithFormat:@"update piraten set '%@' = '%d' where id = 1", fieldName, newAmount];
     [self executeQuery:query];
 }
 
