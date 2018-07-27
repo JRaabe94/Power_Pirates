@@ -57,5 +57,11 @@
 -(void)gainEP{
     self.ffdesires = self.ffdesires + 1;
     [self.dbManager updatePirateField:P_BEDDB newAmount:self.ffdesires];
+    [self checkLevelUp];
+}
+-(void)checkLevelUp{
+    /*if(self.ffdesires > LVL2 && self.ffdesires < LVL3){
+        
+    }else if (self.ffdesires > LVL2 && self.ffdesires < LVL3)*/
 }
 @end

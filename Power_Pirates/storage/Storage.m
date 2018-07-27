@@ -73,7 +73,7 @@
 -(NSString *)sell:(int)selectedItem{
     int costs = 0;
     int amount = 0;
-    if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
+    if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1) && amount > 0){
         NSString *readCosts = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:PRICE];
         costs = [readCosts intValue];
         NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
