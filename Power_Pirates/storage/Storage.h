@@ -23,6 +23,8 @@
 
 -(NSString *)buy:(int) selectedItem;
 
+-(NSString *)give:(int) selectedItem;
+
 -(NSString *)sell:(int) selectedItem;
 
 -(NSString *)useItem:(int) selectedItem;
