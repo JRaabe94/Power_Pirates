@@ -8,6 +8,7 @@
 
 #import "MainGameViewController.h"
 #import "Desires.h"
+#import "AppDelegate.h"
 #import "Storage.h"
 #import "Pirates.h"
 #import "TypeDef.h"
@@ -34,6 +35,11 @@
     
     [super viewDidLoad];
     [self viewLoadSetup];
+
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate initGame];
+    
+     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
 }
 
 // this Method will be called everytime the main View is opened

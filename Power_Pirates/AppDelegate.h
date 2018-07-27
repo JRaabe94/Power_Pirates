@@ -22,5 +22,7 @@
 
 @property Storage *storage;
 
+- (void)initGame;
+
 @end
 

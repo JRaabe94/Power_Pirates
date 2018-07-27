@@ -104,7 +104,21 @@
     }
 }
 
++ (void)failDesire:(NSDate *)time {
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DATE_FORMAT];
+    
+    // Delete desire from db
+    [dbManager deleteDesire:[formatter stringFromDate:time]];
+    // Lose 1 life
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.pirate looseLife];
+}
+
 + (void)checkStatus
+// Checks expired desires
 {
     //Read from db
     NSDate *now = [NSDate date];
@@ -117,17 +131,15 @@
     for (NSInteger i = 0; i < [desires count]; i++) {
         NSDate *startDate = [formatter dateFromString: desires[i][1]];
         NSDate *expiryDate = [formatter dateFromString: desires[i][2]];
-        NSLog(@"%@", startDate);
-        NSLog(@"%@", expiryDate);
         if ([expiryDate compare:now] == NSOrderedSame || [expiryDate compare:now] == NSOrderedAscending) {
             NSLog(@"Aufgabe ist abgelaufen!!");
             [delete addObject:startDate];
         }
     }
 
-    // Delete expired desires
+    // Fail expired desires
     for (NSDate *date in delete) {
-        [dbManager deleteDesire:[formatter stringFromDate:date]];
+        [self failDesire:date];
     }
 }
 
