@@ -8,8 +8,14 @@
 
 #import "StockViewController.h"
 #import "GameOverViewController.h"
+#import "Pirates.h"
+#import "Storage.h"
+#include <stdlib.h>
 
 @interface StockViewController ()
+
+@property Pirates *pirat;
+@property Storage *storage;
 
 @end
 
@@ -63,11 +69,57 @@
     GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
     [self presentViewController:viewController animated:YES completion:nil];*/
     
+    _storage = [[Storage alloc] init];
+    _pirat = [[Pirates alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onLootButton:(id)sender {
+    [_pirat loadData];
+    [_storage loadData];
+    
+    int randomValue = arc4random_uniform(101); // create Random Number
+    int numberToWin;
+    
+    // set winchance dependend on lvl
+    switch (_pirat.level) {
+        case 2:
+            numberToWin = 50;
+            break;
+        case 3:
+            numberToWin = 35;
+            break;
+        case 4:
+            numberToWin = 25;
+            break;
+        case 5:
+            numberToWin = 15;
+            break;
+        default: // lvl 1
+            numberToWin = 66;
+            break;
+    }
+    
+    if(randomValue >= numberToWin) {
+        // get item
+        int randomItem = arc4random_uniform(5);
+        if(randomItem == 4) {
+            // get 10 gold
+            for (int i = 0; i < 10; i++) {
+                [_storage give:randomItem];
+            }
+        } else {
+            [_storage give:randomItem];
+        }
+        NSLog(@"Gewonnen");
+    } else {
+        [_pirat looseLife];
+        NSLog(@"%d Leben verloren", _pirat.lifes);
+    }
 }
 
 /*
