@@ -282,9 +282,9 @@
 
 //Checks if a player is currently in the database
 - (BOOL)checkPlayerExisting{
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM piraten"];
+    NSString *query = [NSString stringWithFormat:@"SELECT count(*) FROM piraten"];
     NSArray *result = [self loadDataFromDB:query];
-    if(result != NULL){
+    if(result != 0){
         return true;
     }else{
         return false;
