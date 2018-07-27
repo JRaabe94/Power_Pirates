@@ -8,27 +8,54 @@
 
 #import "MainGameViewController.h"
 #import "Desires.h"
+#import "Storage.h"
+#import "Pirates.h"
+#import "TypeDef.h"
 
 @interface MainGameViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *lifeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goldLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UILabel *desireText;
 @property bool menuShowing;
 
+@property Storage *storage;
+@property Pirates *pirat;
+
 @end
 
 @implementation MainGameViewController
 
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    [self viewLoadSetup];
+}
+
+// this Method will be called everytime the main View is opened
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self viewLoadSetup];
+}
+
+- (void) viewLoadSetup {
+    [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(updateDesires)
+                                   userInfo:nil
+                                    repeats:YES];
     
-     [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                       target:self
-                                                     selector:@selector(updateDesires)
-                                                     userInfo:nil
-                                                      repeats:YES];
+    // set life and gold Labels
+    _storage = [[Storage alloc] init];
+    [_storage loadData];
+    _pirat = [[Pirates alloc] init];
+    [_pirat loadData];
+    
+    _goldLabel.text = _storage.supplies[MONEY][AMOUNT];
     
     // Do any additional setup after loading the view.
     // Load images
@@ -53,21 +80,21 @@
     int test = 1;
     NSString *pirateIcon;
     switch (test){
-    case 2:
-        pirateIcon = @"Pirate_lvl2";
-        break;
-    case 3:
-        pirateIcon = @"Pirate_lvl3";
-        break;
-    case 4:
-        pirateIcon = @"Pirate_lvl4";
-        break;
-    case 5:
-        pirateIcon = @"Pirate_lvl5";
-        break;
-    default:
-        pirateIcon = @"Pirate_lvl1";
-        break;
+        case 2:
+            pirateIcon = @"Pirate_lvl2";
+            break;
+        case 3:
+            pirateIcon = @"Pirate_lvl3";
+            break;
+        case 4:
+            pirateIcon = @"Pirate_lvl4";
+            break;
+        case 5:
+            pirateIcon = @"Pirate_lvl5";
+            break;
+        default:
+            pirateIcon = @"Pirate_lvl1";
+            break;
     }
     UIImage *pirateImg = [UIImage imageNamed:pirateIcon];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 450, 100, 100)];

@@ -10,4 +10,8 @@
 
 @interface MinigamesViewController : UIViewController
 
+- (void) viewDidLoad;
+
+- (void) viewWillAppear:(BOOL)animated;
+
 @end
