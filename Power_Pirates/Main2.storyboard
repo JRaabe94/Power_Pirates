@@ -103,6 +103,7 @@
                         <outlet property="piratLvlLabel" destination="JhW-Tf-s5O" id="ODD-6o-NXR"/>
                         <outlet property="piratNameLabel" destination="8GR-qP-AYk" id="WZj-Ly-c2z"/>
                         <segue destination="x0m-dh-Ngm" kind="show" identifier="ContinueMainGameSegue" id="Xwg-iT-u4b"/>
+                        <segue destination="Zl5-hu-uac" kind="show" identifier="ContinueRegisterSegue" id="GRe-9a-ZI9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADv-m0-fSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,6 +117,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbR-nt-tfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="851" y="-229"/>
+        </scene>
+        <!--RegisterViewControllerID-->
+        <scene sceneID="8Cx-Yp-So9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="RegisterViewControllerID" id="Zl5-hu-uac" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCy-Cp-rhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="-39"/>
         </scene>
     </scenes>
 </document>
