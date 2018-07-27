@@ -86,6 +86,17 @@
 
 + (void)fulfilDesire:(NSInteger)givenDesireId
 {
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    NSArray *storage = [dbManager readStorage];
+    NSNumber *amount = storage[givenDesireId][2];
+    if ([amount integerValue] < 1) {
+        // Not enough in storage
+        NSLog(@"Not enough in storage");
+        return;
+    }
+    [dbManager updateStorageField:(int)givenDesireId+1 newAmount:(int)[amount integerValue] - 1];
+    
     NSArray *desire = [self getActiveDesire];
     if ([desire count] != 0) {
         NSInteger desireId = [desire[0] integerValue];
