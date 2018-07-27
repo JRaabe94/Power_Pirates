@@ -88,6 +88,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shopIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eI8-fN-ceL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZn-EB-ONG">
+                                <rect key="frame" x="26" y="208" width="159" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Orange"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeR-mk-ZJ1">
+                                <rect key="frame" x="232" y="163" width="159" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Bottles"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHs-IV-9j0">
+                                <rect key="frame" x="26" y="470" width="160" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Meat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3re-u0-Noc">
+                                <rect key="frame" x="223" y="436" width="160" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Coconut"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -102,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeJ-Ka-TRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="574"/>
+            <point key="canvasLocation" x="1924.6376811594205" y="573.91304347826087"/>
         </scene>
         <!--Lager-->
         <scene sceneID="xeP-Ff-BoN">
@@ -472,4 +496,11 @@
             <point key="canvasLocation" x="959" y="118"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Bottles" width="159" height="211"/>
+        <image name="Coconut" width="160" height="130"/>
+        <image name="Meat" width="160" height="130"/>
+        <image name="Orange" width="159" height="211"/>
+        <image name="shopIcon" width="414" height="736"/>
+    </resources>
 </document>

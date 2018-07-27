@@ -76,6 +76,32 @@
     [self.view addSubview:imageView4];
     
     
+    //goods img
+    UIImage *coconutBoxImg = [UIImage imageNamed:@"Coconutbox"];
+    UIImageView *imageView5 = [[UIImageView alloc] initWithFrame:CGRectMake(300, 530, 100, 100)];
+    imageView5.image = coconutBoxImg;
+    [self.view addSubview:imageView5];
+    
+    UIImage *orangeBoxImg = [UIImage imageNamed:@"Orangebox"];
+    UIImageView *imageView6 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 580, 100, 100)];
+    imageView6.image = orangeBoxImg;
+    [self.view addSubview:imageView6];
+    
+    UIImage *bottleBoxImg = [UIImage imageNamed:@"Bottlebox"];
+    UIImageView *imageView7 = [[UIImageView alloc] initWithFrame:CGRectMake(204, 460, 100, 100)];
+    imageView7.image = bottleBoxImg;
+    [self.view addSubview:imageView7];
+    
+    UIImage *meatImg = [UIImage imageNamed:@"Meat"];
+    UIImageView *imageView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 480, 100, 100)];
+    imageView8.image = meatImg;
+    [self.view addSubview:imageView8];
+    
+    UIImage *meatImg2 = [UIImage imageNamed:@"Meat"];
+    UIImageView *imageView9 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 510, 100, 100)];
+    imageView9.image = meatImg2;
+    [self.view addSubview:imageView9];
+    
     // Method to directly go to the GameOver Screen
     /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
      GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
