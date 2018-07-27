@@ -10,6 +10,7 @@
 #import "GameOverViewController.h"
 #import "Pirates.h"
 #import "Storage.h"
+#include "AppDelegate.h"
 #include <stdlib.h>
 
 @interface StockViewController ()
@@ -79,9 +80,11 @@
     /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
      GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
      [self presentViewController:viewController animated:YES completion:nil];*/
+   
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     _storage = [[Storage alloc] init];
-    _pirat = [[Pirates alloc] init];
+    _pirat = appDelegate.pirate;
     [_pirat loadData];
     [_storage loadData];
 }

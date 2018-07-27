@@ -378,15 +378,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leben" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ik-N9-9hN">
-                                <rect key="frame" x="331" y="55" width="48" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fLq-gA-pdl">
+                                <rect key="frame" x="347" y="138" width="47" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyH-Oz-d3h">
-                                <rect key="frame" x="331" y="112" width="36" height="21"/>
+                                <rect key="frame" x="358" y="109" width="36" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -408,7 +405,7 @@
                         <outlet property="desireText" destination="CR5-zH-xwm" id="m3d-MN-o6b"/>
                         <outlet property="goldLabel" destination="EyH-Oz-d3h" id="bh3-sc-zvj"/>
                         <outlet property="leadingConstraint" destination="T0e-Nf-24e" id="4yg-jM-01K"/>
-                        <outlet property="lifeLabel" destination="8ik-N9-9hN" id="o8a-8K-eLS"/>
+                        <outlet property="lifeImageView" destination="fLq-gA-pdl" id="kXM-ak-ljj"/>
                         <outlet property="menuView" destination="da0-ZQ-8Xg" id="x1k-tN-3Pc"/>
                         <outlet property="view" destination="uP0-l0-78r" id="wZE-ml-7zZ"/>
                     </connections>
