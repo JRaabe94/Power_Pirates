@@ -7,21 +7,22 @@
 //
 
 #import "NotificationManager.h"
-#import "ViewController.h"
 #import "TypeDef.h"
 
 @implementation NotificationManager
 
-+ (void)createPushNotification:(NSString *)message withTimer:(NSDate *)time
-// Creates a Push-notification with the given message that appears at the given time
-{
-    bool isGrantedNotificationAccess = true;
-    if (isGrantedNotificationAccess) {
++ (void)createPushNotification:(NSString *)message withTimer:(NSDate *)time {
+    __block BOOL hasAcces;
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        hasAcces = settings.authorizationStatus == UNAuthorizationStatusAuthorized;
+    }];
+    
+    if (hasAcces) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:DATE_FORMAT];
         NSString *newId = [formatter stringFromDate:time];
         NSTimeInterval timer = [time timeIntervalSinceNow];
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         
         UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
         content.title = @"Power Pirates";
@@ -36,8 +37,7 @@
     }
 }
 
-+ (void)removePushNotification:(NSDate *)time
-{
++ (void)removePushNotification:(NSDate *)time {
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];

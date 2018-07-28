@@ -47,11 +47,6 @@
     [self.view sendSubviewToBack:animationImageView];
     [animationImageView startAnimating];
     
-    // Ask for push notification permission, kann später gelöscht werden
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    UNAuthorizationOptions options = UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
-    [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
-    
     // show infos from current pirat
     Pirates *pirate = [[Pirates alloc] init];
     [pirate loadData];
