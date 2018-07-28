@@ -15,4 +15,6 @@
 
 + (void)removePushNotification:(NSDate *)time;
 
++ (void)cleanPushNotifications;
+
 @end

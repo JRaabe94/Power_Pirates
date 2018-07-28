@@ -45,4 +45,10 @@
     [center removePendingNotificationRequestsWithIdentifiers:@[identifier]];
 }
 
++ (void)cleanPushNotifications {
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center removeAllDeliveredNotifications];
+    [center removeAllPendingNotificationRequests];
+}
+
 @end

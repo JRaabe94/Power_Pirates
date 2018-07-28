@@ -12,6 +12,7 @@
 #import "Storage.h"
 #import "DBManager.h"
 #import "TypeDef.h"
+#import "NotificationManager.h"
 
 @interface ContinueViewController ()
 
@@ -77,6 +78,7 @@
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     [dbManager cleanDatabase];
+    [NotificationManager cleanPushNotifications];
     
     [self performSegueWithIdentifier:@"ContinueRegisterSegue" sender:self];
 }
