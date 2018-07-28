@@ -19,7 +19,7 @@
 
 @implementation Desires
 
-+ (void)createDesire:(int)desireId withTimer:(int)timer andExpiryDate:(int)expiry
++ (void)createDesire:(NSInteger)desireId withTimer:(NSInteger)timer andExpiryDate:(NSInteger)expiry
 {
     NSArray *desireText = [NSArray arrayWithObjects:@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut", nil];
     
@@ -102,7 +102,6 @@
         NSInteger desireId = [desire[0] integerValue];
         NSDate *startDate = desire[1];
         NSDate *expiryDate = desire[2];
-        NSLog(@"Selectet desire: %@", startDate);
         if (givenDesireId == desireId) {
             NSLog(@"Bedürfnis erfüllt");
             [self removeDesire:startDate];
@@ -126,6 +125,41 @@
     // Lose 1 life
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.pirate looseLife];
+}
+
++ (void)fillDesires {
+    NSDate *now = [NSDate date];
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DATE_FORMAT];
+    
+    NSArray *desires = [dbManager readDesires];
+    NSMutableArray *dates = [[NSMutableArray alloc] init];
+    NSInteger counter = [desires count];
+    
+    // Fill and sort array
+    for (NSArray *x in desires) {
+        [dates addObject:[formatter dateFromString:x[2]]];
+    }
+    [dates addObject:now];
+    [dates sortUsingSelector:@selector(compare:)];
+    NSDate *lastDate = [dates lastObject];
+    NSInteger offset = [lastDate timeIntervalSinceNow];
+    if (offset < 0) {
+        offset = 0;
+    }
+    
+    // Add new desires
+    for (NSInteger i = counter; i < N_DESIRES; i++) {
+        NSInteger randomId = arc4random_uniform(4);
+        NSInteger randomTimer = offset + MIN_TIME_BETWEEN_DESIRES + arc4random_uniform(MAX_TIME_BETWEEN_DESIRES - MIN_TIME_BETWEEN_DESIRES);
+        NSInteger randomExpiryDate = randomTimer + MIN_TIME_TO_FAIL + arc4random_uniform(MAX_TIME_TO_FAIL - MIN_TIME_TO_FAIL);
+        [self createDesire:randomId withTimer:randomTimer andExpiryDate:randomExpiryDate];
+        offset = randomExpiryDate;
+    }
+    
+//    NSLog(@"%@", dates);
 }
 
 + (void)checkStatus
@@ -152,6 +186,7 @@
     for (NSDate *date in delete) {
         [self failDesire:date];
     }
+    [self fillDesires];
 }
 
 @end

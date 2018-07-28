@@ -173,10 +173,9 @@
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 
-- (void)insertDesire:(int)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end {
-    
+- (void)insertDesire:(NSInteger)desireId withStartDate:(NSString *)start andExpiryDate:(NSString *)end {
     // Prepare query string
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO aktuellebeduerfnisse VALUES ('%d', '%@', '%@')", desireId, start, end];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO aktuellebeduerfnisse VALUES ('%ld', '%@', '%@')", (long)desireId, start, end];
     
     //Execute query
     [self executeQuery:query];

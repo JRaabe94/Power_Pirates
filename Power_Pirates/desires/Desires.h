@@ -10,13 +10,15 @@
 
 @interface Desires : NSObject
 
-+ (void)createDesire:(int)desireId withTimer:(int)timer andExpiryDate:(int)expiry;
++ (void)createDesire:(NSInteger)desireId withTimer:(NSInteger)timer andExpiryDate:(NSInteger)expiry;
 
 + (void)removeDesire:(NSDate *)time;
 
 + (NSArray *)getActiveDesire;
 
 + (void)fulfilDesire:(NSInteger)givenDesireId;
+
++ (void)fillDesires;
 
 + (void)checkStatus;
 
