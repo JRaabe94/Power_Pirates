@@ -91,4 +91,10 @@
     [Desires checkStatus];
 }
 
+//has to be called from gameLoop, when player has no life left
+-(void)loose{
+    [self.dbManager cleanDatabase];
+    //ToDo: Piraten erstellen Screen laden
+}
+
 @end
