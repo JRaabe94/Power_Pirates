@@ -11,8 +11,11 @@
 #import "DBManager.h"
 #import "Storage.h"
 #import "Desires.h"
+#import "NotificationManager.h"
 
 @interface AppDelegate ()
+
+@property NSTimer *gl;
 
 @end
 
@@ -80,7 +83,7 @@
     self.storage = [[Storage alloc] init];
     [self.storage loadData];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.5
+    self.gl = [NSTimer scheduledTimerWithTimeInterval:0.5
                                      target:self
                                    selector:@selector(gameLoop)
                                    userInfo:nil
@@ -89,12 +92,24 @@
 - (void)gameLoop {
 //    NSLog(@"---Fire---");
     [Desires checkStatus];
+    if (self.pirate.lifes < 1) {
+        [self loose];
+    }
 }
 
-//has to be called from gameLoop, when player has no life left
--(void)loose{
+// Has to be called from gameLoop, when player has no life left
+- (void)loose {
     [self.dbManager cleanDatabase];
+    [NotificationManager cleanPushNotifications];
+    [self.gl invalidate];
     //ToDo: Piraten erstellen Screen laden
+    
+    // Override point for customization after application launch.
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"GameOver" bundle:nil];
+    
+    // Change storyboard
+    self.window.rootViewController = [storyboard instantiateInitialViewController];
+    [self.window makeKeyAndVisible];
 }
 
 @end

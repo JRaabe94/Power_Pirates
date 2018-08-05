@@ -27,6 +27,9 @@
 @property Storage *storage;
 @property Pirates *pirat;
 
+@property NSTimer *desireLoop;
+@property NSTimer *lifeLoop;
+
 @end
 
 @implementation MainGameViewController
@@ -44,13 +47,19 @@
 //    [self viewLoadSetup];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.desireLoop invalidate];
+    [self.lifeLoop invalidate];
+}
+
 - (void) viewLoadSetup {
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate initGame];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateLifes) userInfo:nil repeats:YES];
+    self.desireLoop = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
+    self.lifeLoop = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateLifes)
+                                                   userInfo:nil repeats:YES];
     
     // initialice storage and pirat
     _storage = [[Storage alloc] init];
