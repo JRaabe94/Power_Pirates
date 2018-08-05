@@ -32,6 +32,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [self viewInitiateSetup];
     [self viewLoadSetup];
 }
 
@@ -39,6 +41,14 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self viewLoadSetup];
+}
+
+// only called once, when view is initiated
+- (void) viewInitiateSetup {
+    AppDelegate *appDelegate;
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    _pirat = appDelegate.pirate;
+    [_pirat loadData];
 }
 
 - (void) viewLoadSetup {
@@ -119,8 +129,6 @@
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     _storage = [[Storage alloc] init];
-    _pirat = appDelegate.pirate;
-    [_pirat loadData];
     [_storage loadData];
     
     // set Amount of Items to Labels
