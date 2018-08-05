@@ -33,10 +33,21 @@
  */
 + (NSArray *)getActiveDesire;
 
+/**
+ * Fulfills the active desire if the item is correct and removes the item from the storage
+ *
+ * @param givenDesireId The id of the given item
+ */
 + (void)fulfilDesire:(NSInteger)givenDesireId;
 
+/**
+ * Fills the desire queue
+ */
 + (void)fillDesires;
 
+/**
+ * Removes expired desires and reduces life
+ */
 + (void)checkStatus;
 
 @end

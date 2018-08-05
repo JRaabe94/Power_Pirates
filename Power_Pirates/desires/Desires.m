@@ -21,7 +21,7 @@
 
 + (void)createDesire:(NSInteger)desireId withTimer:(NSInteger)timer andExpiryDate:(NSInteger)expiry
 {
-    NSArray *desireText = [NSArray arrayWithObjects:@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut", nil];
+    NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     
     // Get dates
     NSDate *startDate = [NSDate dateWithTimeIntervalSinceNow:timer];
@@ -29,7 +29,7 @@
     
     // Create push notifications
     [NotificationManager createPushNotification:desireText[desireId] withTimer:startDate];
-    [NotificationManager createPushNotification:@"Ich bin tot :(" withTimer:expiryDate];
+    [NotificationManager createPushNotification:@"Ein Leben verloren :(" withTimer:expiryDate];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
