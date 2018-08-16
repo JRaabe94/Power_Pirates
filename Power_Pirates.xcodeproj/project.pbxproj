@@ -18,7 +18,6 @@
 		961CDFEC2109C02700079150 /* BuySellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFEB2109C02700079150 /* BuySellButton.m */; };
 		961CDFEF2109C95C00079150 /* PiratLabelStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFEE2109C95C00079150 /* PiratLabelStyle.m */; };
 		961CDFF22109E6F300079150 /* MenuButtonStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFF12109E6F300079150 /* MenuButtonStyle.m */; };
-		96259628211747AE00DBD970 /* GameOver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96259627211747AE00DBD970 /* GameOver.storyboard */; };
 		9673ABD621076C7400A02374 /* piratendb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9673ABD521076C7300A02374 /* piratendb.sql */; };
 		9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CB2105D798005000B0 /* AppDelegate.m */; };
 		9695E7CF2105D798005000B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CE2105D798005000B0 /* ViewController.m */; };
@@ -80,7 +79,6 @@
 		961CDFEE2109C95C00079150 /* PiratLabelStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PiratLabelStyle.m; sourceTree = "<group>"; };
 		961CDFF02109E6F300079150 /* MenuButtonStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuButtonStyle.h; sourceTree = "<group>"; };
 		961CDFF12109E6F300079150 /* MenuButtonStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuButtonStyle.m; sourceTree = "<group>"; };
-		96259627211747AE00DBD970 /* GameOver.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameOver.storyboard; sourceTree = "<group>"; };
 		9673ABD521076C7300A02374 /* piratendb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = piratendb.sql; sourceTree = "<group>"; };
 		9695E7C72105D797005000B0 /* Power_Pirates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Power_Pirates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7CA2105D797005000B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				9695E7CA2105D797005000B0 /* AppDelegate.h */,
 				9695E7CB2105D798005000B0 /* AppDelegate.m */,
 				9695E7D02105D798005000B0 /* Main.storyboard */,
-				96259627211747AE00DBD970 /* GameOver.storyboard */,
 				9695E7D32105D798005000B0 /* Assets.xcassets */,
 				9695E7D52105D798005000B0 /* LaunchScreen.storyboard */,
 				9695E7D82105D798005000B0 /* Info.plist */,
@@ -426,7 +423,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96259628211747AE00DBD970 /* GameOver.storyboard in Resources */,
 				9695E7D72105D798005000B0 /* LaunchScreen.storyboard in Resources */,
 				9673ABD621076C7400A02374 /* piratendb.sql in Resources */,
 				9695E7D42105D798005000B0 /* Assets.xcassets in Resources */,

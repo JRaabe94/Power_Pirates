@@ -12,6 +12,7 @@
 #import "Storage.h"
 #import "Desires.h"
 #import "NotificationManager.h"
+#import "GameOverViewController.h"
 
 @interface AppDelegate ()
 
@@ -105,11 +106,11 @@
     //ToDo: Piraten erstellen Screen laden
     
     // Override point for customization after application launch.
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"GameOver" bundle:nil];
     
-    // Change storyboard
-    self.window.rootViewController = [storyboard instantiateInitialViewController];
-    [self.window makeKeyAndVisible];
+    // Change viewController when pirat is deads
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GameOverViewController *gameOverViewController = (GameOverViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
+    self.window.rootViewController = gameOverViewController;
 }
 
 @end
