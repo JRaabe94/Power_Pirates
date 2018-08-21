@@ -179,7 +179,7 @@
         <scene sceneID="8tf-fk-yL2">
             <objects>
                 <viewController id="Bfy-l1-h4O" customClass="ShipMinigameViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="w5Y-vJ-2Pz">
+                    <view key="view" contentMode="scaleToFill" id="w5Y-vJ-2Pz" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

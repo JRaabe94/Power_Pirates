@@ -196,7 +196,7 @@
 
 - (void)updateLifes {
     int piratLife = _pirat.lifes;
-//    NSLog(@"Leben: %d", piratLife);
+
     NSString *lifeImageString;
     switch (piratLife) {
         case 1:
