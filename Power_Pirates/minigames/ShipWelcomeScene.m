@@ -20,8 +20,11 @@
 - (void) didMoveToView:(SKView *)view {
     if (!self.sceneCreated)
     {
-        // create startScreen for the game
-        self.backgroundColor = [SKColor greenColor];
+        // create Welcome Screen for the game
+        SKSpriteNode *backgroundImage = [[SKSpriteNode alloc] initWithImageNamed:@"ShipMinigameBackground"];
+        backgroundImage.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+        [self addChild:backgroundImage];
+        
         self.scaleMode = SKSceneScaleModeAspectFill;
         [self addChild: [self createWelcomeNode]];
         self.sceneCreated = YES;
@@ -35,7 +38,7 @@
     welcomeNode.name = @"welcomeNode";
     welcomeNode.text = @"ShipMinigame - Tap Screen to Play";
     welcomeNode.fontSize = 25;
-    welcomeNode.fontColor = [SKColor blackColor];
+    welcomeNode.fontColor = [SKColor whiteColor];
     
     welcomeNode.position =
     CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));

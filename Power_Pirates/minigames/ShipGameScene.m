@@ -8,15 +8,19 @@
 
 #import "ShipGameScene.h"
 #import "ShipWelcomeScene.h"
+#import "Storage.h"
+#import "TypeDef.h"
 
 @interface ShipGameScene()
 
 @property BOOL sceneCreated;
 @property int objectCount;
+@property int goldCount;
 @property int score;
 @property int shipSpeed;
 
 @property NSMutableArray *movingObjects;
+@property Storage *storage;
 
 @end
 
@@ -24,17 +28,21 @@
 
 static const uint32_t shipCategory = 0x1 << 0;
 static const uint32_t enemyCategory = 0x1 << 1;
+static const uint32_t goldCategory = 0x1 << 2;
 
 - (void)didMoveToView:(SKView *)view {
     if (!self.sceneCreated)
     {
         self.score = 0;
         self.objectCount = 10;
+        self.goldCount = 3;
         self.shipSpeed = 0;
         
         _movingObjects = [[NSMutableArray alloc] init];
+        _storage = [[Storage alloc] init];
+        [_storage loadData];
         
-        self.physicsWorld.gravity = CGVectorMake(0, 0);
+        self.physicsWorld.gravity = CGVectorMake(0, 0); // unable Gravity so objects dont just fall down
         self.physicsWorld.contactDelegate = self;
         
         [self initShipGameScene];
@@ -85,6 +93,10 @@ static const uint32_t enemyCategory = 0x1 << 1;
     
     [self runAction: [SKAction repeatAction:spawnObjects count:self.objectCount]
             completion:^{ [self wonGameOver]; }];
+    
+    SKAction *spawnGold = [SKAction sequence:@[[SKAction performSelector:@selector(createGold) onTarget:self], [SKAction waitForDuration:5]]];
+    
+    [self runAction: [SKAction repeatAction:spawnGold count:self.goldCount]];
 }
 
 //****************** Gameobject-Creation Methods ******************
@@ -136,6 +148,25 @@ static const uint32_t enemyCategory = 0x1 << 1;
     [self addChild:incomingObject];
 }
 
+- (void) createGold {
+    SKSpriteNode *goldObject = [[SKSpriteNode alloc] initWithImageNamed:@"Goldcoin.png"];;
+    
+    int randomX = arc4random_uniform(self.size.width);
+    goldObject.position = CGPointMake(randomX, self.size.height - 75);
+    
+    goldObject.name = @"goldNode";
+    
+    goldObject.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:goldObject.frame.size];
+    goldObject.physicsBody.usesPreciseCollisionDetection = YES;
+    goldObject.physicsBody.categoryBitMask = goldCategory;
+    goldObject.physicsBody.collisionBitMask = shipCategory | goldCategory;
+    goldObject.physicsBody.contactTestBitMask = shipCategory | goldCategory;
+    
+    [_movingObjects addObject:goldObject];
+    
+    [self addChild:goldObject];
+}
+
 - (void) createMoveButtons {
     SKSpriteNode *leftButton = [[SKSpriteNode alloc] initWithImageNamed:@"ButtonLeft.png"];
     SKSpriteNode *rightButton = [[SKSpriteNode alloc] initWithImageNamed:@"ButtonRight.png"];
@@ -178,9 +209,25 @@ static const uint32_t enemyCategory = 0x1 << 1;
     firstNode = (SKSpriteNode *)contact.bodyA.node;
     secondNode = (SKSpriteNode *) contact.bodyB.node;
     
+    // collision with island/monster
     if ( ( (contact.bodyA.categoryBitMask == shipCategory) && (contact.bodyB.categoryBitMask == enemyCategory) )
         || ( (contact.bodyA.categoryBitMask == enemyCategory) && (contact.bodyB.categoryBitMask == shipCategory) )) {
         [self crashGameOver];
+    }
+    // collision with gold
+    else if ( ( (contact.bodyA.categoryBitMask == shipCategory) && (contact.bodyB.categoryBitMask == goldCategory) )
+            || ( (contact.bodyA.categoryBitMask == goldCategory) && (contact.bodyB.categoryBitMask == shipCategory) )) {
+        
+        [_storage give:MONEY];
+        
+        // look which node was the gold object and remove that one
+        if( firstNode.physicsBody.categoryBitMask == goldCategory) {
+            [_movingObjects removeObject:firstNode];
+            [firstNode removeFromParent];
+        } else {
+            [_movingObjects removeObject:secondNode];
+            [secondNode removeFromParent];
+        }
     }
 }
 
