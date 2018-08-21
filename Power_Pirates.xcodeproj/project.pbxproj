@@ -38,6 +38,9 @@
 		96DAD05A21085D3C00FC0629 /* StockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DAD05921085D3C00FC0629 /* StockViewController.m */; };
 		96DD6F2C21070AB900DF78A0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */; };
 		96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96DD6F2D21070B7700DF78A0 /* DBManager.m */; };
+		96FD31D5212C40D600A54E74 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FD31D4212C40D600A54E74 /* SpriteKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		96FD31DB212C449000A54E74 /* ShipWelcomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FD31DA212C449000A54E74 /* ShipWelcomeScene.m */; };
+		96FD31DE212C45D800A54E74 /* ShipGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FD31DD212C45D800A54E74 /* ShipGameScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +119,11 @@
 		96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		96DD6F2D21070B7700DF78A0 /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		96DD6F2F21070BA800DF78A0 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		96FD31D4212C40D600A54E74 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		96FD31D9212C449000A54E74 /* ShipWelcomeScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShipWelcomeScene.h; sourceTree = "<group>"; };
+		96FD31DA212C449000A54E74 /* ShipWelcomeScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShipWelcomeScene.m; sourceTree = "<group>"; };
+		96FD31DC212C45D800A54E74 /* ShipGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShipGameScene.h; sourceTree = "<group>"; };
+		96FD31DD212C45D800A54E74 /* ShipGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShipGameScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FD31D5212C40D600A54E74 /* SpriteKit.framework in Frameworks */,
 				96DD6F2C21070AB900DF78A0 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +227,7 @@
 		9695E7C92105D797005000B0 /* Power_Pirates */ = {
 			isa = PBXGroup;
 			children = (
+				96FD31D3212C3CA200A54E74 /* minigames */,
 				961CDFE62109B40700079150 /* styles */,
 				9673ABD521076C7300A02374 /* piratendb.sql */,
 				961B5D5F210728D500EA09A3 /* viewcontroller */,
@@ -306,6 +316,7 @@
 		96DD6F2A21070AB900DF78A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96FD31D4212C40D600A54E74 /* SpriteKit.framework */,
 				96DD6F2B21070AB900DF78A0 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
@@ -318,6 +329,17 @@
 				96DD6F2D21070B7700DF78A0 /* DBManager.m */,
 			);
 			path = database;
+			sourceTree = "<group>";
+		};
+		96FD31D3212C3CA200A54E74 /* minigames */ = {
+			isa = PBXGroup;
+			children = (
+				96FD31D9212C449000A54E74 /* ShipWelcomeScene.h */,
+				96FD31DA212C449000A54E74 /* ShipWelcomeScene.m */,
+				96FD31DC212C45D800A54E74 /* ShipGameScene.h */,
+				96FD31DD212C45D800A54E74 /* ShipGameScene.m */,
+			);
+			path = minigames;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,9 +482,11 @@
 				96DAD05A21085D3C00FC0629 /* StockViewController.m in Sources */,
 				961B5D62210728FF00EA09A3 /* ContinueViewController.m in Sources */,
 				961CDFE52109AD0E00079150 /* DeveloperViewController.m in Sources */,
+				96FD31DE212C45D800A54E74 /* ShipGameScene.m in Sources */,
 				961CDFEC2109C02700079150 /* BuySellButton.m in Sources */,
 				961CDFF22109E6F300079150 /* MenuButtonStyle.m in Sources */,
 				961B5D8621076F4A00EA09A3 /* MinigamesViewController.m in Sources */,
+				96FD31DB212C449000A54E74 /* ShipWelcomeScene.m in Sources */,
 				9695E81C2105DF40005000B0 /* SpriteManger.m in Sources */,
 				96DD6F3221070F4C00DF78A0 /* DBManager.m in Sources */,
 				9695E7CF2105D798005000B0 /* ViewController.m in Sources */,

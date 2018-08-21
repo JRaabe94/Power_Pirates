@@ -7,6 +7,8 @@
 //
 
 #import "ShipMinigameViewController.h"
+#import "ShipWelcomeScene.h"
+
 
 @interface ShipMinigameViewController ()
 
@@ -18,6 +20,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    SKView *skView = (SKView *) self.view;
+    skView.showsFPS = YES;
+    skView.showsNodeCount = YES;
+    
+    // create welcome Scene before playing
+    ShipWelcomeScene *welcome = [[ShipWelcomeScene alloc]
+                        initWithSize:CGSizeMake(skView.bounds.size.width,
+                        skView.bounds.size.height)];
+    
+    [skView presentScene:welcome];
 }
 
 - (void)didReceiveMemoryWarning {
