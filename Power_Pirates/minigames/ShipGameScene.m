@@ -35,7 +35,7 @@ static const uint32_t goldCategory = 0x1 << 2;
     if (!self.sceneCreated)
     {
         self.score = 0;
-        self.objectCount = 25;
+        self.objectCount = 15;
         self.goldCount = 3;
         self.shipSpeed = 0;
         self.objectSpeed = 5;
@@ -83,10 +83,13 @@ static const uint32_t goldCategory = 0x1 << 2;
 }
 
 - (void) initShipGameScene {
-    SKSpriteNode *backgroundImage = [[SKSpriteNode alloc] initWithImageNamed:@"ShipMinigameIngameBackground"];
-    backgroundImage.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-    [self addChild:backgroundImage];
     
+    // Background not added because game gets laggy
+    /*SKSpriteNode *backgroundImage = [[SKSpriteNode alloc] initWithImageNamed:@"ShipMinigameIngameBackground"];
+     backgroundImage.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+     [self addChild:backgroundImage];*/
+    
+    self.backgroundColor = [SKColor blueColor];
     self.scaleMode = SKSceneScaleModeAspectFill;
     
     // create left and right Button
