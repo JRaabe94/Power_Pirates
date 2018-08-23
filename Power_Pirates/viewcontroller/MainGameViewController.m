@@ -112,7 +112,6 @@
             pirateIcon = @"Pirate_lvl1";
             break;
     }
-    printf("Levelanzahl ist %d", piratLevel);
     UIImage *pirateImg = [UIImage imageNamed:pirateIcon];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 450, 100, 100)];
     imageView.image = pirateImg;
