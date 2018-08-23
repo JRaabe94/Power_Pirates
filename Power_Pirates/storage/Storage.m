@@ -66,6 +66,9 @@
         NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
         amount = [readAmount intValue];
         amount = amount + 1;
+        if(selectedItem == MONEY){
+            self.currentMoney = self.currentMoney + 1;
+        }
         [self update:selectedItem amount:amount];
     }
     return @"Objekt nicht gefunden!";
