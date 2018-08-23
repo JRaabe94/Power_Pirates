@@ -18,6 +18,7 @@
 @property int goldCount;
 @property int score;
 @property int shipSpeed;
+@property float objectSpeed;
 
 @property NSMutableArray *movingObjects;
 @property Storage *storage;
@@ -34,9 +35,10 @@ static const uint32_t goldCategory = 0x1 << 2;
     if (!self.sceneCreated)
     {
         self.score = 0;
-        self.objectCount = 10;
+        self.objectCount = 15;
         self.goldCount = 3;
         self.shipSpeed = 0;
+        self.objectSpeed = 5;
         
         _movingObjects = [[NSMutableArray alloc] init];
         _storage = [[Storage alloc] init];
@@ -51,6 +53,8 @@ static const uint32_t goldCategory = 0x1 << 2;
 }
 
 - (void) update:(NSTimeInterval)currentTime {
+    
+    _objectSpeed += 0.03;
     
     // move ship
     SKNode *shipNode = [self childNodeWithName:@"shipNode"];
@@ -69,10 +73,11 @@ static const uint32_t goldCategory = 0x1 << 2;
     // move objects spawning from top
     for (int i = 0; i < _movingObjects.count; i++) {
         SKSpriteNode *object = (SKSpriteNode*) _movingObjects[i];
-        object.position = CGPointMake(object.position.x, object.position.y - 5);
+        object.position = CGPointMake(object.position.x, object.position.y - _objectSpeed);
         
         if(object.position.y > self.frame.size.height) { // objects out of screen can be removed
             [_movingObjects removeObjectAtIndex:i];
+            [_movingObjects[i] removeFromParent];
         }
     }
 }
@@ -89,7 +94,7 @@ static const uint32_t goldCategory = 0x1 << 2;
     [self addChild:shipNode];
 
     // spawn objects at top screen
-    SKAction *spawnObjects = [SKAction sequence:@[[SKAction performSelector:@selector(createIncomingObject) onTarget:self], [SKAction waitForDuration:2]]];
+    SKAction *spawnObjects = [SKAction sequence:@[[SKAction performSelector:@selector(createIncomingObject) onTarget:self], [SKAction waitForDuration:1]]];
     
     [self runAction: [SKAction repeatAction:spawnObjects count:self.objectCount]
             completion:^{ [self wonGameOver]; }];
