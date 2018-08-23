@@ -60,13 +60,18 @@ bool isGrantedNotificationAccess;
     NSString *enteredText = [_charName text];
     NSLog(@"Value of Input = %@", enteredText);
     
-    DBManager *dbManager = [[DBManager alloc] init];
-    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
-    [dbManager newPlayerDatas:enteredText];
+    if([enteredText length] != 0){
+        DBManager *dbManager = [[DBManager alloc] init];
+        dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+        [dbManager newPlayerDatas:enteredText];
+        
+        [self performSegueWithIdentifier:@"ViewControllerMainGameSegue" sender:self];
+    }
+    
 }
 
 - (IBAction)onStartButton:(id)sender {
-    [self performSegueWithIdentifier:@"ViewControllerMainGameSegue" sender:self];
+    //[self performSegueWithIdentifier:@"ViewControllerMainGameSegue" sender:self];
 }
 
 @end
