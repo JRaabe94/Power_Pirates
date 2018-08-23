@@ -238,11 +238,17 @@
                                 <rect key="frame" x="275" y="425" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level Up"/>
+                                <connections>
+                                    <action selector="onLevelUpButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="ew5-lk-TsB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pes-DJ-i2p" customClass="PiratButtonStyle">
                                 <rect key="frame" x="50" y="425" width="98" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Verliere Leben"/>
+                                <connections>
+                                    <action selector="onLooseLifeButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="JwX-Ht-ezh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzp-IV-nfR" customClass="PiratButtonStyle">
                                 <rect key="frame" x="50" y="272" width="50" height="30"/>

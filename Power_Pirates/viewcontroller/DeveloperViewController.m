@@ -8,8 +8,15 @@
 
 #import "DeveloperViewController.h"
 #import "Desires.h"
+#import "Storage.h"
+#import "AppDelegate.h"
+#import "Pirates.h"
 
 @interface DeveloperViewController ()
+
+@property Pirates *pirat;
+@property Storage *storage;
+@property AppDelegate *appDelegate;
 
 @end
 
@@ -18,13 +25,21 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    [self viewLoadSetup];
+    [self viewInitiateSetup];
 }
 
 // this Method will be called everytime the main View is opened
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self viewLoadSetup];
+}
+
+- (void) viewInitiateSetup {
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    _pirat = _appDelegate.pirate;
+    _storage = [[Storage alloc] init];
+    [_storage loadData];
 }
 
 - (void) viewLoadSetup {
@@ -58,6 +73,15 @@
     NSLog(@"Button kann gelöscht werden");
 }
 
+- (IBAction)onLevelUpButton:(id)sender {
+    if(_pirat.level <= 4) {
+        [_pirat gainLevel];
+    }
+}
+
+- (IBAction)onLooseLifeButton:(id)sender {
+    [_pirat looseLife];
+}
 
 /*
 #pragma mark - Navigation
