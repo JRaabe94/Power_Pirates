@@ -43,8 +43,7 @@
 // this Method will be called everytime the main View is opened
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // Auskommentiert, weil sonst immer ein neuer Pirat erstellt wird
-//    [self viewLoadSetup];
+    [self viewLoadSetup];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -65,7 +64,6 @@
     _storage = [[Storage alloc] init];
     [_storage loadData];
     _pirat = appDelegate.pirate;		
-    [_pirat loadData];
     
     // set up new game Thread
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
@@ -144,6 +142,7 @@
             break;
     }
     UIImage *lifeImage = [UIImage imageNamed:lifeImageString];
+    printf("Lebensanzahl ist %d", piratLife);
     _lifeImageView.image = lifeImage;
 }
 

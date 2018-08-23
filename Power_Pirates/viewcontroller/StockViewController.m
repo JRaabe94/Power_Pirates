@@ -48,7 +48,6 @@
     AppDelegate *appDelegate;
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _pirat = appDelegate.pirate;
-    [_pirat loadData];
 }
 
 - (void) viewLoadSetup {
