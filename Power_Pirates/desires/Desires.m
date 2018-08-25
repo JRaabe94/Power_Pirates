@@ -84,7 +84,7 @@
     return result;
 }
 
-+ (void)activateNextDesire  // funktioniert nur 1 mal???
++ (void)activateNextDesire
 {
     // Read from db
     DBManager *dbManager = [[DBManager alloc] init];
@@ -95,7 +95,11 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
     
-    NSNumber *firstId;
+    // Log desires before change
+    for (int i = 0; i < 5; i++) {
+        NSLog(@"%@", desires[i][1]);
+    }
+    
     NSDate *firstDate = [NSDate distantFuture];
     NSDate *startDate;
     
@@ -103,16 +107,21 @@
         startDate = [formatter dateFromString: desires[i][1]];
         if ([startDate compare:firstDate] == NSOrderedAscending) {
             firstDate = startDate;
-            firstId = desires[i][0];
          }
      }
     
     NSDate *soon = [NSDate dateWithTimeIntervalSinceNow:3];
     if ([firstDate compare:soon] == NSOrderedDescending) {
         // Der Timer wird nach vorne verschoben
-        NSString *query = [NSString stringWithFormat:@"update aktuellebeduerfnisse set startdate = '%@' where id = 1", [formatter stringFromDate:soon]];
+        NSString *query = [NSString stringWithFormat:@"update aktuellebeduerfnisse set startdate = '%@' where startdate = '%@'",
+                           [formatter stringFromDate:soon], [formatter stringFromDate:firstDate]];
         [dbManager executeQuery:query];
     }
+}
+
++(void)expireActiveDesire
+{
+    
 }
 
 + (void)fulfilDesire:(NSInteger)givenDesireId
