@@ -84,6 +84,37 @@
     return result;
 }
 
++ (void)activateNextDesire  // funktioniert nur 1 mal???
+{
+    // Read from db
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    NSArray *desires = [dbManager readDesires];
+    
+    // Create date-string formatter
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DATE_FORMAT];
+    
+    NSNumber *firstId;
+    NSDate *firstDate = [NSDate distantFuture];
+    NSDate *startDate;
+    
+    for (NSInteger i = 0; i < [desires count]; i++) {
+        startDate = [formatter dateFromString: desires[i][1]];
+        if ([startDate compare:firstDate] == NSOrderedAscending) {
+            firstDate = startDate;
+            firstId = desires[i][0];
+         }
+     }
+    
+    NSDate *soon = [NSDate dateWithTimeIntervalSinceNow:3];
+    if ([firstDate compare:soon] == NSOrderedDescending) {
+        // Der Timer wird nach vorne verschoben
+        NSString *query = [NSString stringWithFormat:@"update aktuellebeduerfnisse set startdate = '%@' where id = 1", [formatter stringFromDate:soon]];
+        [dbManager executeQuery:query];
+    }
+}
+
 + (void)fulfilDesire:(NSInteger)givenDesireId
 {
     DBManager *dbManager = [[DBManager alloc] init];
@@ -163,7 +194,6 @@
 }
 
 + (void)checkStatus
-// Checks expired desires
 {
     //Read from db
     NSDate *now = [NSDate date];
