@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ExploreMinigameViewController : UIViewController
+@interface ExploreMinigameViewController : UIViewController <CLLocationManagerDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
 
 @end

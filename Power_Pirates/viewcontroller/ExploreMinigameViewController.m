@@ -7,29 +7,31 @@
 //
 
 #import "ExploreMinigameViewController.h"
-
-@import CoreMotion;
+#import "Storage.h"
+#import "TypeDef.h"
 
 @interface ExploreMinigameViewController ()
 
-@property (nonatomic) CMPedometer *pedometer;
-
-@property (nonatomic) int stepCount;
-
--(void)updateCounter:(CMPedometerData *)pedometerData;
+@property (nonatomic) double totalDistance;
 
 -(BOOL)checkWin;
 
 @end
 
-int stepsNeeded = 0;
+double distanceNeeded = 0.1;
+
+//mode 0 = gps, mode 1 = pedometer
+int mode = 0;
 
 @implementation ExploreMinigameViewController
 
+CLLocationManager *locationManager;
+CLLocation *lastLocation;
+
 - (void)viewDidLoad {
-    stepsNeeded = 500;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    locationManager = [[CLLocationManager alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,50 +44,66 @@ int stepsNeeded = 0;
 }
 
 - (IBAction)onStartButton:(id)sender {
-    NSLog(@"Gestartet");
-    //live tracking start
-    [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
-       //called for each live update
-        [self updateCounter:pedometerData];
-    }];
-}
+    self.totalDistance = 0;
+    lastLocation = nil;
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    NSString *textForLabel = [NSString stringWithFormat:@"%f", 1000*distanceNeeded];
+    _distanceLabel.text = [NSString stringWithFormat:@"%@%@", @"Verbleibende Meter: ", textForLabel];
 
--(void)updateCounter:(CMPedometerData *)pedometerData{
-    //Formatter for cutting the data
-    //NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    if([CMPedometer isStepCountingAvailable]){
-        self.stepCount = [[pedometerData numberOfSteps] intValue];
-        NSLog(@"%d", self.stepCount);
+    NSLog(@"Gestartet");
+        
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [locationManager requestWhenInUseAuthorization];
     }
-    if([self checkWin]){
-        [self.pedometer stopPedometerUpdates];
-        NSLog(@"Geschafft!");
-    }
+    [locationManager startUpdatingLocation];
 }
 
 -(BOOL)checkWin{
-    if(self.stepCount > stepsNeeded){
+    if(self.totalDistance > distanceNeeded){
         return true;
     }else{
         return false;
     }
 }
 
--(CMPedometer *) pedometer{
-    if(!_pedometer){
-        _pedometer = [[CMPedometer alloc] init];
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    //UIAlertController *errorAlert = [[UIAlertController initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //[errorAlert show];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    NSLog(@"%f", _totalDistance);
+    CLLocation *currentLocation = [locations lastObject];
+    if(currentLocation != nil){
+        if(lastLocation != nil){
+            CLLocationDistance meters = [lastLocation distanceFromLocation:currentLocation];
+            _totalDistance = _totalDistance + (meters/1000);
+            NSString *textForLabel = [NSString stringWithFormat:@"%f", ((distanceNeeded - _totalDistance) * 1000)];
+            _distanceLabel.text = [NSString stringWithFormat:@"%@%@", @"Verbleibende Meter: ", textForLabel];
+            lastLocation = currentLocation;
+        }else{
+            lastLocation = currentLocation;
+        }
     }
-    return _pedometer;
+    if([self checkWin]){
+        [locationManager stopUpdatingLocation];
+        _totalDistance = 0;
+        
+        Storage *storage = [[Storage alloc] init];
+        [storage loadData];
+        for(int i = 0; i < 10; i++){
+            [storage give:MONEY];
+        }
+        
+        _distanceLabel.text = @"Geschafft";
+        NSLog(@"Geschafft!");
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
