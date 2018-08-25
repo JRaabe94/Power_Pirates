@@ -7,6 +7,8 @@
 //
 
 #import "ExploreMinigameViewController.h"
+#import "Storage.h"
+#import "TypeDef.h"
 
 @interface ExploreMinigameViewController ()
 
@@ -92,6 +94,13 @@ CLLocation *lastLocation;
     if([self checkWin]){
         [locationManager stopUpdatingLocation];
         _totalDistance = 0;
+        
+        Storage *storage = [[Storage alloc] init];
+        [storage loadData];
+        for(int i = 0; i < 10; i++){
+            [storage give:MONEY];
+        }
+        
         _distanceLabel.text = @"Geschafft";
         NSLog(@"Geschafft!");
     }
