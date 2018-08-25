@@ -11,6 +11,7 @@
 #import "Storage.h"
 #import "AppDelegate.h"
 #import "Pirates.h"
+#import "TypeDef.h"
 
 @interface DeveloperViewController ()
 
@@ -76,11 +77,25 @@
 - (IBAction)onLevelUpButton:(id)sender {
     if(_pirat.level <= 4) {
         [_pirat gainLevel];
+        NSLog(@"Level wurde um 1 erhöht");
     }
 }
 
 - (IBAction)onLooseLifeButton:(id)sender {
     [_pirat looseLife];
+    NSLog(@"1 Leben verloren");
+}
+
+- (IBAction)onGetGoldButton:(id)sender {
+    for (int i = 0; i < 10; i++) {
+        [_storage give:MONEY];
+    }
+    NSLog(@"10 Gold bekommen");
+}
+
+- (IBAction)onGainXPButton:(id)sender {
+    [_pirat gainEP];
+    NSLog(@"Erfahrungspunkte bekommen");
 }
 
 /*
