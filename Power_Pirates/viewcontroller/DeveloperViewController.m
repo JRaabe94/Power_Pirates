@@ -53,15 +53,12 @@
 }
 
 - (IBAction)onScurvyButton:(id)sender {
-    NSLog(@"Viel Skorbut erstellt");
-    [Desires createDesire:3 withTimer:4 andExpiryDate:8];
-    [Desires createDesire:3 withTimer:12 andExpiryDate:16];
-    [Desires createDesire:3 withTimer:20 andExpiryDate:24];
-    [Desires createDesire:3 withTimer:28 andExpiryDate:32];
+    NSLog(@"Aktives Bedürfnis läuft in 5s ab.");
+    [Desires expireActiveDesire];
 }
 
 - (IBAction)onHungerButton:(id)sender {
-    NSLog(@"Nächstes Bedürfnis wird in 3s aktiv");
+    NSLog(@"Nächstes Bedürfnis wird in 3s aktiv.");
     [Desires activateNextDesire];
 }
 

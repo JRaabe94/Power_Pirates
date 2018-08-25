@@ -81,6 +81,9 @@
         expiryDate = NULL;
     }
     NSArray *result = [NSArray arrayWithObjects:desireId, startDate, expiryDate, nil];
+    if ([result count] == 0) {
+        result = NULL;
+    }
     return result;
 }
 
@@ -119,9 +122,14 @@
     }
 }
 
-+(void)expireActiveDesire
++ (void)expireActiveDesire
 {
-    
+    NSArray *active = [self getActiveDesire];
+    if (active == NULL) {
+        NSLog(@"Kein aktives Bedürfnis");
+    } else {
+        NSLog(@"Aktives Bedürfnis: %@", active[0]);
+    }
 }
 
 + (void)fulfilDesire:(NSInteger)givenDesireId
