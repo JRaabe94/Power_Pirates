@@ -60,8 +60,8 @@
 }
 
 - (IBAction)onHungerButton:(id)sender {
-    NSLog(@"Hunger in 10s mit 10s Zeit erstellt");
-    [Desires createDesire:0 withTimer:10 andExpiryDate:20];
+    NSLog(@"Nächstes Bedürfnis wird in 3s aktiv");
+    [Desires activateNextDesire];
 }
 
 - (IBAction)onThirstyButton:(id)sender {
