@@ -60,6 +60,8 @@
     [self checkLevelUp];
     [self.dbManager updatePirateField:P_BEDDB newAmount:self.ffdesires];
 }
+
+//check if the player level is between the level limits
 -(void)checkLevelUp{
     int currentLevel = self.level;
     if(self.ffdesires > LVL2 && self.ffdesires < LVL3){

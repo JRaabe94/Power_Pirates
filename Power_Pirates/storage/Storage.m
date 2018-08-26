@@ -45,10 +45,16 @@
     int costs = 0;
     int amount = 0;
     if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
+        
+        //read in the costs for the good
         NSString *readCosts = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:PRICE];
         costs = [readCosts intValue];
+        
+        //read the current amount
         NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
         amount = [readAmount intValue];
+        
+        //check if the player has enough money
         if(costs != 0 && self.currentMoney != 0 && self.currentMoney >= costs){
             self.currentMoney = self.currentMoney - costs;
             amount = amount + 1;
@@ -62,10 +68,12 @@
 }
 -(NSString *)give:(int)selectedItem{
     int amount = 0;
-    if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){
+    if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1)){     //check if the selectedItem value is a valid number
         NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
         amount = [readAmount intValue];
         amount = amount + 1;
+        
+        //if the given item was Money, add it in the self.currentMoney property
         if(selectedItem == MONEY){
             self.currentMoney = self.currentMoney + 1;
         }
@@ -74,10 +82,14 @@
     return @"Objekt nicht gefunden!";
 }
 -(NSString *)sell:(int)selectedItem{
+    //read the costs of the item
     NSString *readCosts = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:PRICE];
     int costs = [readCosts intValue];
+    
+    //read the amount of the item
     NSString *readAmount = [[self.supplies objectAtIndex:selectedItem] objectAtIndex:AMOUNT];
     int amount = [readAmount intValue];
+    
     if(selectedItem>=0 && selectedItem <=(MAX_SUPPLIES-1) && amount > 0){
         self.currentMoney = self.currentMoney + (0.5*costs);
         amount = amount - 1;
@@ -101,6 +113,8 @@
     }
     return @"Objekt nicht gefunden!";
 }
+
+//method to update the changes directly
 -(void)update:(int)selectedItem amount:(int)amount{
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
