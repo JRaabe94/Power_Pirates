@@ -40,7 +40,11 @@ CLLocation *lastLocation;
 }
 
 - (IBAction)onBackButton:(id)sender {
+    [locationManager stopUpdatingLocation];
+    lastLocation = nil;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (IBAction)onStartButton:(id)sender {
