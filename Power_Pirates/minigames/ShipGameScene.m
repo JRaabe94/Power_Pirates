@@ -160,7 +160,7 @@ static const uint32_t goldCategory = 0x1 << 2;
 }
 
 - (void) createGold {
-    SKSpriteNode *goldObject = [[SKSpriteNode alloc] initWithImageNamed:@"goldCoin.png"];;
+    SKSpriteNode *goldObject = [[SKSpriteNode alloc] initWithImageNamed:@"Goldcoin.png"];;
     
     int randomX = arc4random_uniform(self.size.width);
     goldObject.position = CGPointMake(randomX, self.size.height - 75);
