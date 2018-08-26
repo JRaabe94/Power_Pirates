@@ -16,12 +16,14 @@
 @property BOOL sceneCreated;
 @property int objectCount;
 @property int goldCount;
-@property int score;
+@property int objectsLeft;
 @property int shipSpeed;
 @property float objectSpeed;
 
 @property NSMutableArray *movingObjects;
 @property Storage *storage;
+
+@property SKLabelNode *incomingObjectLabel;
 
 @end
 
@@ -34,11 +36,11 @@ static const uint32_t goldCategory = 0x1 << 2;
 - (void)didMoveToView:(SKView *)view {
     if (!self.sceneCreated)
     {
-        self.score = 0;
         self.objectCount = 15;
         self.goldCount = 3;
         self.shipSpeed = 0;
         self.objectSpeed = 5;
+        self.objectsLeft = _objectCount;
         
         _movingObjects = [[NSMutableArray alloc] init];
         _storage = [[Storage alloc] init];
@@ -75,9 +77,12 @@ static const uint32_t goldCategory = 0x1 << 2;
         SKSpriteNode *object = (SKSpriteNode*) _movingObjects[i];
         object.position = CGPointMake(object.position.x, object.position.y - _objectSpeed);
         
-        if(object.position.y > self.frame.size.height) { // objects out of screen can be removed
+        if(object.position.y < 0) { // objects out of screen can be removed
             [_movingObjects removeObjectAtIndex:i];
-            [_movingObjects[i] removeFromParent];
+            [object removeFromParent];
+            
+            _objectsLeft--;
+            _incomingObjectLabel.text = [NSString stringWithFormat:@"Noch Auszuweichen: %i", self.objectsLeft];
         }
     }
 }
@@ -92,8 +97,9 @@ static const uint32_t goldCategory = 0x1 << 2;
     self.backgroundColor = [SKColor blueColor];
     self.scaleMode = SKSceneScaleModeAspectFill;
     
-    // create left and right Button
+    // create left and right Button and ObjectLabel
     [self createMoveButtons];
+    _incomingObjectLabel = [self createIncomingObjectNode];
     
     // create player/ship
     SKSpriteNode *shipNode = [self createShipNode];
@@ -192,6 +198,24 @@ static const uint32_t goldCategory = 0x1 << 2;
     
     [self addChild:leftButton];
     [self addChild:rightButton];
+}
+
+- (SKLabelNode *) createIncomingObjectNode {
+    SKLabelNode *objectsLeftNode = [SKLabelNode labelNodeWithFontNamed:@"Bradley Hand"];
+    
+    objectsLeftNode.name = @"objectsLeftNode";
+    
+    NSString *newScore = [NSString stringWithFormat:@"Noch Auszuweichen: %i", self.objectsLeft];
+    
+    objectsLeftNode.text = newScore;
+    objectsLeftNode.fontSize = 20;
+    objectsLeftNode.fontColor = [SKColor whiteColor];
+    
+    objectsLeftNode.position = CGPointMake(CGRectGetWidth(self.frame) * 3/4, CGRectGetHeight(self.frame) * 11/12);
+    
+    [self addChild:objectsLeftNode];
+    
+    return objectsLeftNode;
 }
 
 //****************** handle touches ******************
