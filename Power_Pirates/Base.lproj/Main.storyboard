@@ -102,6 +102,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coin" translatesAutoresizingMaskIntoConstraints="NO" id="ucU-Hf-nbM">
+                                <rect key="frame" x="315" y="35" width="30" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eA1-88-JH6"/>
@@ -217,9 +221,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwX-tI-5HJ" customClass="PiratButtonStyle">
-                                <rect key="frame" x="275" y="272" width="54" height="30"/>
+                                <rect key="frame" x="272" y="272" width="61" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Skorbut"/>
+                                <state key="normal" title="Ablaufen"/>
                                 <connections>
                                     <action selector="onScurvyButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="ush-ZS-ozj"/>
                                 </connections>
@@ -265,9 +269,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz7-Kt-3cW" customClass="PiratButtonStyle">
-                                <rect key="frame" x="275" y="123" width="51" height="30"/>
+                                <rect key="frame" x="266" y="123" width="69" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hunger"/>
+                                <state key="normal" title="Aktivieren"/>
                                 <connections>
                                     <action selector="onHungerButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="Qdg-47-Wec"/>
                                 </connections>
@@ -442,6 +446,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Coin" translatesAutoresizingMaskIntoConstraints="NO" id="7dd-7g-aqw">
+                                <rect key="frame" x="327" y="105" width="30" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -528,6 +536,7 @@
     <resources>
         <image name="Bottles" width="159" height="211"/>
         <image name="Coconut" width="160" height="130"/>
+        <image name="Coin" width="150" height="150"/>
         <image name="Meat" width="160" height="130"/>
         <image name="Orange" width="159" height="211"/>
         <image name="shopIcon" width="414" height="736"/>
