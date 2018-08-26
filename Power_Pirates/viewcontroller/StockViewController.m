@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *drinksLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rumLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *lootLabel;
 
 @end
 
@@ -189,10 +190,33 @@
         _foodLabel.text = _storage.supplies[FOOD][AMOUNT];
         _fruitsLabel.text = _storage.supplies[FRUITS][AMOUNT];
         _drinksLabel.text = _storage.supplies[DRINKS][AMOUNT];
-        NSLog(@"Gewonnen");
+        
+        // set Resulttext for Loot-Button
+        NSString *itemName;
+        switch (randomItem) {
+            case 0:
+                itemName = @"1x Hammelkeule";
+                break;
+            case 1:
+                itemName = @"1x Wasser";
+                break;
+            case 2:
+                itemName = @"1x Rum";
+                break;
+            case 3:
+                itemName = @"1x Frucht";
+                break;
+            case 4:
+                itemName = @"10x Gold";
+                break;
+            default:
+                break;
+        }
+        _lootLabel.text = [NSString stringWithFormat:@"%@%@%@", @"Der Raubzug war erfolgreich! ", itemName, @" erhalten"];;
+        
     } else {
         [_pirat looseLife];
-        NSLog(@"Leben: %d", _pirat.lifes);
+        _lootLabel.text = [NSString stringWithFormat:@"%@%@", _pirat.name, @" ist grandios gescheitert! -1 Leben"];
     }
 }
 
