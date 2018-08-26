@@ -23,13 +23,19 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     UIStoryboard *storyboard = [self grabStoryboard];
     
     // change storyboard
     self.window.rootViewController = [storyboard instantiateInitialViewController];
     [self.window makeKeyAndVisible];
     
+    NSString *music = [[NSBundle mainBundle]pathForResource:@"Music" ofType:@"mp3"];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:music] error:NULL];
+    audioPlayer.delegate = self;
+    audioPlayer.numberOfLoops = -1;
+    [audioPlayer play];
+    
+    // Override point for customization after application launch.
    return YES;
 }
 
