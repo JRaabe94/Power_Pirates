@@ -81,7 +81,55 @@
         expiryDate = NULL;
     }
     NSArray *result = [NSArray arrayWithObjects:desireId, startDate, expiryDate, nil];
+    if ([result count] == 0) {
+        result = NULL;
+    }
     return result;
+}
+
++ (void)activateNextDesire
+{
+    // Read from db
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    NSArray *desires = [dbManager readDesires];
+    
+    // Create date-string formatter
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DATE_FORMAT];
+    
+    // Log desires before change
+    for (int i = 0; i < 5; i++) {
+        NSLog(@"%@", desires[i][1]);
+    }
+    
+    NSDate *firstDate = [NSDate distantFuture];
+    NSDate *startDate;
+    
+    for (NSInteger i = 0; i < [desires count]; i++) {
+        startDate = [formatter dateFromString: desires[i][1]];
+        if ([startDate compare:firstDate] == NSOrderedAscending) {
+            firstDate = startDate;
+         }
+     }
+    
+    NSDate *soon = [NSDate dateWithTimeIntervalSinceNow:3];
+    if ([firstDate compare:soon] == NSOrderedDescending) {
+        // Der Timer wird nach vorne verschoben
+        NSString *query = [NSString stringWithFormat:@"update aktuellebeduerfnisse set startdate = '%@' where startdate = '%@'",
+                           [formatter stringFromDate:soon], [formatter stringFromDate:firstDate]];
+        [dbManager executeQuery:query];
+    }
+}
+
++ (void)expireActiveDesire
+{
+    NSArray *active = [self getActiveDesire];
+    if (active == NULL) {
+        NSLog(@"Kein aktives Bedürfnis");
+    } else {
+        NSLog(@"Aktives Bedürfnis: %@", active[0]);
+    }
 }
 
 + (void)fulfilDesire:(NSInteger)givenDesireId
@@ -163,7 +211,6 @@
 }
 
 + (void)checkStatus
-// Checks expired desires
 {
     //Read from db
     NSDate *now = [NSDate date];

@@ -48,7 +48,6 @@
     AppDelegate *appDelegate;
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _pirat = appDelegate.pirate;
-    [_pirat loadData];
 }
 
 - (void) viewLoadSetup {
@@ -184,6 +183,12 @@
         } else {
             [_storage give:randomItem];
         }
+        
+        // update Labels
+        _rumLabel.text = _storage.supplies[RUM][AMOUNT];
+        _foodLabel.text = _storage.supplies[FOOD][AMOUNT];
+        _fruitsLabel.text = _storage.supplies[FRUITS][AMOUNT];
+        _drinksLabel.text = _storage.supplies[DRINKS][AMOUNT];
         NSLog(@"Gewonnen");
     } else {
         [_pirat looseLife];

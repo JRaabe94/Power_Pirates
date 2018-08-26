@@ -27,11 +27,15 @@
 + (void)removeDesire:(NSDate *)time;
 
 /**
- * Returns the active desire or an empty array if thre is no
+ * Returns the active desire or NULL if there is no
  *
  * @return NSArray with desire id, start date and expiry date
  */
 + (NSArray *)getActiveDesire;
+
++ (void)activateNextDesire;
+
++ (void)expireActiveDesire;
 
 /**
  * Fulfills the active desire if the item is correct and removes the item from the storage

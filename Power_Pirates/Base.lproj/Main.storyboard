@@ -217,32 +217,44 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwX-tI-5HJ" customClass="PiratButtonStyle">
-                                <rect key="frame" x="275" y="272" width="54" height="30"/>
+                                <rect key="frame" x="272" y="272" width="61" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Skorbut"/>
+                                <state key="normal" title="Ablaufen"/>
                                 <connections>
                                     <action selector="onScurvyButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="ush-ZS-ozj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOu-Gl-Vp3" customClass="PiratButtonStyle">
-                                <rect key="frame" x="275" y="565" width="51" height="30"/>
+                                <rect key="frame" x="257" y="565" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Spielen"/>
+                                <state key="normal" title="Gold kriegen"/>
+                                <connections>
+                                    <action selector="onGetGoldButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="hlg-Jm-SWz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oK-uE-1sf" customClass="PiratButtonStyle">
-                                <rect key="frame" x="50" y="565" width="30" height="30"/>
+                                <rect key="frame" x="28" y="565" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tot"/>
+                                <state key="normal" title="XP kriegen"/>
+                                <connections>
+                                    <action selector="onGainXPButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="Vy8-4B-0hv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whJ-J2-5T6" customClass="PiratButtonStyle">
                                 <rect key="frame" x="275" y="425" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level Up"/>
+                                <connections>
+                                    <action selector="onLevelUpButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="ew5-lk-TsB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pes-DJ-i2p" customClass="PiratButtonStyle">
                                 <rect key="frame" x="50" y="425" width="98" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Verliere Leben"/>
+                                <connections>
+                                    <action selector="onLooseLifeButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="JwX-Ht-ezh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzp-IV-nfR" customClass="PiratButtonStyle">
                                 <rect key="frame" x="50" y="272" width="50" height="30"/>
@@ -253,9 +265,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz7-Kt-3cW" customClass="PiratButtonStyle">
-                                <rect key="frame" x="275" y="123" width="51" height="30"/>
+                                <rect key="frame" x="266" y="123" width="69" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hunger"/>
+                                <state key="normal" title="Aktivieren"/>
                                 <connections>
                                     <action selector="onHungerButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="Qdg-47-Wec"/>
                                 </connections>
@@ -319,10 +331,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Explore Minigame" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAA-zk-XIx" customClass="PiratLabelStyle">
-                                <rect key="frame" x="140" y="307" width="94" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Klicke auf Start und beginne zu laufen!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAA-zk-XIx" customClass="PiratLabelStyle">
+                                <rect key="frame" x="40" y="307" width="295" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -346,6 +358,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sFj-nR-QII"/>
                     </view>
+                    <connections>
+                        <outlet property="distanceLabel" destination="dAA-zk-XIx" id="Zyq-my-ihR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49L-ds-Gcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

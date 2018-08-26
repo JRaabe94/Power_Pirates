@@ -44,16 +44,16 @@
 }
 -(void)gainLevel{
     self.level = self.level + 1;
-    [self.dbManager updatePirateField:P_LVLDB newAmount:self.lifes];
+    [self.dbManager updatePirateField:P_LVLDB newAmount:self.level];
 }
 -(void)gainAlcLevel{
     self.alcoholLevel = self.alcoholLevel + 1;
-    [self.dbManager updatePirateField:P_ALCLVLDB newAmount:self.lifes];
+    [self.dbManager updatePirateField:P_ALCLVLDB newAmount:self.alcoholLevel];
     [self checkIfDrunk];
 }
 -(void)resetAlcLevel{
     self.alcoholLevel = 0;
-    [self.dbManager updatePirateField:P_ALCLVLDB newAmount:self.lifes];
+    [self.dbManager updatePirateField:P_ALCLVLDB newAmount:self.alcoholLevel];
 }
 -(void)gainEP{
     self.ffdesires = self.ffdesires + 1;
@@ -61,6 +61,7 @@
     [self.dbManager updatePirateField:P_BEDDB newAmount:self.ffdesires];
 }
 -(void)checkLevelUp{
+    int currentLevel = self.level;
     if(self.ffdesires > LVL2 && self.ffdesires < LVL3){
         self.level = 2;
     }else if (self.ffdesires > LVL3 && self.ffdesires < LVL4){
@@ -69,6 +70,9 @@
         self.level = 4;
     }else if (self.ffdesires > LVL5 && self.ffdesires != LVL5){
         self.level = 5;
+    }
+    if(currentLevel < self.level){
+        [self.dbManager updatePirateField:P_LVLDB newAmount:self.level];
     }
 }
 -(BOOL)checkIfDrunk{

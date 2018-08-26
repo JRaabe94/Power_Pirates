@@ -8,8 +8,16 @@
 
 #import "DeveloperViewController.h"
 #import "Desires.h"
+#import "Storage.h"
+#import "AppDelegate.h"
+#import "Pirates.h"
+#import "TypeDef.h"
 
 @interface DeveloperViewController ()
+
+@property Pirates *pirat;
+@property Storage *storage;
+@property AppDelegate *appDelegate;
 
 @end
 
@@ -18,13 +26,21 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    [self viewLoadSetup];
+    [self viewInitiateSetup];
 }
 
 // this Method will be called everytime the main View is opened
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self viewLoadSetup];
+}
+
+- (void) viewInitiateSetup {
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    _pirat = _appDelegate.pirate;
+    _storage = [[Storage alloc] init];
+    [_storage loadData];
 }
 
 - (void) viewLoadSetup {
@@ -37,16 +53,13 @@
 }
 
 - (IBAction)onScurvyButton:(id)sender {
-    NSLog(@"Viel Skorbut erstellt");
-    [Desires createDesire:3 withTimer:4 andExpiryDate:8];
-    [Desires createDesire:3 withTimer:12 andExpiryDate:16];
-    [Desires createDesire:3 withTimer:20 andExpiryDate:24];
-    [Desires createDesire:3 withTimer:28 andExpiryDate:32];
+    NSLog(@"Aktives Bedürfnis läuft in 5s ab.");
+    [Desires expireActiveDesire];
 }
 
 - (IBAction)onHungerButton:(id)sender {
-    NSLog(@"Hunger in 10s mit 10s Zeit erstellt");
-    [Desires createDesire:0 withTimer:10 andExpiryDate:20];
+    NSLog(@"Nächstes Bedürfnis wird in 3s aktiv.");
+    [Desires activateNextDesire];
 }
 
 - (IBAction)onThirstyButton:(id)sender {
@@ -58,6 +71,29 @@
     NSLog(@"Button kann gelöscht werden");
 }
 
+- (IBAction)onLevelUpButton:(id)sender {
+    if(_pirat.level <= 4) {
+        [_pirat gainLevel];
+        NSLog(@"Level wurde um 1 erhöht");
+    }
+}
+
+- (IBAction)onLooseLifeButton:(id)sender {
+    [_pirat looseLife];
+    NSLog(@"1 Leben verloren");
+}
+
+- (IBAction)onGetGoldButton:(id)sender {
+    for (int i = 0; i < 10; i++) {
+        [_storage give:MONEY];
+    }
+    NSLog(@"10 Gold bekommen");
+}
+
+- (IBAction)onGainXPButton:(id)sender {
+    [_pirat gainEP];
+    NSLog(@"Erfahrungspunkte bekommen");
+}
 
 /*
 #pragma mark - Navigation

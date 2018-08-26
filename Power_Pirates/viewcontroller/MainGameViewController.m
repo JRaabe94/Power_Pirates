@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *desireText;
 @property bool menuShowing;
 
+@property AppDelegate *appDelegate;
 @property Storage *storage;
 @property Pirates *pirat;
 
@@ -37,14 +38,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self viewLoadSetup];
+    [self viewInitiateSetup];
 }
 
 // this Method will be called everytime the main View is opened
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // Auskommentiert, weil sonst immer ein neuer Pirat erstellt wird
-//    [self viewLoadSetup];
+    [self viewLoadSetup];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -52,11 +52,16 @@
     [self.lifeLoop invalidate];
 }
 
+// only called once, when view is initiated
+- (void) viewInitiateSetup {
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [_appDelegate initGame];
+    
+    _pirat = _appDelegate.pirate;
+}
+
 - (void) viewLoadSetup {
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate initGame];
-    
+
     self.desireLoop = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
     self.lifeLoop = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateLifes)
                                                    userInfo:nil repeats:YES];
@@ -64,8 +69,6 @@
     // initialice storage and pirat
     _storage = [[Storage alloc] init];
     [_storage loadData];
-    _pirat = appDelegate.pirate;		
-    [_pirat loadData];
     
     // set up new game Thread
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateDesires) userInfo:nil repeats:YES];
@@ -121,7 +124,7 @@
     
     // gold Label and Heart Image
     _goldLabel.text = _storage.supplies[MONEY][AMOUNT];
-    
+
     int piratLife = _pirat.lifes;
     NSString *lifeImageString;
     switch (piratLife) {
