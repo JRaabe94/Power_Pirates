@@ -163,6 +163,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTV-Di-m6R">
+                                <rect key="frame" x="86" y="220" width="242" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ssX-tQ-L2a"/>
@@ -172,6 +179,7 @@
                         <outlet property="drinksLabel" destination="PR4-yb-qEy" id="ejL-6V-k1N"/>
                         <outlet property="foodLabel" destination="yLL-GM-L9I" id="n6n-p6-63I"/>
                         <outlet property="fruitsLabel" destination="Cd0-cq-LOq" id="KgF-md-b1s"/>
+                        <outlet property="lootLabel" destination="MTV-Di-m6R" id="VxJ-LG-pHN"/>
                         <outlet property="rumLabel" destination="M7z-eS-Agx" id="WC6-Df-3iu"/>
                     </connections>
                 </viewController>
