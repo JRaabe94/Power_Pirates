@@ -19,6 +19,7 @@
 		961CDFEF2109C95C00079150 /* PiratLabelStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFEE2109C95C00079150 /* PiratLabelStyle.m */; };
 		961CDFF22109E6F300079150 /* MenuButtonStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CDFF12109E6F300079150 /* MenuButtonStyle.m */; };
 		9673ABD621076C7400A02374 /* piratendb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9673ABD521076C7300A02374 /* piratendb.sql */; };
+		9693E08721333D3B00AA11D8 /* Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9693E08621333D3B00AA11D8 /* Music.mp3 */; };
 		9695E7CC2105D798005000B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CB2105D798005000B0 /* AppDelegate.m */; };
 		9695E7CF2105D798005000B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9695E7CE2105D798005000B0 /* ViewController.m */; };
 		9695E7D22105D798005000B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9695E7D02105D798005000B0 /* Main.storyboard */; };
@@ -84,6 +85,7 @@
 		961CDFF02109E6F300079150 /* MenuButtonStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuButtonStyle.h; sourceTree = "<group>"; };
 		961CDFF12109E6F300079150 /* MenuButtonStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuButtonStyle.m; sourceTree = "<group>"; };
 		9673ABD521076C7300A02374 /* piratendb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = piratendb.sql; sourceTree = "<group>"; };
+		9693E08621333D3B00AA11D8 /* Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Music.mp3; sourceTree = "<group>"; };
 		9695E7C72105D797005000B0 /* Power_Pirates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Power_Pirates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9695E7CA2105D797005000B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9695E7CB2105D798005000B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -205,6 +207,14 @@
 			path = styles;
 			sourceTree = "<group>";
 		};
+		9693E08521333CE300AA11D8 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				9693E08621333D3B00AA11D8 /* Music.mp3 */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
 		9695E7BE2105D797005000B0 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +259,7 @@
 				9695E7D92105D798005000B0 /* main.m */,
 				96C30EFA2106162700E6F253 /* Main2.storyboard */,
 				9607E9EC2109CE3600BC8420 /* TypeDef.h */,
+				9693E08521333CE300AA11D8 /* music */,
 			);
 			path = Power_Pirates;
 			sourceTree = "<group>";
@@ -449,6 +460,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9693E08721333D3B00AA11D8 /* Music.mp3 in Resources */,
 				9695E7D72105D798005000B0 /* LaunchScreen.storyboard in Resources */,
 				9673ABD621076C7400A02374 /* piratendb.sql in Resources */,
 				9695E7D42105D798005000B0 /* Assets.xcassets in Resources */,
