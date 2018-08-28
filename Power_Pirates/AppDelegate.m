@@ -90,6 +90,8 @@
     self.storage = [[Storage alloc] init];
     [self.storage loadData];
     
+    [Desires initDesires];
+    
     self.gl = [NSTimer scheduledTimerWithTimeInterval:0.5
                                      target:self
                                    selector:@selector(gameLoop)
