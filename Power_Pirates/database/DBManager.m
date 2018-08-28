@@ -257,11 +257,13 @@
     [self generateStorage];
 }
 
+//fill in the initial pirate database
 -(void)generatePirate:(NSString *) pirateName{
     NSString *query = [NSString stringWithFormat:@"INSERT INTO piraten values(1, '%@', '%d', '%d', '%d', '%d')", pirateName, LIFES_AMOUNT, LEVEL_AMOUNT, ALCLVL_AMOUNT, FFDESIRE_AMOUNT];
     [self executeQuery:query];
 }
 
+//fill in the initial storage database
 -(void)generateStorage{
     NSString *query = [NSString stringWithFormat:@"INSERT INTO lager values(1, 'food', '%d', '%d')", FOOD_AMOUNT, FOOD_PRICE];
     [self executeQuery:query];
@@ -279,6 +281,7 @@
     [self executeQuery:query];
 }
 
+//clean the database values
 -(void)cleanDatabase{
     NSString *query = [NSString stringWithFormat:@"DELETE FROM piraten"];
     [self executeQuery:query];
@@ -289,15 +292,20 @@
     query = [NSString stringWithFormat:@"DELETE FROM aktuellebeduerfnisse"];
     [self executeQuery:query];
 }
+
+//update a single storage attribute
 -(void)updateStorageField:(int)fieldID newAmount:(int)newAmount{
     NSString *query = [NSString stringWithFormat:@"update lager set anzahl = '%d' where id = '%d'", newAmount, fieldID];
     [self executeQuery:query];
 }
+
+//update a single pirate attribute
 -(void)updatePirateField:(NSString *)fieldName newAmount:(int)newAmount{
     NSString *query = [NSString stringWithFormat:@"update piraten set '%@' = '%d' where id = 1", fieldName, newAmount];
     [self executeQuery:query];
 }
 
+//check if a pirate exists in the database
 - (BOOL)checkIfPlayerExists {
     NSString *query = [NSString stringWithFormat:@"select count(*) from piraten"];
     NSNumber *result = [self loadDataFromDB:query][0][0];

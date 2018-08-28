@@ -16,11 +16,13 @@
 @end
 
 @implementation Pirates
+//Can be used for the developers, if they want to change something, were no function exists for. with saveData, the whole object ist stored in the database
 -(void)saveData{
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     [dbManager savePirates:self.lifes newLvl:self.level newAlcLvl:self.alcoholLevel];
 }
+//loads all attributes from the db to the storage object
 -(void)loadData{
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
