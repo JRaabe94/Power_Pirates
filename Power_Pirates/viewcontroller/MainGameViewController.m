@@ -199,13 +199,21 @@
 - (void)updateDesires {
     NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     NSArray *activeDesire = [Desires getActiveDesire];
+    
+    UITextField *desireField = [[UITextField alloc] initWithFrame:CGRectMake(0, 300, 150, 150)];
+    
     if ([activeDesire count] == 0) {
-        _desireText.text = @"";
+        desireField.hidden = YES;
     } else {
         NSNumber *desireNumber = activeDesire[0];
         NSInteger desireId = [desireNumber integerValue];
         NSString *label = [NSString stringWithFormat:@"%@", desireText[desireId]];
-        _desireText.text = label;
+        
+        desireField.background = [UIImage imageNamed:@"thinking_bubble"];
+        desireField.borderStyle = UITextBorderStyleNone;
+        desireField.textAlignment = NSTextAlignmentCenter;
+        desireField.text = label;
+        [self.view addSubview:desireField];
     }
 }
 
