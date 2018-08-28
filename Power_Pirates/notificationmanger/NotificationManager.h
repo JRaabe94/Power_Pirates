@@ -26,6 +26,8 @@
  */
 + (void)removePushNotification:(NSDate *)time;
 
++ (void)changeNotificationDate:(NSDate *)time newTime:(NSDate *)newTime;
+
 /**
  * Deletes all pending notifications and clears the notification center
  */
