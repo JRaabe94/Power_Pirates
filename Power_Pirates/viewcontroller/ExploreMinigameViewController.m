@@ -30,6 +30,7 @@ CLLocation *lastLocation;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.startButton.hidden = NO;
     // Do any additional setup after loading the view.
     //locationManager = [[CLLocationManager alloc] init];
 }
@@ -59,6 +60,8 @@ CLLocation *lastLocation;
     
     //Start Location Updates
     [locationManager startUpdatingLocation];
+    
+    self.startButton.hidden = YES;
 }
 
 -(void)initLocationManager{
@@ -91,6 +94,7 @@ CLLocation *lastLocation;
     [self giveMoney];
     
     self.distanceLabel.text = @"Geschafft";
+    self.startButton.hidden = NO;
 }
 
 -(void)updateLabel{
