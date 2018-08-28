@@ -372,6 +372,7 @@
                     </view>
                     <connections>
                         <outlet property="distanceLabel" destination="dAA-zk-XIx" id="Zyq-my-ihR"/>
+                        <outlet property="startButton" destination="CoY-Aq-VjG" id="oP5-PM-Qqp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49L-ds-Gcb" userLabel="First Responder" sceneMemberID="firstResponder"/>

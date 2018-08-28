@@ -12,6 +12,7 @@
 @interface ExploreMinigameViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 
 @end
