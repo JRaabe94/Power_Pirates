@@ -303,37 +303,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minigames" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFh-nv-j2y" customClass="PiratLabelStyle">
-                                <rect key="frame" x="122" y="309" width="131" height="49"/>
+                                <rect key="frame" x="142" y="175" width="131" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikp-sK-WgP" customClass="PiratButtonStyle">
+                                <rect key="frame" x="42" y="272" width="150" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="map_mini"/>
+                                <connections>
+                                    <segue destination="GnU-7x-Q6l" kind="show" id="go9-uX-XWR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="355-N9-SDz" customClass="PiratButtonStyle">
+                                <rect key="frame" x="246" y="272" width="150" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ShipMinigameBackground"/>
+                                <connections>
+                                    <segue destination="Bfy-l1-h4O" kind="show" id="APp-xp-pVd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insel erkunden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfP-IZ-GjG">
+                                <rect key="frame" x="61" y="529" width="113" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikp-sK-WgP" customClass="PiratButtonStyle">
-                                <rect key="frame" x="80" y="459" width="65" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Schiffssause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpP-B2-nAP">
+                                <rect key="frame" x="272" y="528" width="98" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Erkunden"/>
-                                <connections>
-                                    <segue destination="GnU-7x-Q6l" kind="show" id="go9-uX-XWR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="355-N9-SDz" customClass="PiratButtonStyle">
-                                <rect key="frame" x="253" y="459" width="96" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Schiffs-Sause"/>
-                                <connections>
-                                    <segue destination="Bfy-l1-h4O" kind="show" id="APp-xp-pVd"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.3885628172588832" green="0.27351804227876764" blue="0.19791231190258224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="qLU-KJ-Jtg"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Spiele Kajüte" id="i4n-Oh-ehI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c41-ki-9NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="1274"/>
+            <point key="canvasLocation" x="1553.6231884057972" y="1273.3695652173915"/>
         </scene>
         <!--Explore Minigame View Controller-->
         <scene sceneID="uay-yM-g9i">
@@ -559,7 +573,9 @@
         <image name="Coin" width="150" height="150"/>
         <image name="Meat" width="160" height="130"/>
         <image name="Orange" width="159" height="211"/>
+        <image name="ShipMinigameBackground" width="420" height="700"/>
         <image name="map" width="414" height="736"/>
+        <image name="map_mini" width="140" height="250"/>
         <image name="shopIcon" width="414" height="736"/>
     </resources>
 </document>
