@@ -33,8 +33,14 @@
  */
 + (NSArray *)getActiveDesire;
 
+/**
+ * The next desire starts in 3 seconds if there is no active desire
+ */
 + (void)activateNextDesire;
 
+/**
+ * The active desire expires in 3 seconds. If there is no active desire, nothing happens.
+ */
 + (void)expireActiveDesire;
 
 /**
@@ -45,9 +51,9 @@
 + (void)fulfilDesire:(NSInteger)givenDesireId;
 
 /**
- * Fills the desire queue
+ * Initialises the desire queue
  */
-+ (void)fillDesires;
++ (void)initDesires;
 
 /**
  * Removes expired desires and reduces life
