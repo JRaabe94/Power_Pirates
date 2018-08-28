@@ -185,6 +185,17 @@
     [Desires fulfilDesire:3];
 }
 
+- (IBAction)MusicHandler:(id)sender {
+    if(_appDelegate.audioPlayer.playing){
+        [_appDelegate.audioPlayer pause];
+        [sender setTitle:@"Musik an" forState:UIControlStateNormal];
+    }
+    else{
+        [_appDelegate.audioPlayer play];
+        [sender setTitle:@"Musik aus" forState:UIControlStateNormal];
+    }
+}
+
 - (void)updateDesires {
     NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     NSArray *activeDesire = [Desires getActiveDesire];

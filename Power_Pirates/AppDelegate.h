@@ -13,9 +13,7 @@
 @class Pirates;
 @class DBManager;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>{
-    AVAudioPlayer *audioPlayer;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -24,6 +22,8 @@
 @property Pirates *pirate;
 
 @property Storage *storage;
+
+@property AVAudioPlayer *audioPlayer;
 
 - (void)initGame;
 
