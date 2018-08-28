@@ -30,10 +30,10 @@
     [self.window makeKeyAndVisible];
     
     NSString *music = [[NSBundle mainBundle]pathForResource:@"Music" ofType:@"mp3"];
-    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:music] error:NULL];
-    audioPlayer.delegate = self;
-    audioPlayer.numberOfLoops = -1;
-    [audioPlayer play];
+    self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:music] error:NULL];
+    self.audioPlayer.delegate = self;
+    self.audioPlayer.numberOfLoops = -1;
+    [self.audioPlayer play];
     
     // Override point for customization after application launch.
    return YES;

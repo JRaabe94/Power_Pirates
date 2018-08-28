@@ -397,7 +397,7 @@
                                 <rect key="frame" x="-180" y="55" width="329" height="512"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MRN-V3-NoU">
-                                        <rect key="frame" x="0.0" y="0.0" width="329" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="329" height="150"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rkj-XL-TAx" customClass="MenuButtonStyle">
                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="30"/>
@@ -425,6 +425,13 @@
                                                 <state key="normal" title="Medizin"/>
                                                 <connections>
                                                     <action selector="onMedicineButton:" destination="psn-SU-xoX" eventType="touchUpInside" id="6WU-ks-AOd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuK-mi-yek" userLabel="Musik aus">
+                                                <rect key="frame" x="0.0" y="120" width="329" height="30"/>
+                                                <state key="normal" title="Musik aus"/>
+                                                <connections>
+                                                    <action selector="MusicHandler:" destination="psn-SU-xoX" eventType="touchUpInside" id="lU0-fg-IdJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
