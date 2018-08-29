@@ -114,7 +114,7 @@
             break;
     }
     UIImage *pirateImg = [UIImage imageNamed:pirateIcon];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 450, 100, 100)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(150, 450, 100, 100)];
     imageView.image = pirateImg;
     [self.view addSubview:imageView];
     
@@ -200,21 +200,17 @@
     NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     NSArray *activeDesire = [Desires getActiveDesire];
     
-    UITextField *desireField = [[UITextField alloc] initWithFrame:CGRectMake(0, 300, 150, 150)];
-    
-    if (activeDesire == NULL) {
-        // NSLog(@"Hide bubble");
-        desireField.hidden = YES;
+    if ([activeDesire count] == 0) {
+        if(_desireText.hidden != YES){
+            _desireText.hidden = YES;
+        }
     } else {
+        _desireText.hidden = NO;
         NSNumber *desireNumber = activeDesire[0];
         NSInteger desireId = [desireNumber integerValue];
         NSString *label = [NSString stringWithFormat:@"%@", desireText[desireId]];
-        
-        desireField.background = [UIImage imageNamed:@"thinking_bubble"];
-        desireField.borderStyle = UITextBorderStyleNone;
-        desireField.textAlignment = NSTextAlignmentCenter;
-        desireField.text = label;
-        [self.view addSubview:desireField];
+        _desireText.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"thinking_bubble"]];
+        _desireText.text = label;
     }
 }
 
