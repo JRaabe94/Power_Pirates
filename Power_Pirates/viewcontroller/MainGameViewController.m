@@ -199,7 +199,7 @@
 - (void)updateDesires {
     NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     NSArray *activeDesire = [Desires getActiveDesire];
-    if ([activeDesire count] == 0) {
+    if (activeDesire == NULL) {
         _desireText.text = @"";
     } else {
         NSNumber *desireNumber = activeDesire[0];
