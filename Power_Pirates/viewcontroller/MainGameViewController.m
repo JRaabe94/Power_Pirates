@@ -205,7 +205,12 @@
         NSNumber *desireNumber = activeDesire[0];
         NSInteger desireId = [desireNumber integerValue];
         NSString *label = [NSString stringWithFormat:@"%@", desireText[desireId]];
-        _desireText.text = label;
+        
+        desireField.background = [UIImage imageNamed:@"thinking_bubble"];
+        desireField.borderStyle = UITextBorderStyleNone;
+        desireField.textAlignment = NSTextAlignmentCenter;
+        desireField.text = label;
+        [self.view addSubview:desireField];
     }
 }
 
