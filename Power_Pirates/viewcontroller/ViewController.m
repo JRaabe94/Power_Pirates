@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "NotificationManager.h"
 #import "DBManager.h"
+#import "Desires.h"
 
 @interface ViewController ()
 
@@ -64,6 +65,8 @@ bool isGrantedNotificationAccess;
         DBManager *dbManager = [[DBManager alloc] init];
         dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
         [dbManager newPlayerDatas:enteredText];
+        
+        [Desires initDesires];
         
         [self performSegueWithIdentifier:@"ViewControllerMainGameSegue" sender:self];
     }
