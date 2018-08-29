@@ -124,6 +124,7 @@
     
     // Log number of desires before change
     NSLog(@"Number of desires: %lu", (unsigned long)[desires count]);
+    assert([desires count] > 0);
     
     // Informations about the desire
     NSDate *firstDate = [NSDate distantFuture];
@@ -290,4 +291,3 @@
 }
 
 @end
-
