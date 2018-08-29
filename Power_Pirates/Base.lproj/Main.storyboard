@@ -420,7 +420,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rkj-XL-TAx" customClass="MenuButtonStyle">
                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="30"/>
-                                                <state key="normal" title="Frucht Essen"/>
+                                                <state key="normal" title="Fleisch Essen"/>
                                                 <connections>
                                                     <action selector="onFeedingButton:" destination="psn-SU-xoX" eventType="touchUpInside" id="FOd-ok-0nj"/>
                                                 </connections>
@@ -441,7 +441,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruS-9F-cpV" customClass="MenuButtonStyle">
                                                 <rect key="frame" x="0.0" y="90" width="329" height="30"/>
-                                                <state key="normal" title="Medizin"/>
+                                                <state key="normal" title="Vitamine"/>
                                                 <connections>
                                                     <action selector="onMedicineButton:" destination="psn-SU-xoX" eventType="touchUpInside" id="6WU-ks-AOd"/>
                                                 </connections>
