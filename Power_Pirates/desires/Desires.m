@@ -19,12 +19,12 @@
 
 @implementation Desires
 
-+ (void)createDesire:(NSInteger)desireId withTimer:(NSInteger)timer andExpiryDate:(NSInteger)expiry
++ (void)createDesire:(NSInteger)desireId withStartTimer:(NSInteger)start andExpiryTimer:(NSInteger)expiry
 {
-    NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
+    NSArray *desireText= @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     
     // Get dates
-    NSDate *startDate = [NSDate dateWithTimeIntervalSinceNow:timer];
+    NSDate *startDate = [NSDate dateWithTimeIntervalSinceNow:start];
     NSDate *expiryDate = [NSDate dateWithTimeIntervalSinceNow:expiry];
     
     // Create push notifications
@@ -38,16 +38,36 @@
     // Add desire to DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
-    [dbManager insertDesire:desireId withStartDate:[formatter stringFromDate:startDate] andExpiryDate:[formatter stringFromDate:expiryDate]];
+    [dbManager insertDesire:desireId
+              withStartDate:[formatter stringFromDate:startDate]
+              andExpiryDate:[formatter stringFromDate:expiryDate]];
 }
 
 + (void)removeDesire:(NSDate *)time
 {
-    // Delete desire from DB
+    // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    NSArray *desires = [dbManager readDesires];
+
+    // Create date-string formatter
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
+    
+    // Get correct desire
+    NSArray *deleteDesire;
+    for (NSArray *desire in desires) {
+        // Compare desire with searched desire
+        if ([desire[1] isEqualToString:[formatter stringFromDate:time]]) {
+            deleteDesire = desire;
+        }
+    }
+    
+    // Delete push notification for start and expiry date
+    [NotificationManager removePushNotification:[formatter dateFromString:deleteDesire[1]]];
+    [NotificationManager removePushNotification:[formatter dateFromString:deleteDesire[2]]];
+    
+    // Delete desire from DB
     [dbManager deleteDesire:[formatter stringFromDate:time]];
 }
 
@@ -62,19 +82,19 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
     
+    // Informations about the desire
     NSNumber *desireId;
     NSDate *startDate;
     NSDate *expiryDate;
-    NSDate *now = [NSDate date];
     
-    for (NSInteger i = 0; i < [desires count]; i++) {
-        desireId = desires[i][0];
-        startDate = [formatter dateFromString: desires[i][1]];
-        expiryDate = [formatter dateFromString: desires[i][2]];
-        if ([startDate compare:now] == NSOrderedSame || [startDate compare:now] == NSOrderedAscending) {
-            if (!([expiryDate compare:now] == NSOrderedSame || [expiryDate compare:now] == NSOrderedAscending)) {
-                // Active desire found
-                break;
+    // Get active desire
+    for (NSArray *desire in desires) {
+        desireId = desire[0];
+        startDate = [formatter dateFromString: desire[1]];
+        expiryDate = [formatter dateFromString: desire[2]];
+        if ([startDate timeIntervalSinceNow] <= 0) {  // startDate has passed
+            if ([expiryDate timeIntervalSinceNow] > 0) {  // expiryDate has not passed
+                break;  // Active desire found
             }
         }
         // No active desire
@@ -108,26 +128,27 @@
         NSLog(@"Type of desire %d: %@", i + 1, desires[i][1]);
     }
     
+    // Informations about the desire
     NSDate *firstDate = [NSDate distantFuture];
     NSDate *startDate;
+    NSDate *expiryDate;
+    NSNumber *desireId;
     
     // Determine next desire
-    for (NSInteger i = 0; i < [desires count]; i++) {
-        startDate = [formatter dateFromString: desires[i][1]];
+    for (NSArray *desire in desires) {
+        startDate = [formatter dateFromString: desire[1]];
         if ([startDate compare:firstDate] == NSOrderedAscending) {
-            firstDate = startDate;
-         }
-     }
+            firstDate = startDate;  // Start date of next desire
+            desireId = desire[0];
+            expiryDate = [formatter dateFromString: desire[2]];
+        }
+    }
     
     NSDate *soon = [NSDate dateWithTimeIntervalSinceNow:3];
     if ([firstDate compare:soon] == NSOrderedDescending) {
-        // The next desire's start date is changed
-        NSString *query = [NSString stringWithFormat:@"update aktuellebeduerfnisse set startdate = '%@' where startdate = '%@'",
-                           [formatter stringFromDate:soon], [formatter stringFromDate:firstDate]];
-        [dbManager executeQuery:query];
-        
-        // The Push Notification is changed
-        [NotificationManager changeNotificationDate:firstDate newTime:startDate];
+        // Delete next desireand replace it
+        [self removeDesire:firstDate];
+        [self createDesire:[desireId integerValue] withStartTimer:3 andExpiryTimer:[expiryDate timeIntervalSinceNow]];
     }
 }
 
@@ -147,6 +168,8 @@
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     NSArray *storage = [dbManager readStorage];
+    
+    // Check if enough in storage and reduce storage
     NSNumber *amount = storage[givenDesireId][2];
     if ([amount integerValue] < 1) {
         // Not enough in storage
@@ -155,31 +178,34 @@
     }
     [dbManager updateStorageField:(int)givenDesireId+1 newAmount:(int)[amount integerValue] - 1];
     
+    // Fulfil desire if item is correct
     NSArray *desire = [self getActiveDesire];
-    if ([desire count] != 0) {
+    if (desire != NULL) {
         NSInteger desireId = [desire[0] integerValue];
         NSDate *startDate = desire[1];
-        NSDate *expiryDate = desire[2];
         if (givenDesireId == desireId) {
-            NSLog(@"Bedürfnis erfüllt");
+            NSLog(@"Desire fulfilled");
             [self removeDesire:startDate];
-            [NotificationManager removePushNotification:expiryDate];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate.pirate gainEP];
         } else {
-            NSLog(@"Falsches Bedürfnis!");
+            NSLog(@"Wrong desire!");
         }
     }
 }
 
 + (void)failDesire:(NSDate *)time {
-    DBManager *dbManager = [[DBManager alloc] init];
-    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+    // Create date-string formatter
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
     
+    // Initialize DB
+    DBManager *dbManager = [[DBManager alloc] init];
+    dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
+
     // Delete desire from DB
     [dbManager deleteDesire:[formatter stringFromDate:time]];
+    
     // Lose 1 life
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.pirate looseLife];
@@ -187,15 +213,16 @@
 
 + (void)initDesires {
     NSDate *now = [NSDate date];
+    
     // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
-    
+    NSArray *desires = [dbManager readDesires];
+
     // Create date-string formatter
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
     
-    NSArray *desires = [dbManager readDesires];
     NSMutableArray *dates = [[NSMutableArray alloc] init];
     NSInteger counter = [desires count];
     
@@ -216,7 +243,7 @@
         NSInteger randomId = arc4random_uniform(4);
         NSInteger randomTimer = offset + MIN_TIME_BETWEEN_DESIRES + arc4random_uniform(MAX_TIME_BETWEEN_DESIRES - MIN_TIME_BETWEEN_DESIRES);
         NSInteger randomExpiryDate = randomTimer + MIN_TIME_TO_FAIL + arc4random_uniform(MAX_TIME_TO_FAIL - MIN_TIME_TO_FAIL);
-        [self createDesire:randomId withTimer:randomTimer andExpiryDate:randomExpiryDate];
+        [self createDesire:randomId withStartTimer:randomTimer andExpiryTimer:randomExpiryDate];
         offset = randomExpiryDate;
     }
     
