@@ -212,42 +212,23 @@
 }
 
 + (void)initDesires {
-    NSDate *now = [NSDate date];
-    
     // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     NSArray *desires = [dbManager readDesires];
-
-    // Create date-string formatter
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:DATE_FORMAT];
-    
-    NSMutableArray *dates = [[NSMutableArray alloc] init];
-    NSInteger counter = [desires count];
-    
-    // Fill and sort array
-    for (NSArray *x in desires) {
-        [dates addObject:[formatter dateFromString:x[2]]];
-    }
-    [dates addObject:now];
-    [dates sortUsingSelector:@selector(compare:)];
-    NSDate *lastDate = [dates lastObject];
-    NSInteger offset = [lastDate timeIntervalSinceNow];
-    if (offset < 0) {
-        offset = 0;
-    }
+    assert([desires count] == 0);  // DB has to be empty
     
     // Add new desires
-    for (NSInteger i = counter; i < N_DESIRES; i++) {
-        NSInteger randomId = arc4random_uniform(4);
-        NSInteger randomTimer = offset + MIN_TIME_BETWEEN_DESIRES + arc4random_uniform(MAX_TIME_BETWEEN_DESIRES - MIN_TIME_BETWEEN_DESIRES);
-        NSInteger randomExpiryDate = randomTimer + MIN_TIME_TO_FAIL + arc4random_uniform(MAX_TIME_TO_FAIL - MIN_TIME_TO_FAIL);
-        [self createDesire:randomId withStartTimer:randomTimer andExpiryTimer:randomExpiryDate];
-        offset = randomExpiryDate;
+    NSInteger offset = 0;
+    for (int i = 0; i < N_DESIRES; i++) {
+        NSInteger desireId = arc4random_uniform(4);
+        NSInteger startTimer = offset + MIN_TIME_BETWEEN_DESIRES
+                + arc4random_uniform(MAX_TIME_BETWEEN_DESIRES - MIN_TIME_BETWEEN_DESIRES);
+        NSInteger expiryTimer = startTimer + MIN_TIME_TO_FAIL
+                + arc4random_uniform(MAX_TIME_TO_FAIL - MIN_TIME_TO_FAIL);
+        [self createDesire:desireId withStartTimer:startTimer andExpiryTimer:expiryTimer];
+        offset = expiryTimer;
     }
-    
-//    NSLog(@"%@", dates);
 }
 
 + (void)checkStatus
@@ -262,16 +243,17 @@
     // Create date-string formatter
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
-    for (NSInteger i = 0; i < [desires count]; i++) {
+    
+    for (NSArray *desire in desires) {
         // Check if desire is expired
-        NSDate *startDate = [formatter dateFromString: desires[i][1]];
-        NSDate *expiryDate = [formatter dateFromString: desires[i][2]];
+        NSDate *startDate = [formatter dateFromString: desire[1]];
+        NSDate *expiryDate = [formatter dateFromString: desire[2]];
         if ([expiryDate compare:now] == NSOrderedSame || [expiryDate compare:now] == NSOrderedAscending) {
             NSLog(@"Aufgabe ist abgelaufen!!");
             [delete addObject:startDate];
         }
     }
-
+    
     // Fail expired desires
     for (NSDate *date in delete) {
         [self failDesire:date];
