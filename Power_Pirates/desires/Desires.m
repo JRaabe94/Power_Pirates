@@ -19,8 +19,7 @@
 
 @implementation Desires
 
-+ (void)createDesire:(NSInteger)desireId withStartTimer:(NSInteger)start andExpiryTimer:(NSInteger)expiry
-{
++ (void)createDesire:(NSInteger)desireId withStartTimer:(NSInteger)start andExpiryTimer:(NSInteger)expiry {
     NSArray *desireText= @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     
     // Get dates
@@ -28,8 +27,12 @@
     NSDate *expiryDate = [NSDate dateWithTimeIntervalSinceNow:expiry];
     
     // Create push notifications
-    [NotificationManager createPushNotification:desireText[desireId] withTimer:startDate];
-    [NotificationManager createPushNotification:@"Ein Leben verloren :(" withTimer:expiryDate];
+    if (start > 0) {
+        [NotificationManager createPushNotification:desireText[desireId] withTimer:startDate];
+    }
+    if (expiry > 0) {
+        [NotificationManager createPushNotification:@"Ein Leben verloren :(" withTimer:expiryDate];
+    }
 
     // Create date-string formatter
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -43,8 +46,7 @@
               andExpiryDate:[formatter stringFromDate:expiryDate]];
 }
 
-+ (void)removeDesire:(NSDate *)time
-{
++ (void)removeDesire:(NSDate *)time {
     // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
@@ -71,8 +73,7 @@
     [dbManager deleteDesire:[formatter stringFromDate:time]];
 }
 
-+ (NSArray *)getActiveDesire
-{
++ (NSArray *)getActiveDesire {
     // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
@@ -111,8 +112,7 @@
     return result;
 }
 
-+ (void)activateNextDesire
-{
++ (void)activateNextDesire {
     // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
@@ -122,11 +122,8 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATE_FORMAT];
     
-    // Log desires before change
+    // Log number of desires before change
     NSLog(@"Number of desires: %lu", (unsigned long)[desires count]);
-    for (int i = 0; i < [desires count]; i++) {
-        NSLog(@"Type of desire %d: %@", i + 1, desires[i][1]);
-    }
     
     // Informations about the desire
     NSDate *firstDate = [NSDate distantFuture];
@@ -146,28 +143,38 @@
     
     NSDate *soon = [NSDate dateWithTimeIntervalSinceNow:3];
     if ([firstDate compare:soon] == NSOrderedDescending) {
-        // Delete next desireand replace it
+        // Delete next desire and replace it
         [self removeDesire:firstDate];
         [self createDesire:[desireId integerValue] withStartTimer:3 andExpiryTimer:[expiryDate timeIntervalSinceNow]];
     }
 }
 
-+ (void)expireActiveDesire
-{
-    NSArray *active = [self getActiveDesire];
-    if (active == NULL) {
++ (void)expireActiveDesire {
+    // Create date-string formatter
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DATE_FORMAT];
+    
+    NSArray *activeDesire = [self getActiveDesire];
+    if (activeDesire == NULL) {
         NSLog(@"Kein aktives Bedürfnis");
     } else {
-        NSLog(@"Aktives Bedürfnis: %@", active[0]);
+        NSLog(@"Aktives Bedürfnis: %@", activeDesire[0]);  // shows id
+        NSInteger desireId = [activeDesire[0] integerValue];
+        NSDate *startDate = activeDesire[1];
+        [self removeDesire:startDate];
+        [self createDesire:desireId withStartTimer:[startDate timeIntervalSinceNow] andExpiryTimer:5];
     }
 }
 
-+ (void)fulfilDesire:(NSInteger)givenDesireId
-{
++ (void)fulfilDesire:(NSInteger)givenDesireId {
     // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
     NSArray *storage = [dbManager readStorage];
+    
+    // Create date-string formatter
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DATE_FORMAT];
     
     // Check if enough in storage and reduce storage
     NSNumber *amount = storage[givenDesireId][2];
@@ -183,11 +190,39 @@
     if (desire != NULL) {
         NSInteger desireId = [desire[0] integerValue];
         NSDate *startDate = desire[1];
+            
+        if (givenDesireId == desireId) {
+            // Fulfil desire
+            NSLog(@"Desire fulfilled");
+            [self removeDesire:startDate];
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [appDelegate.pirate gainEP];
+            
+            // Add a new desire to the queue
+            NSMutableArray *dates = [[NSMutableArray alloc] init];
+            NSArray *desires = [dbManager readDesires];
+            for (NSArray *desire in desires) {
+                [dates addObject:[formatter dateFromString:desire[2]]];
+            }
+            [dates sortUsingSelector:@selector(compare:)];
+            NSDate *lastDate = [dates lastObject];
+            NSInteger offset = [lastDate timeIntervalSinceNow];
+            if (offset < 0) {
+                offset = 0;
+            }
+            NSInteger desireId = arc4random_uniform(4);
+            NSInteger startTimer = offset + MIN_TIME_BETWEEN_DESIRES
+            + arc4random_uniform(MAX_TIME_BETWEEN_DESIRES - MIN_TIME_BETWEEN_DESIRES);
+            NSInteger expiryTimer = startTimer + MIN_TIME_TO_FAIL
+            + arc4random_uniform(MAX_TIME_TO_FAIL - MIN_TIME_TO_FAIL);
+            [self createDesire:desireId withStartTimer:startTimer andExpiryTimer:expiryTimer];
+/*
         if (givenDesireId == desireId) {
             NSLog(@"Desire fulfilled");
             [self removeDesire:startDate];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate.pirate gainEP];
+ */
         } else {
             NSLog(@"Wrong desire!");
         }
@@ -231,8 +266,7 @@
     }
 }
 
-+ (void)checkStatus
-{
++ (void)checkStatus {
     //Read from DB
     NSDate *now = [NSDate date];
     DBManager *dbManager = [[DBManager alloc] init];
