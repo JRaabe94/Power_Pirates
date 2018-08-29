@@ -53,18 +53,17 @@
 }
 
 - (IBAction)onScurvyButton:(id)sender {
-    NSLog(@"Aktives Bedürfnis läuft in 5s ab.");
+    // Active desire expires in 5 seconds
     [Desires expireActiveDesire];
 }
 
 - (IBAction)onHungerButton:(id)sender {
-    NSLog(@"Nächstes Bedürfnis wird in 3s aktiv.");
+    NSLog(@"Next desire in 3 seconds");
     [Desires activateNextDesire];
 }
 
 - (IBAction)onThirstyButton:(id)sender {
-    NSLog(@"Durst in 30s mit 20s Zeit erstellt");
-    [Desires createDesire:1 withStartTimer:30 andExpiryTimer:50];
+    NSLog(@"Keine Funktion");
 }
 
 - (IBAction)onFulfilButton:(id)sender {
@@ -106,3 +105,4 @@
 */
 
 @end
+
