@@ -64,7 +64,7 @@
 
 - (IBAction)onThirstyButton:(id)sender {
     NSLog(@"Durst in 30s mit 20s Zeit erstellt");
-    [Desires createDesire:1 withTimer:30 andExpiryDate:50];
+    [Desires createDesire:1 withStartTimer:30 andExpiryTimer:50];
 }
 
 - (IBAction)onFulfilButton:(id)sender {

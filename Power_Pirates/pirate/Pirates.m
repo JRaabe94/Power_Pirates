@@ -40,7 +40,6 @@
     self.ffdesires = [readDes intValue];
 }
 -(void)looseLife{
-    NSLog(@"looser!");
     self.lifes = self.lifes - 1;
     [self.dbManager updatePirateField:P_LIFEDB newAmount:self.lifes];
 }

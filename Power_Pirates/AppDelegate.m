@@ -84,15 +84,19 @@
 }
 
 - (void)initGame {
+    NSLog(@"Start initializing game");
+    // Load pirate
     self.pirate = [[Pirates alloc] init];
     [self.pirate loadData];
     
+    // Load storage
     self.storage = [[Storage alloc] init];
     [self.storage loadData];
     
     [Desires initDesires];
     
-    self.gl = [NSTimer scheduledTimerWithTimeInterval:0.5
+    // Start game loop
+    self.gl = [NSTimer scheduledTimerWithTimeInterval:0.1
                                      target:self
                                    selector:@selector(gameLoop)
                                    userInfo:nil

@@ -17,10 +17,10 @@
  * @param timer Time when the desire starts
  * @param expiry Time when the desire expires
  */
-+ (void)createDesire:(NSInteger)desireId withTimer:(NSInteger)timer andExpiryDate:(NSInteger)expiry;
++ (void)createDesire:(NSInteger)desireId withStartTimer:(NSInteger)timer andExpiryTimer:(NSInteger)expiry;
 
 /**
- * Removes the desire starting at the given time
+ * Removes the desire starting at the given time and deletes its push notifications
  *
  * @param time The starting time of the desire (id)
  */
@@ -29,22 +29,26 @@
 /**
  * Returns the active desire or NULL if there is no
  *
- * @return NSArray with desire id, start date and expiry date
+ * @return NSArray with NSNumber desireId, NSDate startDate and NSDate expiryDate
  */
 + (NSArray *)getActiveDesire;
 
 /**
- * The next desire starts in 3 seconds if there is no active desire
+ * The next desire starts in 3 seconds if there is no active
+ * or earlier desire
  */
 + (void)activateNextDesire;
 
 /**
- * The active desire expires in 3 seconds. If there is no active desire, nothing happens.
+ * The active desire expires in 5 seconds. If there is no
+ * active desire, nothing happens.
  */
 + (void)expireActiveDesire;
 
 /**
- * Fulfills the active desire if the item is correct and removes the item from the storage
+ * Fulfills the active desire if the item is correct and
+ * removes the item from the storage (even if the item is
+ * not correct)
  *
  * @param givenDesireId The id of the given item
  */
