@@ -93,8 +93,6 @@
     self.storage = [[Storage alloc] init];
     [self.storage loadData];
     
-    [Desires initDesires];
-    
     // Start game loop
     self.gl = [NSTimer scheduledTimerWithTimeInterval:0.1
                                      target:self

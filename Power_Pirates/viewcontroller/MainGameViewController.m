@@ -200,7 +200,7 @@
     NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     NSArray *activeDesire = [Desires getActiveDesire];
     
-    if ([activeDesire count] == 0) {
+    if (activeDesire == NULL) {
         if(_desireText.hidden != YES){
             _desireText.hidden = YES;
         }
