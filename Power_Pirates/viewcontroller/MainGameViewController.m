@@ -199,14 +199,6 @@
 - (void)updateDesires {
     NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
     NSArray *activeDesire = [Desires getActiveDesire];
-    /*
-    UITextField *desireField = [[UITextField alloc] initWithFrame:CGRectMake(0, 300, 150, 150)];
-    desireField.background = [UIImage imageNamed:@"thinking_bubble"];
-    desireField.borderStyle = UITextBorderStyleNone;
-    desireField.textAlignment = NSTextAlignmentCenter;
-    desireField.text = label;
-    [self.view addSubview:desireField];
-     */
     
     if ([activeDesire count] == 0) {
         if(_desireText.hidden != YES){
