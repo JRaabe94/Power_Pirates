@@ -156,9 +156,9 @@
     
     NSArray *activeDesire = [self getActiveDesire];
     if (activeDesire == NULL) {
-        NSLog(@"Kein aktives Bedürfnis");
+        NSLog(@"No active desire");
     } else {
-        NSLog(@"Aktives Bedürfnis: %@", activeDesire[0]);  // shows id
+        NSLog(@"Active desire expires in 5 seconds");
         NSInteger desireId = [activeDesire[0] integerValue];
         NSDate *startDate = activeDesire[1];
         [self removeDesire:startDate];
@@ -197,6 +197,7 @@
             [self removeDesire:startDate];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate.pirate gainEP];
+            [appDelegate.pirate saveData];
             
             // Add a new desire to the queue
             NSMutableArray *dates = [[NSMutableArray alloc] init];
@@ -216,13 +217,6 @@
             NSInteger expiryTimer = startTimer + MIN_TIME_TO_FAIL
             + arc4random_uniform(MAX_TIME_TO_FAIL - MIN_TIME_TO_FAIL);
             [self createDesire:desireId withStartTimer:startTimer andExpiryTimer:expiryTimer];
-/*
-        if (givenDesireId == desireId) {
-            NSLog(@"Desire fulfilled");
-            [self removeDesire:startDate];
-            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [appDelegate.pirate gainEP];
- */
         } else {
             NSLog(@"Wrong desire!");
         }
@@ -244,6 +238,7 @@
     // Lose 1 life
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.pirate looseLife];
+    [appDelegate.pirate saveData];
 }
 
 + (void)initDesires {
@@ -283,7 +278,7 @@
         NSDate *startDate = [formatter dateFromString: desire[1]];
         NSDate *expiryDate = [formatter dateFromString: desire[2]];
         if ([expiryDate compare:now] == NSOrderedSame || [expiryDate compare:now] == NSOrderedAscending) {
-            NSLog(@"Aufgabe ist abgelaufen!!");
+            NSLog(@"One desire is expired!!");
             [delete addObject:startDate];
         }
     }
@@ -295,3 +290,4 @@
 }
 
 @end
+// Logs geändert, pirate saveData
