@@ -37,15 +37,6 @@
     }
 }
 
-+ (void)changeNotificationDate:(NSDate *)time newTime:(NSDate *)newTime {
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    [center getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
-        for (NSArray *o in requests) {
-            NSLog(@"Message: %@", o);
-        }
-    }];
-}
-
 + (void)removePushNotification:(NSDate *)time {
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
