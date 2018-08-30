@@ -167,7 +167,7 @@
     }
 }
 
-+ (void)fulfilDesire:(NSInteger)givenDesireId {
++ (void)fulfillDesire:(NSInteger)givenDesireId {
     // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];

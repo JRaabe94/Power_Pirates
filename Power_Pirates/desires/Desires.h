@@ -52,7 +52,7 @@
  *
  * @param givenDesireId The id of the given item
  */
-+ (void)fulfilDesire:(NSInteger)givenDesireId;
++ (void)fulfillDesire:(NSInteger)givenDesireId;
 
 /**
  * Initialises the desire queue

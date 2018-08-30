@@ -170,19 +170,19 @@
 }
 
 - (IBAction)onFeedingButton:(id)sender {
-    [Desires fulfilDesire:0];
+    [Desires fulfillDesire:0];
 }
 
 - (IBAction)onWaterButton:(id)sender {
-    [Desires fulfilDesire:1];
+    [Desires fulfillDesire:1];
 }
 
 - (IBAction)onRumButton:(id)sender {
-    [Desires fulfilDesire:2];
+    [Desires fulfillDesire:2];
 }
 
 - (IBAction)onMedicineButton:(id)sender {
-    [Desires fulfilDesire:3];
+    [Desires fulfillDesire:3];
 }
 
 - (IBAction)MusicHandler:(id)sender {
