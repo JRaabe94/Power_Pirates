@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (weak, nonatomic) IBOutlet UILabel *desireText;
+@property (weak, nonatomic) IBOutlet UILabel *storageEmpty;
 @property bool menuShowing;
 
 @property AppDelegate *appDelegate;
@@ -171,19 +172,29 @@
 }
 
 - (IBAction)onFeedingButton:(id)sender {
-    [Desires fulfillDesire:0];
+    NSLog(@"füttern");
+    NSInteger success = [Desires fulfillDesire:0];
+    if (success == 1) {
+        NSLog(@"füttern: 1");
+        // Not enough in storage
+        NSString *label = @"Du musst erst einkaufen.";
+        _storageEmpty.hidden = NO;
+        _storageEmpty.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"thinking_bubble"]];
+        _storageEmpty.text = label;
+
+    }
 }
 
 - (IBAction)onWaterButton:(id)sender {
-    [Desires fulfillDesire:1];
+    NSInteger success = [Desires fulfillDesire:1];
 }
 
 - (IBAction)onRumButton:(id)sender {
-    [Desires fulfillDesire:2];
+    NSInteger success = [Desires fulfillDesire:2];
 }
 
 - (IBAction)onMedicineButton:(id)sender {
-    [Desires fulfillDesire:3];
+    NSInteger success = [Desires fulfillDesire:3];
 }
 
 - (IBAction)MusicHandler:(id)sender {

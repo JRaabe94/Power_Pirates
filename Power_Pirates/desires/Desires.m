@@ -167,7 +167,7 @@
     }
 }
 
-+ (void)fulfillDesire:(NSInteger)givenDesireId {
++ (NSInteger)fulfillDesire:(NSInteger)givenDesireId {
     // Read from DB
     DBManager *dbManager = [[DBManager alloc] init];
     dbManager = [dbManager initWithDatabaseFilename:@"piratendb.sql"];
@@ -182,7 +182,7 @@
     if ([amount integerValue] < 1) {
         // Not enough in storage
         NSLog(@"Not enough in storage");
-        return;
+        return 1;
     }
     [dbManager updateStorageField:(int)givenDesireId+1 newAmount:(int)[amount integerValue] - 1];
     
@@ -219,9 +219,11 @@
             + arc4random_uniform(MAX_TIME_TO_FAIL - MIN_TIME_TO_FAIL);
             [self createDesire:desireId withStartTimer:startTimer andExpiryTimer:expiryTimer];
         } else {
+            return 2;
             NSLog(@"Wrong desire!");
         }
     }
+    return 0;
 }
 
 + (void)failDesire:(NSDate *)time {
