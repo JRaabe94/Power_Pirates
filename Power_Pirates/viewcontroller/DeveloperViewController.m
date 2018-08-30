@@ -40,11 +40,10 @@
     
     _pirat = _appDelegate.pirate;
     _storage = [[Storage alloc] init];
-    [_storage loadData];
 }
 
 - (void) viewLoadSetup {
-    
+    [_storage loadData];
 }
 
 - (void)didReceiveMemoryWarning {

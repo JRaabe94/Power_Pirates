@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     SKView *skView = (SKView *) self.view;
     skView.showsFPS = YES;
@@ -29,12 +28,12 @@
                         initWithSize:CGSizeMake(skView.bounds.size.width,
                         skView.bounds.size.height)];
     
+    // show welcome Scene
     [skView presentScene:welcome];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)onBackButton:(id)sender {

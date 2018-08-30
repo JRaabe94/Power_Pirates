@@ -94,6 +94,7 @@
     [self.view sendSubviewToBack:animationImageView];
     [animationImageView startAnimating];
     
+    // set pirat image dependend on level
     int piratLevel = _pirat.level;
     NSString *pirateIcon;
     switch (piratLevel){
@@ -123,7 +124,7 @@
     _menuShowing = false;
     _menuView.hidden = YES;
     
-    // gold Label and Heart Image
+    // update Gold Label and Heart Image
     _goldLabel.text = _storage.supplies[MONEY][AMOUNT];
 
     int piratLife = _pirat.lifes;
@@ -217,6 +218,7 @@
 - (void)updateLifes {
     int piratLife = _pirat.lifes;
 
+    //update Life Image
     NSString *lifeImageString;
     switch (piratLife) {
         case 1:

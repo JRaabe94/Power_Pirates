@@ -18,8 +18,7 @@
 @implementation ShipWelcomeScene
 
 - (void) didMoveToView:(SKView *)view {
-    if (!self.sceneCreated)
-    {
+    if (!self.sceneCreated) {
         // create Welcome Screen for the game
         SKSpriteNode *backgroundImage = [[SKSpriteNode alloc] initWithImageNamed:@"ShipMinigameBackground"];
         backgroundImage.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
@@ -32,6 +31,7 @@
 }
 
 - (SKLabelNode *) createWelcomeNode {
+    // style and text on screen
     SKLabelNode *welcomeNode =
     [SKLabelNode labelNodeWithFontNamed:@"Bradley Hand"];
     
@@ -40,18 +40,17 @@
     welcomeNode.fontSize = 25;
     welcomeNode.fontColor = [SKColor whiteColor];
     
-    welcomeNode.position =
-    CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    welcomeNode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     
     return welcomeNode;
 }
 
-// changes to the actual gameScene when screen is tapped
+// change to the actual gameScene when screen is tapped
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     SKNode *welcomeNode = [self childNodeWithName:@"welcomeNode"];
     
-    if (welcomeNode != nil)
-    {
+    if (welcomeNode != nil) {
+        // animation to go to next screen
         SKAction *fadeAway = [SKAction fadeOutWithDuration:1.0];
         
         [welcomeNode runAction:fadeAway completion:^{

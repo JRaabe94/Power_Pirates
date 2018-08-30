@@ -34,8 +34,8 @@ static const uint32_t enemyCategory = 0x1 << 1;
 static const uint32_t goldCategory = 0x1 << 2;
 
 - (void)didMoveToView:(SKView *)view {
-    if (!self.sceneCreated)
-    {
+    if (!self.sceneCreated) {
+        // game settings
         self.objectCount = 15;
         self.goldCount = 3;
         self.shipSpeed = 0;
@@ -109,7 +109,7 @@ static const uint32_t goldCategory = 0x1 << 2;
     SKAction *spawnObjects = [SKAction sequence:@[[SKAction performSelector:@selector(createIncomingObject) onTarget:self], [SKAction waitForDuration:1]]];
     
     [self runAction: [SKAction repeatAction:spawnObjects count:self.objectCount]
-            completion:^{ [self wonGameOver]; }];
+         completion:^{ [self wonGameOver]; }];
     
     SKAction *spawnGold = [SKAction sequence:@[[SKAction performSelector:@selector(createGold) onTarget:self], [SKAction waitForDuration:5]]];
     
@@ -118,8 +118,7 @@ static const uint32_t goldCategory = 0x1 << 2;
 
 //****************** Gameobject-Creation Methods ******************
 - (SKSpriteNode *)createShipNode {
-    SKSpriteNode *shipNode =
-    [[SKSpriteNode alloc] initWithImageNamed:@"ShipGameBoat.png"];
+    SKSpriteNode *shipNode = [[SKSpriteNode alloc] initWithImageNamed:@"ShipGameBoat.png"];
     
     shipNode.name = @"shipNode";
     shipNode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMinY(self.frame) + 50);
@@ -151,11 +150,13 @@ static const uint32_t goldCategory = 0x1 << 2;
             break;
     }
     
+    // random spawn position
     int randomX = arc4random_uniform(self.size.width);
     incomingObject.position = CGPointMake(randomX, self.size.height - 75);
     
     incomingObject.name = @"incomingNode";
     
+    // for collisions
     incomingObject.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:incomingObject.frame.size];
     incomingObject.physicsBody.usesPreciseCollisionDetection = YES;
     incomingObject.physicsBody.categoryBitMask = enemyCategory;
@@ -168,11 +169,13 @@ static const uint32_t goldCategory = 0x1 << 2;
 - (void) createGold {
     SKSpriteNode *goldObject = [[SKSpriteNode alloc] initWithImageNamed:@"Goldcoin.png"];;
     
+    // random spawn position
     int randomX = arc4random_uniform(self.size.width);
     goldObject.position = CGPointMake(randomX, self.size.height - 75);
     
     goldObject.name = @"goldNode";
     
+    // for collisions
     goldObject.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:goldObject.frame.size];
     goldObject.physicsBody.usesPreciseCollisionDetection = YES;
     goldObject.physicsBody.categoryBitMask = goldCategory;
@@ -200,6 +203,7 @@ static const uint32_t goldCategory = 0x1 << 2;
     [self addChild:rightButton];
 }
 
+// create label, which shows how many objects are left
 - (SKLabelNode *) createIncomingObjectNode {
     SKLabelNode *objectsLeftNode = [SKLabelNode labelNodeWithFontNamed:@"Bradley Hand"];
     
@@ -218,7 +222,7 @@ static const uint32_t goldCategory = 0x1 << 2;
     return objectsLeftNode;
 }
 
-//****************** handle touches ******************
+//****************** handle touches for move buttons ******************
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
@@ -244,12 +248,12 @@ static const uint32_t goldCategory = 0x1 << 2;
     firstNode = (SKSpriteNode *)contact.bodyA.node;
     secondNode = (SKSpriteNode *) contact.bodyB.node;
     
-    // collision with island/monster
+    // collision with island/monster -> game over
     if ( ( (contact.bodyA.categoryBitMask == shipCategory) && (contact.bodyB.categoryBitMask == enemyCategory) )
         || ( (contact.bodyA.categoryBitMask == enemyCategory) && (contact.bodyB.categoryBitMask == shipCategory) )) {
         [self crashGameOver];
     }
-    // collision with gold
+    // collision with gold -> get gold
     else if ( ( (contact.bodyA.categoryBitMask == shipCategory) && (contact.bodyB.categoryBitMask == goldCategory) )
             || ( (contact.bodyA.categoryBitMask == goldCategory) && (contact.bodyB.categoryBitMask == shipCategory) )) {
         
@@ -268,10 +272,10 @@ static const uint32_t goldCategory = 0x1 << 2;
 
 //****************** Game Over ******************
 - (void) crashGameOver {
+    // go back to welcome scene when game lost
     SKAction *welcomeReturn = [SKAction runBlock:^{
         
-        SKTransition *transition =
-        [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
+        SKTransition *transition = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
         
         ShipWelcomeScene *shipWelcomeScene = [[ShipWelcomeScene alloc] initWithSize:self.size];
         
@@ -284,7 +288,7 @@ static const uint32_t goldCategory = 0x1 << 2;
 }
 
 - (void) wonGameOver {
-    
+    // animated change to welcome screen when game won
     SKAction *fadeOut = [SKAction sequence:@[[SKAction waitForDuration:3.0],
                                           [SKAction fadeOutWithDuration:3.0]]];
     

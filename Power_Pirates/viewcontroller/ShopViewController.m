@@ -48,13 +48,10 @@ int selectedItem;
     [self.view addSubview:imageView];
     [self.view sendSubviewToBack:imageView];
     
-    
-    
+    // show amount of money
     storage = [[Storage alloc] init];
     [storage loadData];
     _moneyLabel.text = storage.supplies[MONEY][AMOUNT];
-    
-//    NSLog(@"%@", storage.supplies);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +83,7 @@ int selectedItem;
 
 //************ Create Shop Information ************
 
+// funtionality for created buttons
 - (void)onBuyButton:(UIButton *)sender {
     [storage buy:selectedItem];
     [self updateLabels:selectedItem];
@@ -113,7 +111,7 @@ int selectedItem;
         horizontalStackView = [[UIStackView alloc] init];
     }
     
-    // create content for stack view
+    // create content for stack view and style
     PiratLabelStyle *itemName =[[PiratLabelStyle alloc] init];
     PiratLabelStyle *itemPriceName =[[PiratLabelStyle alloc] init];
     PiratLabelStyle *itemNumberName =[[PiratLabelStyle alloc] init];
@@ -140,7 +138,6 @@ int selectedItem;
     [buyButton setTitle:@"Kaufen" forState:UIControlStateNormal];
     [sellButton setTitle:@"Verkaufen" forState:UIControlStateNormal];
 
-    
     // add functionality to buy/sell-Button
     [buyButton addTarget:self action:@selector(onBuyButton:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -159,6 +156,7 @@ int selectedItem;
 }
 
 - (void) updateLabels:(int)itemID {
+    // update price and amount of the item the player has
     ((PiratLabelStyle*)horizontalStackView.arrangedSubviews[3]).text = storage.supplies [itemID][AMOUNT];
 
     _moneyLabel.text = storage.supplies[MONEY][AMOUNT];

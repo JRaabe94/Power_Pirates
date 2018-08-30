@@ -23,7 +23,6 @@
     
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 1/UIScreen.mainScreen.nativeScale;
-    //self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 100, 50);
 }
 
 - (void)layoutSubviews {

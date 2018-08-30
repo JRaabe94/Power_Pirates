@@ -24,6 +24,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)goToRegisterButton:(id)sender {
+    // go back to Register Screen
     [self performSegueWithIdentifier:@"GameOverRegisterSegue" sender:self];
 }
 

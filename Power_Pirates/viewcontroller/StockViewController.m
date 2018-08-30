@@ -53,8 +53,7 @@
 
 - (void) viewLoadSetup {
     AppDelegate *appDelegate;
-    
-    // Do any additional setup after loading the view.
+
     // Load images
     NSArray *imageNames = @[@"Storage_1", @"Storage_2", @"Storage_3"];
     
@@ -72,7 +71,7 @@
     [self.view sendSubviewToBack:animationImageView];
     [animationImageView startAnimating];
     
-    
+    // add barrels and boxes to sreen
     UIImage *barrelImg1 = [UIImage imageNamed:@"barrel"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(204, 378, 100, 100)];
     imageView1.image = barrelImg1;
@@ -121,13 +120,6 @@
     imageView9.image = meatImg2;
     [self.view addSubview:imageView9];
     
-    // Method to directly go to the GameOver Screen
-    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-     GameOverViewController *viewController = (GameOverViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameOverViewControllerID"];
-     [self presentViewController:viewController animated:YES completion:nil];*/
-   
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     _storage = [[Storage alloc] init];
     [_storage loadData];
     
@@ -173,7 +165,7 @@
             break;
     }
     
-    if(randomValue >= numberToWin) {
+    if(randomValue >= numberToWin) {  // win
         // get item
         int randomItem = arc4random_uniform(5);
         if(randomItem == 4) {
@@ -181,7 +173,7 @@
             for (int i = 0; i < 10; i++) {
                 [_storage give:randomItem];
             }
-        } else {
+        } else { // loose
             [_storage give:randomItem];
         }
         
@@ -193,7 +185,7 @@
         
         // set Resulttext for Loot-Button
         NSString *itemName;
-        switch (randomItem) {
+        switch (randomItem) { // if won
             case 0:
                 itemName = @"1x Hammelkeule";
                 break;
@@ -214,7 +206,7 @@
         }
         _lootLabel.text = [NSString stringWithFormat:@"%@%@%@", @"Der Raubzug war erfolgreich! ", itemName, @" erhalten"];;
         
-    } else {
+    } else { // if loose
         [_pirat looseLife];
         _lootLabel.text = [NSString stringWithFormat:@"%@%@", _pirat.name, @" ist grandios gescheitert! -1 Leben"];
     }

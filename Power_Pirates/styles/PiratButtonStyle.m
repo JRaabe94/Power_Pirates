@@ -33,9 +33,6 @@
     
     self.titleLabel.font = [UIFont fontWithName:@"Chalkduster"  size:15];
     self.titleLabel.textColor = UIColor.whiteColor;
-    
-    /*UIImage *btnImage = [UIImage imageNamed:@"island1.png"];
-    [self setBackgroundImage:btnImage forState:UIControlStateNormal];*/
 }
 
 @end
