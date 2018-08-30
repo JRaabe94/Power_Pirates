@@ -31,6 +31,7 @@
 
 @property NSTimer *desireLoop;
 @property NSTimer *lifeLoop;
+@property NSTimer *errorTimer;
 
 
 @end
@@ -45,6 +46,9 @@
 
 // this Method will be called everytime the main View is opened
 - (void) viewWillAppear:(BOOL)animated {
+    _storageEmpty.hidden = YES;
+    [_errorTimer invalidate];
+    _errorTimer = nil;
     [super viewWillAppear:animated];
     [self viewLoadSetup];
 }
@@ -172,63 +176,98 @@
 }
 
 - (IBAction)onFeedingButton:(id)sender {
-    NSLog(@"füttern");
     NSInteger success = [Desires fulfillDesire:0];
     if (success == 1) {
-        NSLog(@"füttern: 1");
         // Not enough in storage
         NSString *label = @"Du musst erst einkaufen.";
         _storageEmpty.hidden = NO;
         _storageEmpty.text = label;
-
+        [_errorTimer invalidate];
+        _errorTimer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            self->_storageEmpty.hidden = YES;
+        }];
     }
-    else{
-        _storageEmpty.hidden = YES;
+    else if (success == 2) {
+        // Not enough in storage
+        NSString *label = @"Das will ich nicht!";
+        _storageEmpty.hidden = NO;
+        _storageEmpty.text = label;
+        [_errorTimer invalidate];
+        _errorTimer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            self->_storageEmpty.hidden = YES;
+        }];
     }
 }
 
 - (IBAction)onWaterButton:(id)sender {
     NSInteger success = [Desires fulfillDesire:1];
     if (success == 1) {
-        NSLog(@"füttern: 1");
         // Not enough in storage
         NSString *label = @"Du musst erst einkaufen.";
         _storageEmpty.hidden = NO;
         _storageEmpty.text = label;
-        
+        [_errorTimer invalidate];
+        _errorTimer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            self->_storageEmpty.hidden = YES;
+        }];
     }
-    else{
-        _storageEmpty.hidden = YES;
+    else if (success == 2) {
+        // Not enough in storage
+        NSString *label = @"Das will ich nicht!";
+        _storageEmpty.hidden = NO;
+        _storageEmpty.text = label;
+        [_errorTimer invalidate];
+        _errorTimer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            self->_storageEmpty.hidden = YES;
+        }];
     }
 }
 
 - (IBAction)onRumButton:(id)sender {
     NSInteger success = [Desires fulfillDesire:2];
     if (success == 1) {
-        NSLog(@"füttern: 1");
         // Not enough in storage
         NSString *label = @"Du musst erst einkaufen.";
         _storageEmpty.hidden = NO;
         _storageEmpty.text = label;
-        
+        [_errorTimer invalidate];
+        _errorTimer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            self->_storageEmpty.hidden = YES;
+        }];
     }
-    else{
-        _storageEmpty.hidden = YES;
+    else if (success == 2) {
+        // Not enough in storage
+        NSString *label = @"Das will ich nicht!";
+        _storageEmpty.hidden = NO;
+        _storageEmpty.text = label;
+        [_errorTimer invalidate];
+        _errorTimer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            self->_storageEmpty.hidden = YES;
+        }];
     }
 }
 
 - (IBAction)onMedicineButton:(id)sender {
     NSInteger success = [Desires fulfillDesire:3];
     if (success == 1) {
-        NSLog(@"füttern: 1");
         // Not enough in storage
         NSString *label = @"Du musst erst einkaufen.";
         _storageEmpty.hidden = NO;
         _storageEmpty.text = label;
-        
+        [_errorTimer invalidate];
+        _errorTimer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            self->_storageEmpty.hidden = YES;
+        }];
     }
-    else{
-        _storageEmpty.hidden = YES;
+    else if (success == 2) {
+        // Not enough in storage
+        NSString *label = @"Das will ich nicht!";
+        _storageEmpty.hidden = NO;
+        _storageEmpty.text = label;
+        [_errorTimer invalidate];
+        _errorTimer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            self->_storageEmpty.hidden = YES;
+        }];
     }
 }
 
@@ -244,7 +283,7 @@
 }
 
 - (void)updateDesires {
-    NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege gleich Skorbut"];
+    NSArray *desireText = @[@"Ich will essen.", @"Ich will trinken", @"Ich will saufen", @"Ich kriege Skorbut"];
     NSArray *activeDesire = [Desires getActiveDesire];
     
     if (activeDesire == NULL) {
