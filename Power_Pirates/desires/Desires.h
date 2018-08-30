@@ -51,8 +51,10 @@
  * not correct)
  *
  * @param givenDesireId The id of the given item
+ *
+ * @return 0: success, 1: Not enough in storage, 2: wrong desire
  */
-+ (void)fulfillDesire:(NSInteger)givenDesireId;
++ (NSInteger)fulfillDesire:(NSInteger)givenDesireId;
 
 /**
  * Initialises the desire queue
