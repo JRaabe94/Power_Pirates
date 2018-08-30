@@ -265,16 +265,16 @@
 
 //fill in the initial storage database
 -(void)generateStorage{
-    NSString *query = [NSString stringWithFormat:@"INSERT INTO lager values(1, 'food', '%d', '%d')", FOOD_AMOUNT, FOOD_PRICE];
+    NSString *query = [NSString stringWithFormat:@"INSERT INTO lager values(1, 'Fleisch', '%d', '%d')", FOOD_AMOUNT, FOOD_PRICE];
     [self executeQuery:query];
     
-    query = [NSString stringWithFormat:@"INSERT INTO lager values(2, 'drinks', '%d', '%d')", DRINKS_AMOUNT, DRINKS_PRICE];
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(2, 'Wasser', '%d', '%d')", DRINKS_AMOUNT, DRINKS_PRICE];
     [self executeQuery:query];
     
-    query = [NSString stringWithFormat:@"INSERT INTO lager values(3, 'rum', '%d', '%d')", RUM_AMOUNT, RUM_PRICE];
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(3, 'Rum', '%d', '%d')", RUM_AMOUNT, RUM_PRICE];
     [self executeQuery:query];
     
-    query = [NSString stringWithFormat:@"INSERT INTO lager values(4, 'fruits', '%d', '%d')", FRUITS_AMOUNT, FRUITS_PRICE];
+    query = [NSString stringWithFormat:@"INSERT INTO lager values(4, 'Früchte', '%d', '%d')", FRUITS_AMOUNT, FRUITS_PRICE];
     [self executeQuery:query];
     
     query = [NSString stringWithFormat:@"INSERT INTO lager values(5, 'money', '%d', '%d')", MONEY_AMOUNT, MONEY_PRICE];
