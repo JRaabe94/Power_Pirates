@@ -32,7 +32,9 @@
     self.layer.backgroundColor = UIColor.blackColor.CGColor;
     
     self.titleLabel.font = [UIFont fontWithName:@"Chalkduster"  size:15];
+    self.titleLabel.numberOfLines = 2;
     self.titleLabel.textColor = UIColor.whiteColor;
+    
 }
 
 @end
