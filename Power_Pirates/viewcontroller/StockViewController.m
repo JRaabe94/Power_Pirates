@@ -52,8 +52,6 @@
 }
 
 - (void) viewLoadSetup {
-    AppDelegate *appDelegate;
-
     // Load images
     NSArray *imageNames = @[@"Storage_1", @"Storage_2", @"Storage_3"];
     
