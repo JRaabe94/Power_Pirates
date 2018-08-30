@@ -21,8 +21,8 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (strong, nonatomic) IBOutlet UILabel *storageEmpty;
 @property (weak, nonatomic) IBOutlet UILabel *desireText;
-@property (weak, nonatomic) IBOutlet UILabel *storageEmpty;
 @property bool menuShowing;
 
 @property AppDelegate *appDelegate;
@@ -179,22 +179,57 @@
         // Not enough in storage
         NSString *label = @"Du musst erst einkaufen.";
         _storageEmpty.hidden = NO;
-        _storageEmpty.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"thinking_bubble"]];
         _storageEmpty.text = label;
 
+    }
+    else{
+        _storageEmpty.hidden = YES;
     }
 }
 
 - (IBAction)onWaterButton:(id)sender {
     NSInteger success = [Desires fulfillDesire:1];
+    if (success == 1) {
+        NSLog(@"füttern: 1");
+        // Not enough in storage
+        NSString *label = @"Du musst erst einkaufen.";
+        _storageEmpty.hidden = NO;
+        _storageEmpty.text = label;
+        
+    }
+    else{
+        _storageEmpty.hidden = YES;
+    }
 }
 
 - (IBAction)onRumButton:(id)sender {
     NSInteger success = [Desires fulfillDesire:2];
+    if (success == 1) {
+        NSLog(@"füttern: 1");
+        // Not enough in storage
+        NSString *label = @"Du musst erst einkaufen.";
+        _storageEmpty.hidden = NO;
+        _storageEmpty.text = label;
+        
+    }
+    else{
+        _storageEmpty.hidden = YES;
+    }
 }
 
 - (IBAction)onMedicineButton:(id)sender {
     NSInteger success = [Desires fulfillDesire:3];
+    if (success == 1) {
+        NSLog(@"füttern: 1");
+        // Not enough in storage
+        NSString *label = @"Du musst erst einkaufen.";
+        _storageEmpty.hidden = NO;
+        _storageEmpty.text = label;
+        
+    }
+    else{
+        _storageEmpty.hidden = YES;
+    }
 }
 
 - (IBAction)MusicHandler:(id)sender {
