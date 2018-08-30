@@ -229,7 +229,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwX-tI-5HJ" customClass="PiratButtonStyle">
-                                <rect key="frame" x="272" y="272" width="61" height="30"/>
+                                <rect key="frame" x="270" y="272" width="61" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ablaufen"/>
                                 <connections>
@@ -237,23 +237,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOu-Gl-Vp3" customClass="PiratButtonStyle">
-                                <rect key="frame" x="257" y="565" width="88" height="30"/>
+                                <rect key="frame" x="270" y="565" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Gold kriegen"/>
                                 <connections>
                                     <action selector="onGetGoldButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="hlg-Jm-SWz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oK-uE-1sf" customClass="PiratButtonStyle">
-                                <rect key="frame" x="28" y="565" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="XP kriegen"/>
-                                <connections>
-                                    <action selector="onGainXPButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="Vy8-4B-0hv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whJ-J2-5T6" customClass="PiratButtonStyle">
-                                <rect key="frame" x="275" y="425" width="60" height="30"/>
+                                <rect key="frame" x="271" y="425" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level Up"/>
                                 <connections>
@@ -282,6 +274,14 @@
                                 <state key="normal" title="Aktivieren"/>
                                 <connections>
                                     <action selector="onHungerButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="Qdg-47-Wec"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oK-uE-1sf" customClass="PiratButtonStyle">
+                                <rect key="frame" x="52" y="565" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="XP kriegen"/>
+                                <connections>
+                                    <action selector="onGainXPButton:" destination="6rE-st-jBe" eventType="touchUpInside" id="Vy8-4B-0hv"/>
                                 </connections>
                             </button>
                         </subviews>
